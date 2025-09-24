@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4d6d71946af24ba214820117b3f08, type: 3}
+  m_Name: Question 29
+  m_EditorClassIdentifier: 
+  questionText: What is a procedural programming methodology?
+  answers:
+  - An approach where programs are organized around objects and data.
+  - An approach where the problem is broken down into functions that perform one
+    task each
+  - An approach that deals with how to store data related to entities.
+  - An approach that is suitable for complex programs.
+  correctAnswerIndex: 1
+  correctAnswerText: 
+  correctAnswerBool: 0
+  prompts: []
+  choices: []
