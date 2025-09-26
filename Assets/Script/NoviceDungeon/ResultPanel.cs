@@ -47,7 +47,7 @@ public class ResultPanel : MonoBehaviour
             finalResultText = $"You Win!\nCorrect Answers: {correct}\nWrong Answers: {wrong}\nExp +{expGained}";
             continueButton.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(false);
-            quitButton.gameObject.SetActive(false);
+            quitButton.gameObject.SetActive(true);
         }
         else
         {
@@ -74,9 +74,9 @@ public class ResultPanel : MonoBehaviour
         totalWrongAnswers += wrong;
 
         string bossResultText = $"Congratulations!\n" +
-                                $"You have finished the dungeon.\n\n" +
+                                $"You have finished the dungeon.\n  \n" +
                                 $"Correct Answers: {correct}\nWrong Answers: {wrong}\n" +
-                                $"Exp +{expGained}\n\n" +
+                                $"Exp +{expGained}\n" +
                                 $"Total Correct Answers: {totalCorrectAnswers}\nTotal Wrong Answers: {totalWrongAnswers}";
 
         // Add the level-up message to the end of the string if the player leveled up
@@ -88,7 +88,7 @@ public class ResultPanel : MonoBehaviour
         resultText.text = bossResultText;
 
         continueButton.gameObject.SetActive(false);
-        restartButton.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
     }
 
