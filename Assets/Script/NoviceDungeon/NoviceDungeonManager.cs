@@ -15,7 +15,6 @@ public class NoviceDungeonManager : MonoBehaviour
     public RestPanel restPanel;
     public GameObject bossIntroPanel;
     public GameObject enemyIntroPanel;
-    public Transform enemyImageContainer;
 
     private EnemyStats currentEnemy;
     private BossStats currentBoss;
@@ -55,7 +54,6 @@ public class NoviceDungeonManager : MonoBehaviour
         if ((currentLevel >= 1 && currentLevel <= 5) || (currentLevel >= 7 && currentLevel <= 11))
         {
             battleManager.battlePanel.SetActive(true);
-            enemyspawner.enemyUIParent = enemyImageContainer;
             currentEnemy = enemyspawner.SpawnEnemy();
             ShowEnemyIntro();
         }
@@ -70,6 +68,22 @@ public class NoviceDungeonManager : MonoBehaviour
             currentBoss = bossspawner.SpawnBoss();
             ShowBossIntro();
         }
+    }
+
+    private void HideCurrentEnemy()
+    {
+        // Deactivate the spawned enemy object to hide it from the AR world
+        if (currentEnemy != null)
+        {
+            currentEnemy.gameObject.SetActive(false);
+        }
+        if (currentBoss != null)
+        {
+            currentBoss.gameObject.SetActive(false);
+        }
+        // Ensure the intro panels are also hidden
+        enemyIntroPanel.SetActive(false);
+        bossIntroPanel.SetActive(false);
     }
 
     private void ShowEnemyIntro()
@@ -149,13 +163,16 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
         }
 
+        // Hides the AR enemy/boss sprite before showing the result panel
+        HideCurrentEnemy();
+
         HideEnemyStatsPanel();
         battleManager.battlePanel.SetActive(false);
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
         int oldLevel = player.CurrentLevel;
         int expGained = 0;
-        if (currentLevel == 12)
+        if (currentLevel == 13)
         {
             expGained = 50;
         }
@@ -165,7 +182,7 @@ public class NoviceDungeonManager : MonoBehaviour
         }
         player.GainEXP(expGained);
         bool didLevelUp = (player.CurrentLevel > oldLevel);
-        if (currentLevel == 12)
+        if (currentLevel == 13)
         {
             resultPanel.ShowBossVictory(correctAnswers, wrongAnswers, expGained, didLevelUp);
         }
@@ -182,6 +199,10 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
             dungeonQuiz.EndQuiz();
         }
+
+        // Hides the AR enemy/boss sprite before showing the result panel
+        HideCurrentEnemy();
+
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
         int expGained = 0;
