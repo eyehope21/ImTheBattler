@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PL Question 149
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The `is_even(num)` function calls the `is_odd(num - 1)` function
+    in an example of which recursion type?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Mutual recursion '
+  - Direct recursion
+  - Binary recursion
+  - Tail recursion
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

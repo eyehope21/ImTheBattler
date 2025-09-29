@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PL Question 141
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the consequence of an infinite recursion that is related
+    to memory?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - May cause the program to run out of memory
+  - Does not require extra memory space.
+  - Terminates when a base case is reached.
+  - Terminates when a base case is reached.
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
