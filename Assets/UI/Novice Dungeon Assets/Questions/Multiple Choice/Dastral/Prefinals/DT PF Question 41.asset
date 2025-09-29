@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 41
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Python, the code `a = set(["Mark", "Nika", "Mairo", "Kae"])` is
+    used for what purpose?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'To initialize a set '
+  - To create an empty set
+  - To print the union
+  - To print the difference
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

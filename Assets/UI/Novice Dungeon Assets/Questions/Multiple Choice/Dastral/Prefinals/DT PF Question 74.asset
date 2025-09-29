@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 74
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Java code `nameMap.replace("M2", "Marco");` performs what action?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'replace a key''s value '
+  - delete a mapping
+  - insert a new mapping
+  - retrieve a value
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

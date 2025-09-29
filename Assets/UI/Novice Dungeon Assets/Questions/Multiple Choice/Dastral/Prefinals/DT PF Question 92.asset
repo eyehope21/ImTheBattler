@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 92
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Python, how is it checked whether a dictionary contains a mapping
+    for the specified key?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '`print("M2" in name_map)`'
+  - '`print(name_map.containsKey("M2"))`'
+  - '`print(name_map.hasKey("M2"))`'
+  - '`print(name_map["M2"])`'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

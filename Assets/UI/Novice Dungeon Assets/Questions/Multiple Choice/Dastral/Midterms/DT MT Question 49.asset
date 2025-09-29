@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 49
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Besides resource scheduling, what is another application of queues
+    related to support services?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Managing customers trying to get hold of a hotline '
+  - Evaluating a postfix expression
+  - Storing local variables
+  - Finding palindromes
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

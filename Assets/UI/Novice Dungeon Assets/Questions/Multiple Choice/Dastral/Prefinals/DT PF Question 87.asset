@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 87
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Python code `name_map["N"] = "Nika"` performs what action?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'insert a mapping '
+  - delete a mapping
+  - retrieve a value
+  - replace a key's value
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

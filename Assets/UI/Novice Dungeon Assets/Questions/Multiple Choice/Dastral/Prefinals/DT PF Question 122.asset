@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 122
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the Python sample code for dequeue based on natural order, which
+    module must be imported?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '`from queue import PriorityQueue` '
+  - '`from collections import PriorityQueue`'
+  - '`import PriorityQueue`'
+  - '`from util import PriorityQueue`'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

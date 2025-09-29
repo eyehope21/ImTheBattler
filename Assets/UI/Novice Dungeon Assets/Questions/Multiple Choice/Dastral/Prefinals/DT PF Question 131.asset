@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 131
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Java code `while (!printer.isEmpty()) { ... }` is used to check
+    for what condition?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - if the queue is not empty
+  - if the queue is empty
+  - if the queue is full
+  - if the queue is sorted
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

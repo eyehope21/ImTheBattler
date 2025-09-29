@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 114
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the Java method to test if a data structure (Stack or Queue)
+    is empty?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - isEmpty()
+  - 'if not structure:'
+  - isNull()
+  - size() == 0
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

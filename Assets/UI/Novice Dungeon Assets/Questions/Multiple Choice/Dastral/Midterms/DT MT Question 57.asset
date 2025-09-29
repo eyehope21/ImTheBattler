@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 57
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: How many parents does each node in a tree have, except for the root
+    node?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'exactly one (1) '
+  - 2
+  - up to two (2)
+  - none
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

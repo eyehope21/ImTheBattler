@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 11
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: For the example $\{1, 3, 5, 7\} \cap \{2, 3, 4, 5\}$, what is the
+    resulting set?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '$\{3, 5\}$ '
+  - $\{1, 2, 3, 4, 5, 7\}$
+  - $\{1, 7\}$
+  - $\{2, 4\}$
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

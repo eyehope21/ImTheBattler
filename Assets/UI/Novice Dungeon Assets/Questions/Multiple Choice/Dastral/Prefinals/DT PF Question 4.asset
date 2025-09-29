@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 4
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The intersection of two sets (A $\cap$ B) is the set that contains
+    only the elements common to which?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'both sets '
+  - either set
+  - only set A
+  - only set B
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

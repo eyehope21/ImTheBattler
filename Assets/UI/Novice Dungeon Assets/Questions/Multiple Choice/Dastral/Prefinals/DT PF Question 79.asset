@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 79
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Java, which method is used to check whether a map contains a mapping
+    for the specified value?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'containsValue '
+  - containsKey
+  - get
+  - checkValue
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

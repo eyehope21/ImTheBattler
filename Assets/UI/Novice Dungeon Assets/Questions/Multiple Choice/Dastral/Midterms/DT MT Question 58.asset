@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 58
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is a node that has no child nodes called?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'a leaf node or external node '
+  - an internal node
+  - the root node
+  - a parent node
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
