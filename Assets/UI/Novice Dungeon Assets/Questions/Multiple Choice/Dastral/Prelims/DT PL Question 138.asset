@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PL Question 138
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which kind of recursion is defined by the function calling itself
+    twice in the run of the function?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Binary recursion
+  - Linear recursion
+  - Tail recursion
+  - Direct recursion
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

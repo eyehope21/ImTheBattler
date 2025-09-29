@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PL Question 133
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the memory location property associated with the data field
+    of a node?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Value of the element '
+  - Random memory location
+  - Address of the next node
+  - Link or reference
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
