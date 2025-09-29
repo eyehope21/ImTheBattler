@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
@@ -15,7 +15,10 @@ public class PortalPlacement : MonoBehaviour
     {
         arPlaneManager = GetComponent<ARPlaneManager>();
         arAnchorManager = GetComponent<ARAnchorManager>();
-        arPlaneManager.planesChanged += OnPlanesChanged;
+        if (arPlaneManager != null)
+        {
+            arPlaneManager.planesChanged += OnPlanesChanged;
+        }
     }
 
     void OnPlanesChanged(ARPlanesChangedEventArgs args)
@@ -30,7 +33,7 @@ public class PortalPlacement : MonoBehaviour
             ARPlane firstPlane = args.added[0];
 
             Pose planePose = new Pose(firstPlane.transform.position, firstPlane.transform.rotation);
-           
+
             ARAnchor anchor = arAnchorManager.AttachAnchor(firstPlane, planePose);
             spawnedPortal = Instantiate(portalPrefab, anchor.transform);
 

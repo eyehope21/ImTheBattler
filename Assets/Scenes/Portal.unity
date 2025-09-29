@@ -596,7 +596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706329528}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 540, y: 960, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -885,8 +885,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1378123136}
-  - component: {fileID: 1378123135}
   - component: {fileID: 1378123137}
+  - component: {fileID: 1378123139}
   m_Layer: 0
   m_Name: PortalManager
   m_TagString: Untagged
@@ -894,19 +894,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1378123135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378123134}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151483c63fe1b5e4fa4ad4605e36b3f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Dungeon
 --- !u!4 &1378123136
 Transform:
   m_ObjectHideFlags: 0
@@ -929,14 +916,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378123134}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 679bae7d8a429df438a22cb156fe8c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   portalPrefab: {fileID: 6660399322487835693, guid: 90e5b10dd6e17e846bebead5053c6ace, type: 3}
-  guideArrowUI: {fileID: 1508850498}
+  guideArrowUI: {fileID: 0}
   portalFoundTextUI: {fileID: 508839352}
+--- !u!114 &1378123139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378123134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151483c63fe1b5e4fa4ad4605e36b3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: NoviceDungeon
 --- !u!1 &1508850495
 GameObject:
   m_ObjectHideFlags: 0
