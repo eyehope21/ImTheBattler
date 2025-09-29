@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionText: What is a programming language that uses natural languages?
   answers:
-  - igh-level language.
+  - High-level language.
   - Low-level language.
   - Machine language.
   - Assembly language.

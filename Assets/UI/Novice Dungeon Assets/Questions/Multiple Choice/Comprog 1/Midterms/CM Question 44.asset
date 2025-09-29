@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 44
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: If `int x = 11;` and `int y = 3;`, what is the return value of the
+    expression `x / y`?
+  answers:
+  - 3
+  - 3.66
+  - 4
+  - 2
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

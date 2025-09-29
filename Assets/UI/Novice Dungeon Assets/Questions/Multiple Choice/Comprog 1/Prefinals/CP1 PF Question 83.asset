@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
+  m_Name: CP1 PF Question 83
+  m_EditorClassIdentifier: 
+  questionText: If a `continue` statement is in a `switch`, what must be true about
+    the `switch` statement?
+  answers:
+  - The switch statement is inside a loop statement
+  - It must have a `default` case
+  - It must be the outermost control structure
+  - It must be in an `if...else`
+  correctAnswerIndex: 0
+  correctAnswerText: 
+  correctAnswerBool: 0
+  prompts: []
+  choices: []

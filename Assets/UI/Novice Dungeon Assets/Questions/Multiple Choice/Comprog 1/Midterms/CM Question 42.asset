@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 42
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: 'A value used on either side of an operator is called an:'
+  answers:
+  - 'Operand '
+  - Expression
+  - Argument
+  - Parameter
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
