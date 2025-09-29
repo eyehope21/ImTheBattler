@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1168266030653635935}
   - component: {fileID: 5723289969557953155}
   - component: {fileID: 5368963769514119440}
-  - component: {fileID: 1382631748960125543}
-  - component: {fileID: 5947308659737756327}
+  - component: {fileID: 5541669590051381892}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -30,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 499.098, y: 1080.9587, z: 24.443115}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 9.704313, y: 9.704313, z: 9.704313}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -132,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79907227, y: 0.86694336}
   m_EdgeRadius: 0
---- !u!114 &1382631748960125543
+--- !u!114 &5541669590051381892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,16 +143,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e24c8661e7b6534b920848fa62e1010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5947308659737756327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6660399322487835693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36833fe624e5e504fb58367cea7bb0c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: DungeonScene
