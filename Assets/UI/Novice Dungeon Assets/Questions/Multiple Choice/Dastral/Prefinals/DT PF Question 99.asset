@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 99
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Based on the explanation provided, what is the index of the root
+    node in a heap implemented in an ArrayList?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - index 0
+  - index 1
+  - index 2
+  - the last index
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

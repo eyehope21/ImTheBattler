@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 107
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Java, which method is used on an ArrayList-implemented heap to
+    determine the root node?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - get(0)
+  - getRoot()
+  - peek()
+  - remove(0)
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

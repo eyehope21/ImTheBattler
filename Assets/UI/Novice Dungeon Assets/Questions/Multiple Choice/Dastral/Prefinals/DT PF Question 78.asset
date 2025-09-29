@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 78
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Java code `System.out.println(nameMap.containsKey("M2"));` performs
+    what action?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - check whether a map contains a mapping for the specified key
+  - retrieve the key's value
+  - retrieve all keys
+  - check whether a map contains a mapping for the specified value
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

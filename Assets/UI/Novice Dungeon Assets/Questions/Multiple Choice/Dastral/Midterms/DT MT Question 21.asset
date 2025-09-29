@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 21
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the algorithm for converting infix to postfix, what is done with
+    an operand when it is classified?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'append it to the postfix expression '
+  - push it to the stack
+  - pop it from the stack
+  - discard it
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

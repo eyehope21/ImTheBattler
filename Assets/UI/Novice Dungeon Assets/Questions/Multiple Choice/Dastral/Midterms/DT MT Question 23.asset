@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 23
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: If an operator has lower or equal precedence than the operator on
+    the top of the stack during infix-to-postfix conversion, what should be popped
+    and appended to the postfix expression?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'the operator from the top of the stack '
+  - the current operator
+  - a parenthesis
+  - an operand
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

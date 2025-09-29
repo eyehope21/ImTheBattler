@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 123
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the main difference between the `offer()` and `add()` methods
+    in Java Queues?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '`offer()` does not throw exceptions, while `add()` does'
+  - '`offer()` is for FIFO, `add()` is for LIFO.'
+  - '`offer()` is for the head, `add()` is for the tail.'
+  - '`offer()` is for Python, `add()` is for Java.'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

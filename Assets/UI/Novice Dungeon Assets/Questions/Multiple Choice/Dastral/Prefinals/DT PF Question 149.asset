@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 149
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Python code to display map entries in separate lines uses which
+    dictionary method in the for loop?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '`name_map.items()` '
+  - '`name_map.keys()`'
+  - '`name_map.values()`'
+  - '`name_map.entries()`'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

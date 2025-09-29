@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 38
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: 'For the sample Java code: `a = {"Mark", "Nika", "Mairo", "Kae"}`
+    and `b = {"John", "Marco", "Mark"}`, what is the output for `Intersection`?'
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '[Mark]'
+  - '[Marco, Nika, Mairo, John, Mark, Kae]'
+  - '[Nika, Mairo, Kae]'
+  - '[John, Marco]'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

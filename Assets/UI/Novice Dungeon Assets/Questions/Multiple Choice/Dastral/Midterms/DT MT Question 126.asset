@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 126
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Postorder traversal, when is the root node visited?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Last '
+  - First
+  - Between the left and right subtrees
+  - By level
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

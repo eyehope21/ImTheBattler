@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 91
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The Python code `print(name_map["M1"])` performs what action?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'retrieve the value based on the key '
+  - check if the key exists
+  - retrieve all keys
+  - delete the mapping
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

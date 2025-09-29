@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 14
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: During program execution, what can the stack be used to store information
+    about?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'parameters and return points for all the methods that are currently executing '
+  - all variables in the program
+  - file paths and system settings
+  - user input
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

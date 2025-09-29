@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 140
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: If elements are processed based on their natural order, this implies
+    the use of the default ordering for their data type (e.g., numbers are sorted
+    ascendingly). Where is this natural order processing mentioned for priority queues?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Priority Queues section
+  - Heaps section
+  - Maps section
+  - Sets section
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

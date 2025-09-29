@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 97
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In a Min Heap, the value of each parent node is what compared to
+    the values of its child nodes?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'less than or equal to '
+  - greater than or equal to
+  - equal to
+  - always less than
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

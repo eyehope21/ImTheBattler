@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 129
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the function of the `Collections.list(root.children())` code
+    snippet in Java?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - To convert an Enumeration of a node's children to a List
+  - To display the root node
+  - To print the children of the root in an array
+  - To add a new child to the root
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

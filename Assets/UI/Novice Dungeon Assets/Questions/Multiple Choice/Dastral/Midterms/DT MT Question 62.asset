@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 62
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the depth of the tree?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'its highest level '
+  - the number of leaf nodes
+  - the number of internal nodes
+  - the number of children of the root
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

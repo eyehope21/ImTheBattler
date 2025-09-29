@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 47
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the customer queue example (Lisa, Jennie, Jisoo, Rose), who will
+    be the first customer removed from the queue?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Lisa '
+  - Rose
+  - Jennie
+  - Jisoo
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

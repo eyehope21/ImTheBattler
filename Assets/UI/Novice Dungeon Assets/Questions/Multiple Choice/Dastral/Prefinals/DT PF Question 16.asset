@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 16
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the overall topic covered in the first handout (Page 1 of
+    2)?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Sets and Maps '
+  - Heaps and Priority Queues
+  - Arrays and Lists
+  - Trees and Graphs
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

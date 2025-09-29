@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 129
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The custom-ordered Java `PriorityQueue` is initialized by passing
+    what into its constructor?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '`comp` (the Comparator object)'
+  - '`String::length`'
+  - '`10` (initial capacity)'
+  - '`null`'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

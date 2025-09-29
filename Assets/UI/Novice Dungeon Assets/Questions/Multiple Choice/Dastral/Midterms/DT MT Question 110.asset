@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 110
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which two main operations are fundamental to both stacks and queues
+    (though named differently for queues)?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Adding and Removing an item '
+  - Searching and Sorting
+  - Peeking and Empty Check
+  - Traversal and Recursion
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

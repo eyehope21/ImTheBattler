@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 122
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the Python method used to remove the last element from a
+    list (used for stack Pop)?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'pop() '
+  - popleft()
+  - remove()
+  - dequeue()
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

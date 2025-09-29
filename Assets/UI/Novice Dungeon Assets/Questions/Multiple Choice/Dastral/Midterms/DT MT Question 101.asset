@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 101
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: To create a JTree with an identified root node named `root`, what
+    is the correct syntax?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - JTree tree = new JTree(root);
+  - JTree tree = root;
+  - JTree tree = new JTree();
+  - root.add(tree);
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

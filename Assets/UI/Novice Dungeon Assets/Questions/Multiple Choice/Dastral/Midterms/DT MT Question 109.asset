@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 109
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In Python, which operation uses the `append()` method?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Push (Stack) and Enqueue (Queue) '
+  - Pop (Stack) and Dequeue (Queue)
+  - Peek (Stack and Queue)
+  - Pop (Stack) and Enqueue (Queue)
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

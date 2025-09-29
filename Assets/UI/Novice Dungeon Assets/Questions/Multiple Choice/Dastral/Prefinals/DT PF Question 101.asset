@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 101
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which Java package are Heaps and Priority Queues implemented with
+    classes from?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'java.util package '
+  - java.lang package
+  - java.io package
+  - java.math package
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

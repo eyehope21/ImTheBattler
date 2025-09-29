@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 72
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which Java class is used to represent a general-purpose node in a
+    tree data structure?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'DefaultMutableTreeNode '
+  - JTree
+  - Node
+  - Tree
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 14
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What are the common set operations mentioned in the handout?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Union, Intersection, Difference, Subset
+  - Merge, Divide, Filter
+  - Add, Remove, Check
+  - Sort, Map, Reduce
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

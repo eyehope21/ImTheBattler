@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 25
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the last step in the infix-to-postfix conversion algorithm?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - pop all the operators and append to the postfix expression
+  - repeat Steps 1 to 4 until the last token
+  - push the last token to the stack
+  - stop the process
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

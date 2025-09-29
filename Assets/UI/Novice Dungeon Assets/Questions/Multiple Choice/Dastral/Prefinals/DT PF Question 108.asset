@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 108
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The indices 3, 4, 5, and 6 in an ArrayList-implemented heap can store
+    which nodes?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'the child nodes of the index 1 and index 2 nodes '
+  - the parent nodes of the root
+  - the sibling nodes of the root
+  - the leaves of the tree
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

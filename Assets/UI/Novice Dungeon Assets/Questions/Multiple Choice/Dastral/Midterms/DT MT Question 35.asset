@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT MT Question 35
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: "What Python syntax is used to retrieve the head of the queue (Peek
+    operation)?\t"
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'queue\_name[0] '
+  - queue\_name.peek()
+  - queue\_name.head()
+  - queue\_name.popleft()
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
