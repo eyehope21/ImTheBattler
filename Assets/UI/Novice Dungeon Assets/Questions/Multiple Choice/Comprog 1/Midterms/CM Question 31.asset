@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 31
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: 'The range for the `short` data type is:'
+  answers:
+  - -32,768 to 32,767
+  - 0 to 65,535
+  - -2^{31} to 2^{31}-1
+  - -128 to 127
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

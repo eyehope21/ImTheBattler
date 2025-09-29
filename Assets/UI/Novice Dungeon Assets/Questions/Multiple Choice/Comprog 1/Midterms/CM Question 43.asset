@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 43
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: Which type of operator is used to perform basic mathematical operations
+    on numerical values?
+  answers:
+  - Arithmetic Operators
+  - Logical Operators
+  - Relational Operators
+  - Assignment Operators
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

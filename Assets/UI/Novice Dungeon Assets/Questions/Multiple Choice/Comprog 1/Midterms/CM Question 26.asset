@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 26
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: When a floating-point number is cast to an integer using the cast
+    operator, what happens to the decimal part of the floating-point number?
+  answers:
+  - It is dropped.
+  - It is rounded to the nearest integer.
+  - It is rounded up.
+  - It is stored in a separate variable.
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

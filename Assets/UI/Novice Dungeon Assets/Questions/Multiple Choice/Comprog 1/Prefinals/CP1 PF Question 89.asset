@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
+  m_Name: CP1 PF Question 89
+  m_EditorClassIdentifier: 
+  questionText: What does a repetition structure alter the flow of program execution
+    by?
+  answers:
+  - 'Repetition of one (1) or more statements '
+  - Making a selection or choice
+  - Terminating the program
+  - Initializing variables
+  correctAnswerIndex: 0
+  correctAnswerText: 
+  correctAnswerBool: 0
+  prompts: []
+  choices: []

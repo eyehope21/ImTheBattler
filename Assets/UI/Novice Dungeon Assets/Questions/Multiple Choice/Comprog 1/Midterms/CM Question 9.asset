@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 9
   m_EditorClassIdentifier: 
-  questionText: 
-  answers: []
+  questionText: Which data type is a single-precision 32-bit IEEE 754 floating-point
+    number?
+  answers:
+  - '`float` '
+  - '`int`'
+  - '`long`'
+  - '`double`'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
