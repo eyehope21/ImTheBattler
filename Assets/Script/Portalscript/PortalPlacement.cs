@@ -8,31 +8,32 @@ public class PortalPlacement : MonoBehaviour
     public GameObject portalPrefab;
 
     private ARPlaneManager arPlaneManager;
+    private ARAnchorManager arAnchorManager;
     private GameObject spawnedPortal;
 
     void Start()
     {
         arPlaneManager = GetComponent<ARPlaneManager>();
+        arAnchorManager = GetComponent<ARAnchorManager>();
         arPlaneManager.planesChanged += OnPlanesChanged;
     }
 
     void OnPlanesChanged(ARPlanesChangedEventArgs args)
     {
-        // Don't spawn if a portal already exists
         if (spawnedPortal != null)
         {
             return;
         }
 
-        // Check if any new planes have been detected
         if (args.added.Count > 0)
         {
-            // Spawn the portal on the first detected plane
-            Debug.Log("Plane detected! Spawning portal..."); //  New log
             ARPlane firstPlane = args.added[0];
-            spawnedPortal = Instantiate(portalPrefab, firstPlane.transform.position, Quaternion.identity);
 
-            // Unsubscribe from the event so it only spawns once
+            Pose planePose = new Pose(firstPlane.transform.position, firstPlane.transform.rotation);
+           
+            ARAnchor anchor = arAnchorManager.AttachAnchor(firstPlane, planePose);
+            spawnedPortal = Instantiate(portalPrefab, anchor.transform);
+
             arPlaneManager.planesChanged -= OnPlanesChanged;
         }
     }

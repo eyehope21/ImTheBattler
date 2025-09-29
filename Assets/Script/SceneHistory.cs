@@ -8,7 +8,6 @@ public class SceneHistory : MonoBehaviour
 
     private void Awake()
     {
-        // Ensures only one instance of this script exists and it persists between scenes.
         if (FindObjectsOfType<SceneHistory>().Length > 1)
         {
             Destroy(gameObject);
@@ -19,13 +18,12 @@ public class SceneHistory : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
-        // Save the current scene before loading a new one.
         string currentScene = SceneManager.GetActiveScene().name;
         history.Push(currentScene);
         SceneManager.LoadScene(sceneName);
     }
 
-    public static void GoBack()
+    public static void Back()
     {
         if (history.Count > 0)
         {
