@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
+  m_Name: CP2 PF Question 43
+  m_EditorClassIdentifier: 
+  questionText: By making `HouseData` an inner class instead of a regular class in
+    its own file, what is the limitation on its usability?
+  answers:
+  - 'It is usable only in the class in which it resides '
+  - It can be used in composition throughout the package
+  - It loses access to the top-level class's private members
+  - It becomes accessible only to static methods
+  correctAnswerIndex: 0
+  correctAnswerText: 
+  correctAnswerBool: 0
+  prompts: []
+  choices: []
