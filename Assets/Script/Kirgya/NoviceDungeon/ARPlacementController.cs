@@ -7,51 +7,50 @@ using UnityEngine.XR.ARSubsystems;
 public class ARPlacementController : MonoBehaviour
 {
     [Header("AR References")]
-    // Assign the ARRaycastManager component from the Inspector
+    // The ARRaycastManager is no longer needed for forced placement, but we'll keep the reference for clarity.
     public ARRaycastManager raycastManager;
 
     // Assign your NoviceDungeonManager here
     public NoviceDungeonManager dungeonManager;
 
-    private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    // The distance (in meters) in front of the camera to place the enemy root
+    public float placementDistance = 1.5f;
+
     private bool isPlaced = false;
 
-    void Update()
+    void Start()
     {
-        // Don't check for placement if the dungeon is already placed
-        if (isPlaced) return;
-
-        // Check for a touch on the screen to initiate placement
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            AttemptToPlaceDungeon(Input.GetTouch(0).position);
-        }
+        // Start a coroutine to wait for the AR camera to be ready
+        StartCoroutine(ForcePlacementAfterARLoad());
     }
 
-    void AttemptToPlaceDungeon(Vector2 screenPosition)
+    IEnumerator ForcePlacementAfterARLoad()
     {
-        // 1. Raycast the screen position against detected planes
-        if (raycastManager.Raycast(screenPosition, hits, TrackableType.PlaneWithinPolygon))
+        yield return new WaitForSeconds(0.1f); 
+        if (isPlaced) yield break;
+
+        Camera mainCam = Camera.main;
+
+        if (mainCam == null)
         {
-            // Found a surface! Get the position and rotation (Pose)
-            Pose hitPose = hits[0].pose;
-
-            // 2. Set the ARDungeonRoot's position and rotation
-            // The ARDungeonRoot IS the tracked object, we move its Transform
-            transform.position = hitPose.position;
-            transform.rotation = hitPose.rotation;
-
-            // 3. Mark as placed and start the game
-            isPlaced = true;
-
-            // Start the dungeon/game sequence now that it's grounded
-            // Assuming your Dungeon Manager starts the game flow (spawning enemies, etc.)
-            dungeonManager.StartDungeon();
-
-            Debug.Log("Dungeon Placed successfully in AR!");
-
-            // Optionally disable plane visualization after placement
-            // FindObjectOfType<ARPlaneManager>().enabled = false;
+            Debug.LogError("AR Main Camera not found for forced placement! Check camera tag.");
+            yield break;
         }
+
+        // 2. Calculate a position 1.5 meters in front of the AR Camera.
+        // The 'transform' here refers to the AR Dungeon Root GameObject this script is attached to.
+        Vector3 placementPosition = mainCam.transform.position + mainCam.transform.forward * placementDistance;
+
+        // 3. Set the ARDungeonRoot's position and rotation
+        transform.position = placementPosition;
+
+        // Rotate the dungeon root to face the player (only yaw, keep it upright)
+        Quaternion targetRotation = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
+        transform.rotation = targetRotation;
+
+        // 4. Mark as placed and start the game
+        isPlaced = true;
+
+        Debug.Log("Dungeon Forcibly Placed 1.5m in front of the camera.");
     }
 }

@@ -13,9 +13,8 @@ public class ResultPanel : MonoBehaviour
     public Button quitButton;
     public Button continueButton;
 
-    // The levelUpText field is no longer needed since it's now part of the resultText.
-    // You can remove this line and the TMP_Text component from the Inspector.
-    // public TMP_Text levelUpText;
+    // *** NEW FIELD: Specify the scene to load when quitting/returning to menu ***
+    public string mainSceneName = "ARScene";
 
     private NoviceDungeonManager dungeonManager;
 
@@ -27,7 +26,7 @@ public class ResultPanel : MonoBehaviour
         dungeonManager = FindObjectOfType<NoviceDungeonManager>();
 
         restartButton.onClick.AddListener(RestartGame);
-        quitButton.onClick.AddListener(QuitGame);
+        quitButton.onClick.AddListener(QuitGame); // Now calls the modified QuitGame to load the main scene
         continueButton.onClick.AddListener(ContinueGame);
     }
 
@@ -35,7 +34,6 @@ public class ResultPanel : MonoBehaviour
     public void ShowResult(bool playerWon, int correct, int wrong, int expGained, bool didLevelUp)
     {
         panel.SetActive(true);
-        // The levelUpText.gameObject.SetActive(didLevelUp) line is no longer needed.
 
         // Build the result text string
         string finalResultText = "";
@@ -74,7 +72,7 @@ public class ResultPanel : MonoBehaviour
         totalWrongAnswers += wrong;
 
         string bossResultText = $"Congratulations!\n" +
-                                $"You have finished the dungeon.\n  \n" +
+                                $"You have finished the dungeon.\n \n" +
                                 $"Correct Answers: {correct}\nWrong Answers: {wrong}\n" +
                                 $"Exp +{expGained}\n" +
                                 $"Total Correct Answers: {totalCorrectAnswers}\nTotal Wrong Answers: {totalWrongAnswers}";
@@ -100,12 +98,21 @@ public class ResultPanel : MonoBehaviour
 
     private void RestartGame()
     {
+        // Reloads the current scene (Dungeon Scene)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // *** MODIFIED METHOD: Loads the main scene instead of quitting the application ***
     private void QuitGame()
     {
-        Application.Quit();
-        Debug.Log("Quit pressed (won't close in editor)");
+        if (!string.IsNullOrEmpty(mainSceneName))
+        {
+            // Load the main menu/hub scene
+            SceneManager.LoadScene(mainSceneName);
+        }
+        else
+        {
+            Debug.LogError("Main Scene Name is not set in the Inspector! Cannot load main menu.");
+        }
     }
 }
