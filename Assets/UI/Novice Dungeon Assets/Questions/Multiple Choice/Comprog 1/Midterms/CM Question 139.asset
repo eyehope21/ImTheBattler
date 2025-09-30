@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CM Question 139
-  m_EditorClassIdentifier: 
-  questionText: 'To import all classes in the `java.util` package, a programmer can
-    use the statement:'
-  answers:
-  - '`import java.util.;`'
-  - '`import java.util.all;`'
-  - '`import java.util.classes;`'
-  - '`import java.util.packages;`'
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9f1f087ef5b5afccfe01a13bbcdd545893a8fecabd21d1860e97125c571101b
+size 772

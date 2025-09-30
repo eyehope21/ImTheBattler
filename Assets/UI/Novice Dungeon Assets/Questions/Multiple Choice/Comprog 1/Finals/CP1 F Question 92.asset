@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 92
-  m_EditorClassIdentifier: 
-  questionText: What is one of the basic operations performed on a one-dimensional
-    array?
-  answers:
-  - 'Initializing the array '
-  - Changing the fixed length
-  - Declaring different data types
-  - Calculating the average of only non-numeric types
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf20cc92c7e03bf1c43c589e724a80a5f66a3a47ef71f1288288c3ca3405c847
+size 783

@@ -8,13 +8,13 @@ public class MenuManager : MonoBehaviour
     public string fallbackScene = "MenuScene";
     public void GoToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneHistory.LoadScene("Menu");
     }
 
     public void Logout()
     {
         FirebaseAuth.DefaultInstance.SignOut();
-        SceneManager.LoadScene("Login"); // your login scene name
+        SceneHistory.LoadScene("Login"); // your login scene name
     }
 
     // Example stubs for other buttons
@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
         string previousScene = PlayerPrefs.GetString("PreviousScene", fallbackScene);
 
         // Load the previous scene
-        SceneManager.LoadScene(previousScene);
+        SceneHistory.LoadScene(previousScene);
     }
 
 
@@ -36,47 +36,47 @@ public class MenuManager : MonoBehaviour
     public void OpenMail()
     {
         Debug.Log("Mail button clicked!");
-        SceneManager.LoadScene("Mail");
+        SceneHistory.LoadScene("Mail");
     }
 
     public void OpenQuest()
     {
         Debug.Log("Quest button clicked!");
-        SceneManager.LoadScene("Quest");
+        SceneHistory.LoadScene("Quest");
     }
 
     public void OpenInventory()
     {
         Debug.Log("Inventory button clicked!");
-        SceneManager.LoadScene("Inventory");
+        SceneHistory.LoadScene("Inventory");
     }
 
     public void OpenLeaderboard()
     {
         Debug.Log("Leaderboard button clicked!");
-        SceneManager.LoadScene("Leaderboard");
+        SceneHistory.LoadScene("Leaderboard");
     }
 
     public void OpenStore()
     {
         Debug.Log("Store button clicked!");
-        SceneManager.LoadScene("Store");
+        SceneHistory.LoadScene("Store");
     }
 
     public void OpenSettings()
     {
         Debug.Log("Settings button clicked!");
-        SceneManager.LoadScene("Settings");
+        SceneHistory.LoadScene("Settings");
     }
 
     public void OpenHistoryLog()
     {
         Debug.Log("History Log button clicked!");
-        SceneManager.LoadScene("HistoryLog");
+        SceneHistory.LoadScene("HistoryLog");
     }
     public void OpenMainMenu()
     {
         Debug.Log("MainMenu button clicked!");
-        SceneManager.LoadScene("ARScene");
+        SceneHistory.LoadScene("ARScene");
     }
 }

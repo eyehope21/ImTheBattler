@@ -13,12 +13,12 @@ public class BackButtonHandler : MonoBehaviour
         //  Check if the scene name is not empty before loading
         if (!string.IsNullOrEmpty(previousScene))
         {
-            SceneManager.LoadScene(previousScene);
+            SceneHistory.LoadScene(previousScene);
         }
         else
         {
             Debug.LogWarning("Previous scene name is empty. Loading fallback scene: " + fallbackScene);
-            SceneManager.LoadScene(fallbackScene);
+            SceneHistory.LoadScene(fallbackScene);
         }
     }
 

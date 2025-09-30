@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CM Question 17
-  m_EditorClassIdentifier: 
-  questionText: 'A name for a memory location that stores a specific value is called
-    a:'
-  answers:
-  - 'Variable '
-  - Constant
-  - Data type
-  - Expression
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:3bf41814a8a00cbacdf4f924d191541275c27ddcc75459efe0e7157943cfb852
+size 688

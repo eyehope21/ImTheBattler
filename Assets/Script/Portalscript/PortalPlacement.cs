@@ -1,39 +1,14 @@
-using UnityEngine;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
-using System.Collections.Generic;
+﻿using UnityEngine;
 
 public class PortalPlacement : MonoBehaviour
 {
     public GameObject portalPrefab;
-
-    private ARPlaneManager arPlaneManager;
-    private GameObject spawnedPortal;
+    public float spawnDistance = 5f;
 
     void Start()
     {
-        arPlaneManager = GetComponent<ARPlaneManager>();
-        arPlaneManager.planesChanged += OnPlanesChanged;
-    }
-
-    void OnPlanesChanged(ARPlanesChangedEventArgs args)
-    {
-        // Don't spawn if a portal already exists
-        if (spawnedPortal != null)
-        {
-            return;
-        }
-
-        // Check if any new planes have been detected
-        if (args.added.Count > 0)
-        {
-            // Spawn the portal on the first detected plane
-            Debug.Log("Plane detected! Spawning portal..."); //  New log
-            ARPlane firstPlane = args.added[0];
-            spawnedPortal = Instantiate(portalPrefab, firstPlane.transform.position, Quaternion.identity);
-
-            // Unsubscribe from the event so it only spawns once
-            arPlaneManager.planesChanged -= OnPlanesChanged;
-        }
+        // Spawns the portal instantly, 3 meters in front of the camera
+        Vector3 spawnPosition = Camera.main.transform.position + Camera.main.transform.forward * spawnDistance;
+        Instantiate(portalPrefab, spawnPosition, Quaternion.identity);
     }
 }

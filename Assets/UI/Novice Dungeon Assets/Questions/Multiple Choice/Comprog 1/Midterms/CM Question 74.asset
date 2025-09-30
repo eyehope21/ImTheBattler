@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CM Question 74
-  m_EditorClassIdentifier: 
-  questionText: What kind of operation is demonstrated by `score1 > score2` or `score1
-    < score2`?
-  answers:
-  - Relational operation
-  - Arithmetic operation
-  - Logical operation
-  - Assignment operation
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:3cfcd3df01ed709713b4e783a8a3041d61db0f029733d1e5787a9a39c60dd122
+size 736

@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 PF Question 114
-  m_EditorClassIdentifier: 
-  questionText: What executes when the given expression of the `if` statement evaluates
-    to false in a two-way selection?
-  answers:
-  - 'The `else` block '
-  - The `if` block
-  - The compound statement
-  - The next sequential line
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:14f05ea55874045b292c82d8441cb4d3cc5ce9431fa7147947c96a2bf175071e
+size 766

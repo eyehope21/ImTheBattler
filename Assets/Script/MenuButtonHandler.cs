@@ -8,7 +8,7 @@ public class MenuButtonHandler : MonoBehaviour
     public void LoadStory()
     {
         SaveCurrentScene();
-        SceneManager.LoadScene("Story mode"); 
+        SceneHistory.LoadScene("Story mode"); 
     }
 
    
@@ -17,19 +17,15 @@ public class MenuButtonHandler : MonoBehaviour
     public void LoadSubject()
     {
         SaveCurrentScene();
-        SceneManager.LoadScene("Subjects"); 
+        SceneHistory.LoadScene("Subjects"); 
     }
 
 
     public void LoadMenu()
     {
         SaveCurrentScene();
-        SceneManager.LoadScene("Menu"); 
+        SceneHistory.LoadScene("Menu"); 
     }
-
-
-    
-
 
     private void SaveCurrentScene()
     {

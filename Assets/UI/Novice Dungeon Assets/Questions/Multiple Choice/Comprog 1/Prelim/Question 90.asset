@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: Question 90
-  m_EditorClassIdentifier: 
-  questionText: What is a key characteristic of **Machine Language**?
-  answers:
-  - The computer can understand it directly.
-  - Uses English words.
-  - Must be translated by an interpreter.
-  - Is only used for web-based applications.
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f1f667a0b30d423b34ff3cf5dee1d3d935b92ab194f19ec65ac0dd332667757
+size 759

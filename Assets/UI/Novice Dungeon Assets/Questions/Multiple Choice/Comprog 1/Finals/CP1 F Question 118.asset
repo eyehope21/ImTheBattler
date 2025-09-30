@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 118
-  m_EditorClassIdentifier: 
-  questionText: In `Math.cos(x)`, the argument `x` is measured in what unit?
-  answers:
-  - 'Radians '
-  - Degrees
-  - Grads
-  - Steradians
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:30c16e823e7ab27f902d35933a14558d42686c7addc34c8787727863158ac161
+size 669

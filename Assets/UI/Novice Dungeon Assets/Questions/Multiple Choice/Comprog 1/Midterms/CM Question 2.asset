@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CM Question 2
-  m_EditorClassIdentifier: 
-  questionText: Which of the following describes primitive data types in Java?
-  answers:
-  - They are predefined data types by the language and named by a keyword.
-  - They are reference data types.
-  - They are defined by the programmer.
-  - 'They are used to store multiple values in a single memory location. '
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7ee8268e33018bb58fbb48a0776ab6f9179f7d4a65d45c8dd2965165df2d12d
+size 839

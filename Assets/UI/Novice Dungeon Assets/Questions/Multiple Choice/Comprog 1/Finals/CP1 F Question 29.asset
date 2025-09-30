@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 29
-  m_EditorClassIdentifier: 
-  questionText: In a recursive method, what requires the system to allocate memory
-    space for its formal parameters and local variables?
-  answers:
-  - 'Every call '
-  - Only the first call
-  - Only the base case
-  - Only the main method
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:f648be7c92815277d7d12ea50be535e8d41bd6caaadc704270fafac3c9d6e3be
+size 770

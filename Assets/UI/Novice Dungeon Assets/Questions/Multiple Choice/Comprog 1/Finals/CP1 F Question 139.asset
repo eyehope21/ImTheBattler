@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 139
-  m_EditorClassIdentifier: 
-  questionText: After invoking `passMethod(x)` with `x=3`, what is the value of `x`
-    printed in the `main` method?
-  answers:
-  - 3
-  - 10
-  - Null
-  - An error
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:00b69e64df491e5db33c8ce5f2832a1daf24dcba0b63db61d7b22bbb99897e65
+size 694

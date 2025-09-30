@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 PF Question 91
-  m_EditorClassIdentifier: 
-  questionText: The expression in a `while` loop provides what kind of condition?
-  answers:
-  - 'An entry condition '
-  - An exit condition
-  - A false condition
-  - A continuous condition
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d2ddb47fc7f52a8f25ba3e2aa734cac678dabcf5b8b16c8350db0bcc8b42a25
+size 719
