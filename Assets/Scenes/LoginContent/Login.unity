@@ -2176,9 +2176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f99e7f1f540c94ea8615d51ff55434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1624748643}
   toastText: {fileID: 990965367}
-  duration: 2
+  canvasGroup: {fileID: 1624748643}
+  fadeDuration: 1
+  displayDuration: 3
 --- !u!225 &1624748643
 CanvasGroup:
   m_ObjectHideFlags: 0
