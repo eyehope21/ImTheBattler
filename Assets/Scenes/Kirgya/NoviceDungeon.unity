@@ -3920,6 +3920,15 @@ MonoBehaviour:
   battleManager: {fileID: 546551535}
   Questions:
   - {fileID: 11400000, guid: de721825ce97a9444992f6855e5472cd, type: 2}
+  - {fileID: 11400000, guid: e1fb07ab94b1ef2468915e2d71b7ce54, type: 2}
+  - {fileID: 11400000, guid: 3995d33078d40c64fbb887c5567625c8, type: 2}
+  - {fileID: 11400000, guid: 287c0acc8db863f45bef99ea7afe0708, type: 2}
+  - {fileID: 11400000, guid: e9544b2a7c5e9f045a4b24ab89552b46, type: 2}
+  - {fileID: 11400000, guid: 5894f801d460b934191cbdb9cce95432, type: 2}
+  - {fileID: 11400000, guid: ff2da5a74dedba047b2c261707b2a994, type: 2}
+  - {fileID: 11400000, guid: 1da41db7ef267d143a0efa6f05d919ca, type: 2}
+  - {fileID: 11400000, guid: 96a547365d6dcda45b0003ac63943dbf, type: 2}
+  - {fileID: 11400000, guid: ef119aa2e3e6b17409a8849e19915112, type: 2}
 --- !u!1 &1179605283
 GameObject:
   m_ObjectHideFlags: 0
