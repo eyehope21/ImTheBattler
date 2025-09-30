@@ -9,13 +9,12 @@ public class EnemySpawner : MonoBehaviour
     // A queue to hold the prefabs in a non-repeating order
     private Queue<GameObject> enemyPrefabQueue = new Queue<GameObject>();
 
-    // Cached reference to the AR Dungeon Root Transform (the Grandparent)
+    // Cached reference to the AR Dungeon Root Transform
     private Transform arDungeonRootTransform;
 
     void Awake()
     {
-        // Get the parent of this spawner, which should be the ARDungeonRoot
-        // This assumes EnemySpawner is placed directly under the ARDungeonRoot in the hierarchy.
+        // Get the parent of this spawner (assumed to be the ARDungeonRoot)
         arDungeonRootTransform = transform.parent;
 
         if (arDungeonRootTransform == null)
@@ -62,6 +61,10 @@ public class EnemySpawner : MonoBehaviour
 
         // Ensure the local position is zero so it spawns at the root's anchor point
         newEnemy.transform.localPosition = Vector3.zero;
+
+        // FIX: Ensure the enemy is spawned inactive so the DungeonManager can reveal it 
+        // after the intro or at the correct time.
+        newEnemy.SetActive(false);
 
         EnemyStats enemyStats = newEnemy.GetComponent<EnemyStats>();
 

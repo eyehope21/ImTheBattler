@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1693355453398236047}
   - component: {fileID: 6121824884532217332}
   m_Layer: 5
-  m_Name: HoshimachiSuisei
+  m_Name: BossBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 1005, y: 1500}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1693355453398236047
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8bf5a85b330d06746b29e4d6a748d2ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c28c9afc75f34e499dc306cebc49a78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -84,11 +84,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227062812044457067}
-  - component: {fileID: 1675390619283515763}
   - component: {fileID: -424050668981310951}
   - component: {fileID: 4228369685956339181}
+  - component: {fileID: 2096245120398513934}
   m_Layer: 5
-  m_Name: SuiseiPrefab
+  m_Name: BossBatPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,26 +114,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1675390619283515763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119653578714077435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: Boss
-  maxHP: 100
-  attackdamage: 20
-  attackInterval: 10
-  currentHP: 100
-  bossHpBar: {fileID: 0}
-  bossNameText: {fileID: 0}
-  bossTimerText: {fileID: 0}
 --- !u!223 &-424050668981310951
 Canvas:
   m_ObjectHideFlags: 0
@@ -169,3 +149,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44f4a7cb599bc7409374fba4970fd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2096245120398513934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119653578714077435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Boss
+  maxHP: 100
+  attackdamage: 20
+  attackInterval: 10
+  currentHP: 100
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
