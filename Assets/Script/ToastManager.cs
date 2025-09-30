@@ -8,25 +8,45 @@ public class ToastManager : MonoBehaviour
 
     public CanvasGroup canvasGroup;
     public TMP_Text toastText;
-    public float duration = 2f;
+    public float fadeDuration = 0.5f;
+    public float displayDuration = 2f;
+
+    private Coroutine currentToast;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        canvasGroup.alpha = 0f;
     }
 
     public void ShowToast(string message)
     {
-        StopAllCoroutines();
-        StartCoroutine(ShowToastCoroutine(message));
+        if (currentToast != null) StopCoroutine(currentToast);
+        currentToast = StartCoroutine(FadeToast(message));
     }
 
-    IEnumerator ShowToastCoroutine(string message)
+    private IEnumerator FadeToast(string message)
     {
         toastText.text = message;
+
+        while (canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha += Time.deltaTime / fadeDuration;
+            yield return null;
+        }
         canvasGroup.alpha = 1;
-        yield return new WaitForSeconds(duration);
+
+        yield return new WaitForSeconds(displayDuration);
+
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= Time.deltaTime / fadeDuration;
+            yield return null;
+        }
         canvasGroup.alpha = 0;
     }
 }

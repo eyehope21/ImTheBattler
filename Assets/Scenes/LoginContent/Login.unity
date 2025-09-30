@@ -866,6 +866,7 @@ MonoBehaviour:
   emailInput: {fileID: 663535701}
   passwordInput: {fileID: 376336805}
   usernameInput: {fileID: 0}
+  confirmPasswordInput: {fileID: 0}
 --- !u!4 &469307655
 Transform:
   m_ObjectHideFlags: 0
@@ -890,9 +891,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 469307651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5118f58ecdfc8564a93551410611e96f, type: 3}
+  m_Script: {fileID: 11500000, guid: 61964bceaaacbf340b0ba6f9c28718db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallbackScene: Register
 --- !u!1 &499521062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1624748643}
   toastText: {fileID: 990965367}
-  duration: 2
+  fadeDuration: 0.5
+  displayDuration: 2
 --- !u!225 &1624748643
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2890,9 +2893,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 469307654}
-        m_TargetAssemblyTypeName: RegisterHandler, Assembly-CSharp
-        m_MethodName: RegisterUser
+      - m_Target: {fileID: 469307656}
+        m_TargetAssemblyTypeName: BackButtonHandler, Assembly-CSharp
+        m_MethodName: GotoRegister
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

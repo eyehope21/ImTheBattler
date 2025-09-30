@@ -21,4 +21,10 @@ public class BackButtonHandler : MonoBehaviour
             SceneManager.LoadScene(fallbackScene);
         }
     }
+
+    public void GotoRegister()
+    {
+        Debug.Log("Register button clicked!");
+        SceneManager.LoadScene("Register");
+    }
 }

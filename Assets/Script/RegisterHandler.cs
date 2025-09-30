@@ -1,24 +1,32 @@
-﻿using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
-using Firebase.Auth;
+﻿using Firebase.Auth;
 using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RegisterHandler : MonoBehaviour
 {
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
-    public TMP_InputField usernameInput;  // ✅ New field
+    public TMP_InputField usernameInput;
+    public TMP_InputField confirmPasswordInput;
 
     public void RegisterUser()
     {
         string email = emailInput.text;
         string password = passwordInput.text;
+        string username = usernameInput.text;
+        string confirmPassword = confirmPasswordInput.text;
 
-        // Basic validation
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(username))
         {
-            ToastManager.Instance.ShowToast("Email and Password are required.");
+            ToastManager.Instance.ShowToast("All fields are required.");
+            return;
+        }
+
+        if (password != confirmPassword)
+        {
+            ToastManager.Instance.ShowToast("Passwords do not match.");
             return;
         }
 
@@ -31,9 +39,9 @@ public class RegisterHandler : MonoBehaviour
                 ToastManager.Instance.ShowToast("Registration failed: " + errorMessage);
                 return;
             }
-            
+
             ToastManager.Instance.ShowToast("Registration successful!");
-            SceneManager.LoadScene("ARScene"); // Or your next scene
+            SceneManager.LoadScene("Login"); // ✅ Use your Login scene name here
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }
