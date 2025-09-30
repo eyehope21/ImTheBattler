@@ -39,6 +39,8 @@ public class RegisterHandler : MonoBehaviour
                 ToastManager.Instance.ShowToast("Registration failed: " + errorMessage);
                 return;
             }
+            PlayerProfile.Instance.SetUsername(username);
+            PlayerProfile.Instance.InitializeLevel();
 
             ToastManager.Instance.ShowToast("Registration successful!");
             SceneManager.LoadScene("Login"); // ✅ Use your Login scene name here

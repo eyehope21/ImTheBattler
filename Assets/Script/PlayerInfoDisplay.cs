@@ -5,11 +5,16 @@ public class PlayerInfoDisplay : MonoBehaviour
 {
     public TMP_Text infoText;
 
-    void Update()
+    void Start()
     {
+        // This is a more robust way to ensure PlayerProfile is loaded
         if (PlayerProfile.Instance != null)
         {
-            infoText.text = PlayerProfile.Instance.Username + "  Lv." + PlayerProfile.Instance.Level;
+            infoText.text = $"Lv.{PlayerProfile.Instance.Level}  {PlayerProfile.Instance.Username}";
+        }
+        else
+        {
+            infoText.text = "";
         }
     }
 }

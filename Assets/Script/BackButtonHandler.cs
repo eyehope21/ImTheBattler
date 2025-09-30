@@ -27,4 +27,10 @@ public class BackButtonHandler : MonoBehaviour
         Debug.Log("Register button clicked!");
         SceneManager.LoadScene("Register");
     }
+
+    public void GotoProfile()
+    {
+        Debug.Log("Profile button clicked!");
+        SceneManager.LoadScene("Profile");
+    }
 }
