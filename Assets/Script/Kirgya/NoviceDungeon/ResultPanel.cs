@@ -26,7 +26,7 @@ public class ResultPanel : MonoBehaviour
         dungeonManager = FindObjectOfType<NoviceDungeonManager>();
 
         restartButton.onClick.AddListener(RestartGame);
-        quitButton.onClick.AddListener(QuitGame); // Now calls the modified QuitGame to load the main scene
+        quitButton.onClick.AddListener(Exit); // Now calls the modified QuitGame to load the main scene
         continueButton.onClick.AddListener(ContinueGame);
     }
 
@@ -103,7 +103,7 @@ public class ResultPanel : MonoBehaviour
     }
 
     // *** MODIFIED METHOD: Loads the main scene instead of quitting the application ***
-    private void QuitGame()
+    private void Exit()
     {
         if (!string.IsNullOrEmpty(mainSceneName))
         {
