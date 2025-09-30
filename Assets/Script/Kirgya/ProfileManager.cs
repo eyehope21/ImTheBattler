@@ -28,7 +28,7 @@ public class ProfileManager : MonoBehaviour
     public Image rankImage;
 
     // Define the character limit constant
-    private const int DESCRIPTION_MAX_LENGTH = 100;
+    private const int DESCRIPTION_MAX_LENGTH = 50;
 
     private PlayerData currentPlayer = new PlayerData(); // Initialize with defaults
 
