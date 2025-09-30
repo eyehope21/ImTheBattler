@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 38
-  m_EditorClassIdentifier: 
-  questionText: When a recursive method executes, what does Java do to handle the
-    invocation?
-  answers:
-  - Java does nothing special to handle this
-  - It uses a separate thread
-  - It modifies the code
-  - It deletes the method
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:8a6383c665b7e62473c170dfff81bc0ad3b249ca87873f4cd88c54b322ca5a38
+size 764

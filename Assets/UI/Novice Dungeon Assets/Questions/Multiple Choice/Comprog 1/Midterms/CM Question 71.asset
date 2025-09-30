@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CM Question 71
-  m_EditorClassIdentifier: 
-  questionText: If an operator has the same precedence as another in an expression,
-    which rule must govern which is evaluated first?
-  answers:
-  - Associativity rule
-  - Precedence rule
-  - Logical rule
-  - Commutative rule
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:64d55f9346416eb10a32dff36ff9328809128cbbb9830321b7d80d20868fb665
+size 755

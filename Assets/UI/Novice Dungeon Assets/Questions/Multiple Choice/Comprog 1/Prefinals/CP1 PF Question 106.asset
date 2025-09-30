@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 PF Question 106
-  m_EditorClassIdentifier: 
-  questionText: What does a selection structure alter the flow of program execution
-    by?
-  answers:
-  - Making a selection or choice
-  - Repeating one or more statements
-  - Updating a control variable
-  - Skipping a loop iteration
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:560ec840fc8d652731e4ce104f168151bfe1d21a3316925c71a89063040b5476
+size 766

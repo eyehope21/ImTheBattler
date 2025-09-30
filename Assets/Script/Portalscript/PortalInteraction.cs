@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalInteraction : MonoBehaviour
 {
-    public string nextSceneName = "Dungeon";
+    public string nextSceneName = "NoviceDungeon";
 
     void Update()
     {
@@ -24,3 +24,4 @@ public class PortalInteraction : MonoBehaviour
         }
     }
 }
+

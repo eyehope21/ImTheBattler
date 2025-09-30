@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 PF Question 120
-  m_EditorClassIdentifier: 
-  questionText: When using the logical AND (`&&`), why does short-circuit evaluation
-    stop if the left operand is false?
-  answers:
-  - 'Because the `&&` operator wants both its operands to be true '
-  - Because the left operand must be true
-  - Because the right operand is always false
-  - To prevent an infinite loop
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4a2d38c01f52781c30da4aaa0db56f81eaafcfb59686b7c52247e2dd8bec2cf
+size 854

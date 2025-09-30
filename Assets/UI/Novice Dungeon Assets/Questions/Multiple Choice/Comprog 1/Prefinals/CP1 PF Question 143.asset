@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 PF Question 143
-  m_EditorClassIdentifier: 
-  questionText: When using the OR operator (`||`), when does the evaluation stop
-    for a short-circuit?
-  answers:
-  - 'When the left operand is true '
-  - When the right operand is false
-  - When both operands are true
-  - When the right operand is true
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:173d86e8f3d2a1dc514394867fd8656b7f218a8672bdb59af464e1abea787314
+size 788

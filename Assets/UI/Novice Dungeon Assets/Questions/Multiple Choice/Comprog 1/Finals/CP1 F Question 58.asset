@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP1 F Question 58
-  m_EditorClassIdentifier: 
-  questionText: How are the elements of each row enclosed when initializing a two-dimensional
-    array when it is declared?
-  answers:
-  - 'Within braces and separated by commas '
-  - Within parentheses and separated by spaces
-  - Within quotation marks
-  - Within brackets and separated by commas
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e8408562d3e319b91df41e01666d6e21a61f926c3cf5f8f73c2770e2dd17236
+size 828

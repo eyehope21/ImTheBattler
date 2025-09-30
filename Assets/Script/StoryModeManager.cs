@@ -9,7 +9,7 @@ public class StoryModeManager : MonoBehaviour
     {
         PlayerPrefs.SetString("SelectedSubject", subjectName);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Quarter");
+        SceneHistory.LoadScene("Quarter");
     }
 
     // Called when user clicks a quarter (1-4)
@@ -17,7 +17,7 @@ public class StoryModeManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedQuarter", quarterNumber);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Chapters");
+        SceneHistory.LoadScene("Chapters");
     }
 
     // Called when user clicks a chapter (1-3)
@@ -25,10 +25,10 @@ public class StoryModeManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedChapter", chapterNumber);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Episodes");
+        SceneHistory.LoadScene("Episodes");
     }
 
-    
+
     public void SelectEpisode(int episodeNumber)
     {
         PlayerPrefs.SetInt("SelectedEpisode", episodeNumber);
@@ -36,17 +36,19 @@ public class StoryModeManager : MonoBehaviour
 
         // Dynamically load the correct scene based on the episode number
         string sceneToLoad = "Episode";
-        SceneManager.LoadScene(sceneToLoad);
+        SceneHistory.LoadScene(sceneToLoad);
     }
+
+    
 
     // Optional: Back button
     public void GoBack(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneHistory.LoadScene(sceneName);
     }
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneHistory.LoadScene("Menu");
     }
 }
