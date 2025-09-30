@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 70
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the example of Merge Sort, what are the first two sorted sub-lists
+    combined?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - '[8, 12, 25, 31] and [17, 33, 40, 42]'
+  - '[31, 12, 25, 8] and [33, 17, 40, 42]'
+  - '[12, 31] and [8, 25]'
+  - '[33, 17] and [40, 42]'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

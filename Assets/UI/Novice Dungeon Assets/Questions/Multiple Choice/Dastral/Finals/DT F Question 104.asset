@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 104
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the Java sample code for creating an adjacency list, what is the
+    purpose of the `for` loop that runs from `i=0` to `i < num`?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - To add a new ArrayList for each vertex to adjList
+  - To add edges to the graph
+  - To display the content of each list
+  - To define the character vertices
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

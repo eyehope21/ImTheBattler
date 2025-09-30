@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 118
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the Java chatbot code, what is printed after the user inputs their
+    favorite color?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - fave + "is cooll Mine is" + colors.get(e)+"."
+  - fave is cool\! Mine is random.choice(colors) + "."
+  - '"What is your favorite color? "'
+  - '"Go ahead and do something you love."'
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

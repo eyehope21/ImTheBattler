@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 150
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the process that may identify trends of similarity in Unsupervised
+    learning?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Clustering '
+  - Classification
+  - Regression
+  - Planning
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

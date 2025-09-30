@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 8
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In machine learning, what serves as customer service agents when
+    you can't reach the company hotline?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Chatbots '
+  - Virtual assistants
+  - Online shopping sites
+  - Transportation apps
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 57
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What consists of edges that are associated with values?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'A weighted graph '
+  - An undirected graph
+  - A digraph
+  - An adjacency matrix
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

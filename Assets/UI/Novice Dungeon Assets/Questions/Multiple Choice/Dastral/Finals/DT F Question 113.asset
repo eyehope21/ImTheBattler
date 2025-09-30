@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 113
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the Python chatbot code, what happens immediately after the user
+    is asked "How are you today?"?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'The program pauses for 2 seconds '
+  - The program asks "What is your favorite color?"
+  - The program prints "Nice to meet you..."
+  - The program prints a response about the feeling
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

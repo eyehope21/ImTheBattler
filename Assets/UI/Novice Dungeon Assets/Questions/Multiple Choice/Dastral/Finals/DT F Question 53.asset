@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 53
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What characteristic of an adjacency list makes it a suitable representation
+    for a graph?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - It uses an array of lists with one list for each vertex
+  - 'It is a square matrix equivalent to the number of vertices '
+  - 'It associates a value with every edge '
+  - 'It only works for directed graphs  '
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

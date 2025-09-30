@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 78
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which of the following is a key characteristic of machine learning?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Identifying patterns '
+  - Creating adjacency matrices
+  - Performing sorting algorithms
+  - Using only labeled data
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 75
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the type of sorting algorithm that sorts items at a specific
+    interval, which is gradually decreased until it reaches 1?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Shell Sort
+  - 'Merge Sort '
+  - 'Insertion Sort '
+  - 'Bubble Sort  '
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

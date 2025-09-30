@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 38
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the smallest data structure presented in the handouts that
+    is a set of vertices and a set of edges between them?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Graph '
+  - Adjacency Matrix
+  - Adjacency List
+  - Digraph
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 123
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What does $N/2$ represent in the Shell Sort sequence?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'The first interval '
+  - The last interval
+  - The number of items
+  - The number of comparisons
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

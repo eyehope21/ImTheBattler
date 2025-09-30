@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 59
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: When using the Collections.shuffle(colors) method in the Java chatbot,
+    what is the purpose of this call?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - To randomly reorder the elements in the colors list
+  - To sort the elements in the colors list alphabetically
+  - To add a random color to the list
+  - To select a random color from the list
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

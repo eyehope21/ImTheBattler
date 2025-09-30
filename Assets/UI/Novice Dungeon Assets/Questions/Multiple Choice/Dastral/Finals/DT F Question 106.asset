@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 106
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the adjacency matrix for an undirected graph, if A is adjacent
+    to B, is B also adjacent to A?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Yes, because the matrix is symmetrical (A,B=1 and B,A=1)
+  - No, only A is adjacent to B.
+  - Only if the graph is a weighted graph.
+  - Yes, but only in directed graphs.
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
