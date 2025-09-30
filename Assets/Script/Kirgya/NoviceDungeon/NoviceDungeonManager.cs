@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
 public class NoviceDungeonManager : MonoBehaviour
 {
@@ -51,6 +53,9 @@ public class NoviceDungeonManager : MonoBehaviour
             Destroy(currentBoss.gameObject);
             currentBoss = null;
         }
+
+        // The spawned enemy is deactivated by default (see SpawnEnemy/SpawnBoss) and activated in ShowEnemyIntro()
+
         if ((currentLevel >= 1 && currentLevel <= 5) || (currentLevel >= 7 && currentLevel <= 11))
         {
             battleManager.battlePanel.SetActive(true);
@@ -86,15 +91,31 @@ public class NoviceDungeonManager : MonoBehaviour
         bossIntroPanel.SetActive(false);
     }
 
+    // NEW: Activates the AR object to make it visible
+    private void ActivateCurrentEnemy()
+    {
+        if (currentEnemy != null)
+        {
+            currentEnemy.gameObject.SetActive(true);
+        }
+        else if (currentBoss != null)
+        {
+            currentBoss.gameObject.SetActive(true);
+        }
+    }
+
     private void ShowEnemyIntro()
     {
         enemyIntroPanel.SetActive(true);
+        // NEW: Activate the AR sprite so the player can see it during the intro
+        ActivateCurrentEnemy();
         StartCoroutine(StartEnemyBattleAfterDelay(3f));
     }
 
     private IEnumerator StartEnemyBattleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        // The enemy is already active from ShowEnemyIntro()
         ShowEnemyStatsPanel();
         battleManager.StartBattle(currentEnemy);
         StartQuizForBattle();
@@ -103,6 +124,8 @@ public class NoviceDungeonManager : MonoBehaviour
     private void ShowBossIntro()
     {
         bossIntroPanel.SetActive(true);
+        // NEW: Activate the AR sprite so the player can see it during the intro
+        ActivateCurrentEnemy();
         StartCoroutine(StartBossBattleAfterDelay(3f));
     }
 
@@ -120,6 +143,7 @@ public class NoviceDungeonManager : MonoBehaviour
         {
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
             dungeonQuiz.OnAnswerEvaluated += HandleAnswerEvaluated;
+
             dungeonQuiz.StartQuiz();
         }
     }
@@ -130,7 +154,7 @@ public class NoviceDungeonManager : MonoBehaviour
         {
             if (currentEnemy != null)
             {
-                currentEnemy.TakeDamage(player.baseAttack);
+                currentEnemy.TakeDamage(player.CurrentAttack);
                 battleManager.FlashEnemyRed();
                 if (currentEnemy.currentHP <= 0)
                 {
@@ -139,7 +163,7 @@ public class NoviceDungeonManager : MonoBehaviour
             }
             else if (currentBoss != null)
             {
-                currentBoss.TakeDamage(player.baseAttack);
+                currentBoss.TakeDamage(player.CurrentAttack);
                 battleManager.FlashBossRed();
                 if (currentBoss.currentHP <= 0)
                 {
@@ -163,25 +187,21 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
         }
 
-        // Hides the AR enemy/boss sprite before showing the result panel
+        // Hides the AR enemy/boss sprite
         HideCurrentEnemy();
 
         HideEnemyStatsPanel();
+        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
         battleManager.battlePanel.SetActive(false);
+
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
         int oldLevel = player.CurrentLevel;
-        int expGained = 0;
-        if (currentLevel == 13)
-        {
-            expGained = 50;
-        }
-        else
-        {
-            expGained = 10;
-        }
+        int expGained = (currentLevel == 13) ? 50 : 10;
+
         player.GainEXP(expGained);
         bool didLevelUp = (player.CurrentLevel > oldLevel);
+
         if (currentLevel == 13)
         {
             resultPanel.ShowBossVictory(correctAnswers, wrongAnswers, expGained, didLevelUp);
@@ -202,6 +222,7 @@ public class NoviceDungeonManager : MonoBehaviour
 
         // Hides the AR enemy/boss sprite before showing the result panel
         HideCurrentEnemy();
+        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
 
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
@@ -220,6 +241,7 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         enemyIntroPanel.SetActive(false);
         HideEnemyStatsPanel();
+        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
         Debug.Log("Rest phase triggered. Showing rest panel.");
         dungeonQuiz.EndQuiz();
         if (restPanel != null)
@@ -251,4 +273,6 @@ public class NoviceDungeonManager : MonoBehaviour
         battleManager.enemyNameText.gameObject.SetActive(true);
         battleManager.enemyTimerText.transform.parent.gameObject.SetActive(true);
     }
+
+    // REMOVED: private void HideEnemyDisplayImage() { ... }
 }

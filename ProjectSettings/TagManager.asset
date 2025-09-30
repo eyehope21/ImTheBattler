@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AR_Foreground
+    uniqueID: 2284356303
+    locked: 0
