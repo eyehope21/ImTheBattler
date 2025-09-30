@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 69
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is the most common sequence for the interval in Shell Sort?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - N/2, N/4, ..., 1
+  - 1, 2, 4, ...
+  - N, N-1, N-2, ...
+  - 3, 2, 1
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

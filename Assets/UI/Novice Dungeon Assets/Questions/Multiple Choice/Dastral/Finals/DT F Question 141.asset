@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 141
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: The category Regression under Supervised Learning predicts the values
+    of what kind of variable?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Continuous variable '
+  - Discrete variable
+  - Categorical variable
+  - Boolean variable
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

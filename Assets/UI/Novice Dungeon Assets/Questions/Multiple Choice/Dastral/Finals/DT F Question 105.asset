@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 105
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What kind of edges are lines with an arrow on one (1) end?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Directed edges '
+  - Undirected edges
+  - Weighted edges
+  - Adjacent edges
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

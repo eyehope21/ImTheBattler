@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 127
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which example of machine learning is defined by identifying if an
+    e-mail is spam or not?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Unsupervised learning
+  - 'Supervised learning '
+  - 'Reinforcement learning        '
+  - 'Semi-supervised learning '
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

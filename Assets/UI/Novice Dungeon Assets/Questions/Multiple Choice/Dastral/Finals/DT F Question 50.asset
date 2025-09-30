@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 50
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What is a square matrix with dimensions equivalent to the number
+    of vertices in the graph, used to indicate whether pairs of vertices are adjacent
+    or not?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - An adjacency matrix
+  - An adjacency list
+  - A weighted graph
+  - A digraph
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 35
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: In the Java sample program, what is the output if the user's feeling
+    input is "great" (ignoring case)?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - That's nice to know
+  - wow\! I feel the same way
+  - Go ahead and do something you love.
+  - Nice to meet you
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

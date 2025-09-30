@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 10
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: What machine learning example includes suggesting people you may
+    want to be friends with and recognizing faces in photos?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Facebook '
+  - Transportation apps
+  - Chatbots
+  - Virtual assistants
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 98
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which method of sorting is the provided image of a tree structure
+    most clearly illustrating?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Merge Sort '
+  - Bubble Sort
+  - Selection Sort
+  - Insertion Sort
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

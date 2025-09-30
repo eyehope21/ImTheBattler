@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 132
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: "What is the goal of a system using machine learning?\t"
   answers:
-  - 
-  - 
-  - 
-  - 
+  - Make decisions with minimal human intervention
+  - To be faster than a chatbot
+  - To always use labeled data
+  - To be faster than a chatbot
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0

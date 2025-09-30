@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 146
   m_EditorClassIdentifier: 
-  questionText: 
+  questionText: Which sorting method is used when the `values.sort()` function is
+    called in Python?
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 'Built-in methods '
+  - Bubble Sort
+  - Merge Sort
+  - Shell Sort
   correctAnswerIndex: 0
   correctAnswerText: 
   correctAnswerBool: 0
