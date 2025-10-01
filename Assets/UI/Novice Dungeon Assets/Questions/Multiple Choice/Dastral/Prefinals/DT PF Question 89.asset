@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT PF Question 89
   m_EditorClassIdentifier: 
+  subject: 3
+  schoolTerm: 2
+  difficulty: 0
   questionText: The Python code `del name_map["M2"]` performs what action?
   answers:
   - 'delete the mapping for a key '

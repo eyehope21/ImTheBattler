@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: DT F Question 120
   m_EditorClassIdentifier: 
+  subject: 3
+  schoolTerm: 3
+  difficulty: 0
   questionText: In the provided Merge Sort example, what is the final sorted list?
   answers:
   - '8, 12, 17, 25, 31, 33, 40, 42 '

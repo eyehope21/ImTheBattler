@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 40
   m_EditorClassIdentifier: 
+  subject: 0
+  schoolTerm: 1
+  difficulty: 0
   questionText: In the hierarchy of conversion from higher-order data type to lower-order
     data type, which is the highest precision type?
   answers:

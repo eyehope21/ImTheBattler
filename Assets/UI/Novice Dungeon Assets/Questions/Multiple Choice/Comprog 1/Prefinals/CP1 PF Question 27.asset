@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP1 PF Question 27
   m_EditorClassIdentifier: 
+  subject: 0
+  schoolTerm: 2
+  difficulty: 0
   questionText: Which method returns the index of the last occurrence of the specified
     string?
   answers:

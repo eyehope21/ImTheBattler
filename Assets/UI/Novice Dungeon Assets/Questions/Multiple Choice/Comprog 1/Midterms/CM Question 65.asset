@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 65
   m_EditorClassIdentifier: 
+  subject: 0
+  schoolTerm: 1
+  difficulty: 0
   questionText: Given `int a = 10, b = 3, c = 8;`, what is the result of the expression
     `ex1 = (a + b)  c;`?
   answers:

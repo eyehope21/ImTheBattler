@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP2 PF Question 99
   m_EditorClassIdentifier: 
+  subject: 1
+  schoolTerm: 2
+  difficulty: 0
   questionText: What does the expression `[0-9]{3,}` mean when used with `find()`?
   answers:
   - 'Search for 3 or more consecutive digits '

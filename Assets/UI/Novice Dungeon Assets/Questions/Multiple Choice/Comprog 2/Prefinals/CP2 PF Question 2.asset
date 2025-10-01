@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP2 PF Question 2
   m_EditorClassIdentifier: 
+  subject: 1
+  schoolTerm: 2
+  difficulty: 0
   questionText: When are enumerations the optimal choice for class values or instances?
   answers:
   - When all possible values are known at the time of design

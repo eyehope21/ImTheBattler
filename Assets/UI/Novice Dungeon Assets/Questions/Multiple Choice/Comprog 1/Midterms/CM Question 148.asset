@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CM Question 148
   m_EditorClassIdentifier: 
+  subject: 0
+  schoolTerm: 1
+  difficulty: 0
   questionText: The methods of the `Scanner` class are used to read data and then
     perform what action with it?
   answers:

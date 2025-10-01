@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP1 PF Question 16
   m_EditorClassIdentifier: 
+  subject: 0
+  schoolTerm: 2
+  difficulty: 0
   questionText: Given a string literal (`str1`) and a new String object (`str3 =
     new String(...)`), what does `str1 == str3` return?
   answers:
