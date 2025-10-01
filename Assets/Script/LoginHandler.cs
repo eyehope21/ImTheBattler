@@ -3,11 +3,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Firebase.Auth;
 using System.Threading.Tasks;
+
 public class LoginHandler : MonoBehaviour
 {
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
-    
 
     public void LoginUser()
     {
@@ -30,7 +30,6 @@ public class LoginHandler : MonoBehaviour
                 return;
             }
 
-            //  All this logic happens ONLY on a successful login
             FirebaseUser user = task.Result.User;
             string username = user.DisplayName;
 
@@ -43,7 +42,7 @@ public class LoginHandler : MonoBehaviour
             ToastManager.Instance.ShowToast("Login successful!");
             PlayerPrefs.SetInt("IsLoggedIn", 1);
             PlayerPrefs.Save();
-            SceneManager.LoadScene("ARScene"); // Replace with your main game scene
+            SceneManager.LoadScene("ARScene");
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }

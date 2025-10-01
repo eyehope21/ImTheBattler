@@ -1,8 +1,9 @@
-﻿using Firebase.Auth;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 using TMPro;
-using UnityEngine;
+using UnityEngine.UI;
+using Firebase.Auth;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class RegisterHandler : MonoBehaviour
 {
@@ -39,11 +40,12 @@ public class RegisterHandler : MonoBehaviour
                 ToastManager.Instance.ShowToast("Registration failed: " + errorMessage);
                 return;
             }
+
             PlayerProfile.Instance.SetUsername(username);
             PlayerProfile.Instance.InitializeLevel();
 
             ToastManager.Instance.ShowToast("Registration successful!");
-            SceneManager.LoadScene("Login"); // ✅ Use your Login scene name here
+            SceneManager.LoadScene("Login");
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }
