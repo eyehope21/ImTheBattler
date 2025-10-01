@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP2 PF Question 76
-  m_EditorClassIdentifier: 
-  questionText: Which class in the regular expression package is used to store the
-    compiled format of a regular expression?
-  answers:
-  - 'The `Pattern` class '
-  - The `Matcher` class
-  - The `String` class
-  - The `String` class
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:8559e92ef8f5f7aa0735b6fb2ec5fed8d3cd81149c27f31b93db62b848eea3f9
+size 740

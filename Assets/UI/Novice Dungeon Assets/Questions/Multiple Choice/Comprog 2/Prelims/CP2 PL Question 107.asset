@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP2 PL Question 107
-  m_EditorClassIdentifier: 
-  questionText: What is the range for the random number returned by `Math.random()`?
-  answers:
-  - In the range $\ge 0$ and $<1$
-  - In the range $\ge 1$ and $\le 10$
-  - In the range $\ge 0$ and $\le 1$
-  - In the range $\ge 1$ and $<100$
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:f62d708f6cebd8281129096be58067ef79200b754c8fa35ea414b01042ce3c04
+size 746

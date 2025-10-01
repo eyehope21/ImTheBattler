@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP2 PL Question 89
-  m_EditorClassIdentifier: 
-  questionText: With a return statement
-  answers:
-  - '`public abstract void methodName();` '
-  - '`public void methodName() {}`'
-  - '`public final void methodName();`'
-  - '`public static void methodName();`'
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:5f5734a05f01dbba8b59c3e8fd89e2fa7a301716cc933ba416b945501c43062b
+size 716

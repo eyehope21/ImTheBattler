@@ -1,27 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT MT Question 22
-  m_EditorClassIdentifier: 
-  questionText: In infix-to-postfix conversion, when should an operator be pushed
-    to the stack?
-  answers:
-  - if stack is empty or has higher precedence than the operator on the top of the
-    stack
-  - if it has lower or equal precedence
-  - only if a right parenthesis is encountered
-  - if the token is an operand
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:0964e0e96ed3b909998e4b34df838f9f06e9de342e4ab835968463983d2bdea7
+size 825

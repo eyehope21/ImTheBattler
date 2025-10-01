@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT F Question 136
-  m_EditorClassIdentifier: 
-  questionText: What is the characteristic of an adjacency matrix that means if A
-    is adjacent to B, then B is also adjacent to A, in an undirected graph?
-  answers:
-  - The matrix is symmetrical
-  - 'The value is ''1'' '
-  - 'The dimensions are equivalent to the number of vertices '
-  - 'The matrix is square  '
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:7da7127f34d7b42aa5549118e470da99d40be7112701b8c3dfdd4ae559e999ac
+size 820

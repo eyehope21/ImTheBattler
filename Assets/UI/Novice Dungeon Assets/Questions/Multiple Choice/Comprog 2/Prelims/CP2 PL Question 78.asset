@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP2 PL Question 78
-  m_EditorClassIdentifier: 
-  questionText: When an overridden method is invoked, its action is determined by
-    the definition in the class used to create the object using which operator?
-  answers:
-  - 'The `new` operator '
-  - The `this` operator
-  - The `super` operator
-  - The `extends` operator
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab8efbd3c524fd25150ccaf517b0bc24e47caa26b89e430350332728fb7e7191
+size 779

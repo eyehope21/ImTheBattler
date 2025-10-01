@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: CP2 PF Question 65
-  m_EditorClassIdentifier: 
-  questionText: Which repetition operator signifies "one or more occurrences" of
-    the preceding element?
-  answers:
-  - 'The plus sign (`+`) '
-  - The asterisk (`*`)
-  - The question mark (`?`)
-  - Curly braces with a number (`{x}`)
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:783987d1421b46c3dfcfb083e14063e65869ec63b1403aa8fff106cea3a3889d
+size 740

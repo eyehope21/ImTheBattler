@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT F Question 92
-  m_EditorClassIdentifier: 
-  questionText: What subset of artificial intelligence is defined as understanding
-    both written text and human speech?
-  answers:
-  - Natural Language Processing (NLP)
-  - Reasoning
-  - Classification
-  - Planning
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ce863c95cbc408f3ccc51acc21f3e03eef18a0023b59f01b2683004780c6707
+size 720

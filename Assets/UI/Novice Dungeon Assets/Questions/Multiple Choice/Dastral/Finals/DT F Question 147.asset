@@ -1,27 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT F Question 147
-  m_EditorClassIdentifier: 
-  questionText: Which sorting algorithm is defined by comparison that applies to
-    adjacent items and previously scanned items, ensuring the scanned portion of
-    the list remains sorted?
-  answers:
-  - Insertion Sort
-  - 'Bubble Sort '
-  - 'Selection Sort '
-  - 'Merge Sort        '
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa39b7b5d2e35603bd255130ca653d6833122a73f32872fb7db4a2fa65125578
+size 790

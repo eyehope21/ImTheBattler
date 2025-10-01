@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT F Question 3
-  m_EditorClassIdentifier: 
-  questionText: According to the provided subsets of artificial intelligence, what
-    is the process of making inferences based on data?
-  answers:
-  - 'Reasoning '
-  - Planning
-  - Natural Language Processing (NLP)
-  - Prediction
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:71203ac29195547ddda42f0e220aafae63b57d4a515a88235f907c8f338bf60e
+size 733

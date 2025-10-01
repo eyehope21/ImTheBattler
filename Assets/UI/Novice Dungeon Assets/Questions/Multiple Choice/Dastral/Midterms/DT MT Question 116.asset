@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT MT Question 116
-  m_EditorClassIdentifier: 
-  questionText: Which operation is common to both stack and queue in Java, but is
-    known to throw an exception?
-  answers:
-  - 'remove() '
-  - offer()
-  - poll()
-  - peek()
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:26c069f7c3a461daf9c1a23930a17ba6b9b8dcb1658a6f503f73ad8668c76134
+size 680

@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT F Question 6
-  m_EditorClassIdentifier: 
-  questionText: Which of the following is an example of machine learning where an
-    online shopping site suggests similar products you may find interesting?
-  answers:
-  - Search and view products on an online shopping site
-  - A self-driving car picking the best lane
-  - Sorting algorithms in a program
-  - Creating an adjacency list
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:9876050fcbda1cb608ffc07cc905edcfc334d470b86d7db029fc425244f9b029
+size 839
