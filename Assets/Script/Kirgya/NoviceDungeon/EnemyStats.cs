@@ -8,7 +8,7 @@ public class EnemyStats : MonoBehaviour
 {
     public string enemyName = "Enemy";
     public int maxHP = 50;
-    public int attackdamage = 10;
+    public int attackdamage = 5;
     public float attackInterval = 10f;
     public int currentHP;
 
