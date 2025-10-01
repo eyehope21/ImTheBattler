@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PF Question 89
-  m_EditorClassIdentifier: 
-  questionText: The Python code `del name_map["M2"]` performs what action?
-  answers:
-  - 'delete the mapping for a key '
-  - insert a mapping
-  - replace a key's value
-  - retrieve a value
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbd98dc4ae2a462622a08d0da04069ef1a52faccd0535ced258bc99e2c4338c9
+size 738

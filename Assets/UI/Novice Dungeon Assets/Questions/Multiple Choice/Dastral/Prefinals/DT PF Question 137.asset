@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PF Question 137
-  m_EditorClassIdentifier: 
-  questionText: The Java code `PriorityQueue<Integer> printer = new PriorityQueue<>();`
-    creates a new priority queue for what type of elements?
-  answers:
-  - 'Integer '
-  - String
-  - Double
-  - Long
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:edb344e4e5950e8c129aa5d6f99b1c90e849ea15e76fea967e601df4ec8c0720
+size 754

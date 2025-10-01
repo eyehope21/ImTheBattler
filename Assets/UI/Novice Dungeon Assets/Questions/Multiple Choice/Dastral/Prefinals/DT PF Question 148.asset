@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PF Question 148
-  m_EditorClassIdentifier: 
-  questionText: The Java code to display map entries in separate lines uses what
-    type of loop?
-  answers:
-  - '`for (Map.Entry e : nameMap.entrySet())`'
-  - '`for (String key : nameMap.keySet())`'
-  - '`while (nameMap.hasNext())`'
-  - '`for (int i = 0; i < nameMap.size(); i++)`'
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:71ab7ce5f3c78edc27d80b9c4db3786aaec9dd66e2d305d785188f9fc691bba8
+size 833

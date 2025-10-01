@@ -51,7 +51,8 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
     {
         if (Mathf.Abs(eventData.position.x - eventData.pressPosition.x) > dragThreshould)
         {
-            if (eventData.position.x > eventData.pressPosition.x) Previous();
+            if (eventData.position.x > eventData.pressPosition.x) 
+                Previous();
             else Next();
         }
         else

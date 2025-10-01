@@ -3,7 +3,7 @@
 public class PortalPlacement : MonoBehaviour
 {
     public GameObject portalPrefab;
-    public float spawnDistance = 5f;
+    public float spawnDistance = 1f;
 
     void Start()
     {

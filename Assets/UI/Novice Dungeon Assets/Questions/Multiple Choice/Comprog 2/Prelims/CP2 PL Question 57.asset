@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP2 PL Question 57
   m_EditorClassIdentifier: 
+  subject: 1
+  schoolTerm: 0
+  difficulty: 0
   questionText: What else can be overloaded besides regular methods?
   answers:
   - 'Constructors '

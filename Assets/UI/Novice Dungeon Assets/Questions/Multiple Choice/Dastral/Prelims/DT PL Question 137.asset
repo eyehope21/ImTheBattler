@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PL Question 137
-  m_EditorClassIdentifier: 
-  questionText: Which kind of recursion is defined by the function calling itself
-    once each time it is invoked?
-  answers:
-  - Linear recursion
-  - Binary recursion
-  - Mutual recursion
-  - Indirect recursion
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b0c2dc89e5206e825e3dd9919f3b42843b8ee7bd19504ebbcda944cfe5b1b2e
+size 762

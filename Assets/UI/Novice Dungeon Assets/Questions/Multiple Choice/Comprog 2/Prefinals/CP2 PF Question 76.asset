@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
   m_Name: CP2 PF Question 76
   m_EditorClassIdentifier: 
+  subject: 1
+  schoolTerm: 2
+  difficulty: 0
   questionText: Which class in the regular expression package is used to store the
     compiled format of a regular expression?
   answers:

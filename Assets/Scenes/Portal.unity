@@ -1043,9 +1043,6 @@ GameObject:
   m_Component:
   - component: {fileID: 895868337}
   - component: {fileID: 895868336}
-  - component: {fileID: 895868338}
-  - component: {fileID: 895868341}
-  - component: {fileID: 895868339}
   - component: {fileID: 895868340}
   m_Layer: 0
   m_Name: XR Origin
@@ -1087,33 +1084,6 @@ Transform:
   - {fileID: 1318551341}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &895868338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895868335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 0}
-  m_DetectionMode: -1
---- !u!114 &895868339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895868335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 0}
 --- !u!114 &895868340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,19 +1098,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalPrefab: {fileID: 6660399322487835693, guid: 90e5b10dd6e17e846bebead5053c6ace, type: 3}
   spawnDistance: 1
---- !u!114 &895868341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895868335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AnchorPrefab: {fileID: 0}
 --- !u!1 &1308157900
 GameObject:
   m_ObjectHideFlags: 0
