@@ -10,9 +10,9 @@ public class NoviceBattleManager : MonoBehaviour
     public PlayerStats player;
     public GameObject battlePanel;
 
-    // REMOVED: public Image enemyDisplayImage; // No longer needed, as we show the AR object directly
-
-    public Image bossImage; // Reference for the boss sprite (if boss uses a static UI image, keep this)
+    // Keeping this public reference just in case you use a static enemy image for the UI
+    public Image enemyDisplayImage;
+    public Image bossImage;
 
     [Header("UI References")]
     public Slider enemyHPBar;
@@ -26,7 +26,7 @@ public class NoviceBattleManager : MonoBehaviour
     private EnemyStats currentEnemy;
     private BossStats currentBoss;
 
-    // NEW: Reference to the enemy's visual component for AR rendering
+    // References to the AR object's visual component for flashing
     private SpriteRenderer currentEnemyRenderer;
     private SpriteRenderer currentBossRenderer;
 
@@ -37,6 +37,7 @@ public class NoviceBattleManager : MonoBehaviour
     {
         if (!isBattleActive) return;
 
+        // Use Time.deltaTime which respects Time.timeScale (useful for Pause)
         attackTimer -= Time.deltaTime;
 
         // Correctly reference the timer text based on the active enemy type
@@ -64,19 +65,22 @@ public class NoviceBattleManager : MonoBehaviour
         }
     }
 
-    // Updated StartBattle method for enemies
-    public void StartBattle(EnemyStats newEnemy)
+    // --- NEW OVERLOAD: The primary method for starting a regular enemy battle ---
+    public void StartBattle(EnemyStats newEnemy, string enemyNameDisplay)
     {
         currentEnemy = newEnemy;
         currentBoss = null;
 
-        // --- NEW LOGIC: Get the Sprite Renderer from the AR enemy for flashing ---
-        // We look for the SpriteRenderer on the enemy object or any of its children.
         currentEnemyRenderer = newEnemy.GetComponentInChildren<SpriteRenderer>();
 
         if (currentEnemyRenderer == null)
         {
             Debug.LogError("The spawned Enemy (" + newEnemy.name + ") is missing a SpriteRenderer component in its hierarchy! Cannot flash red.");
+        }
+
+        if (enemyDisplayImage != null)
+        {
+            enemyDisplayImage.gameObject.SetActive(false);
         }
 
         // Hide Boss UI just in case
@@ -89,11 +93,26 @@ public class NoviceBattleManager : MonoBehaviour
         currentEnemy.nameText = enemyNameText;
         currentEnemy.timerText = enemyTimerText;
 
+        // --- APPLY THE NEW NAME DISPLAY FORMAT ---
+        if (enemyNameText != null)
+        {
+            enemyNameText.text = enemyNameDisplay;
+        }
+        // ----------------------------------------
+
         attackTimer = currentEnemy.attackInterval;
         isBattleActive = true;
         battlePanel.SetActive(true);
         currentEnemy.UpdateUI();
     }
+
+    // Fallback/Deprecated StartBattle - It now calls the new overload.
+    public void StartBattle(EnemyStats newEnemy)
+    {
+        // Uses the enemy's default name as a fallback
+        StartBattle(newEnemy, newEnemy.enemyName);
+    }
+
 
     // This method is for the boss
     public void StartBattle(BossStats newBoss)
@@ -101,18 +120,13 @@ public class NoviceBattleManager : MonoBehaviour
         currentBoss = newBoss;
         currentEnemy = null;
 
-        // --- NEW LOGIC: Get the Sprite Renderer from the AR boss for flashing ---
         currentBossRenderer = newBoss.GetComponentInChildren<SpriteRenderer>();
 
-        // Grab the boss's sprite from its SpriteRenderer (if you still want a static UI image for the boss)
-        if (bossImage != null && currentBossRenderer != null)
+        // Hide regular enemy UI (and any static image)
+        if (enemyDisplayImage != null)
         {
-            // *Note: This still assumes the boss uses a static UI Image for display.*
-            bossImage.sprite = currentBossRenderer.sprite;
-            bossImage.gameObject.SetActive(true);
+            enemyDisplayImage.gameObject.SetActive(false);
         }
-
-        // Hide regular enemy UI
         enemyHPBar.gameObject.SetActive(false);
         enemyNameText.gameObject.SetActive(false);
         enemyTimerText.transform.parent.gameObject.SetActive(false);
@@ -120,7 +134,7 @@ public class NoviceBattleManager : MonoBehaviour
         // Show boss UI
         bossHPBar.gameObject.SetActive(true);
         bossNameText.gameObject.SetActive(true);
-        bossTimerText.transform.parent.gameObject.SetActive(true); // Fixed: Should activate the timer's parent
+        bossTimerText.transform.parent.gameObject.SetActive(true);
 
         // Assign the UI elements to the boss script
         currentBoss.bossHpBar = bossHPBar;
@@ -131,6 +145,14 @@ public class NoviceBattleManager : MonoBehaviour
         isBattleActive = true;
         battlePanel.SetActive(true);
         currentBoss.UpdateUI();
+    }
+
+    public void EndBattle()
+    {
+        isBattleActive = false;
+        // Reset renderers when battle ends
+        currentEnemyRenderer = null;
+        currentBossRenderer = null;
     }
 
     public void FlashEnemyRed()
@@ -145,19 +167,19 @@ public class NoviceBattleManager : MonoBehaviour
     // New method to flash the boss red
     public void FlashBossRed()
     {
-        // Use the AR object's Sprite Renderer (or the UI Image if you prefer)
+        // Prioritize flashing the AR object
         if (currentBossRenderer != null)
         {
             StartCoroutine(FlashColor(currentBossRenderer, Color.red, 0.2f));
         }
+        // Fallback to flashing the UI image if it exists and AR flash fails
         else if (bossImage != null)
         {
-            // Fallback to flashing the UI image if the boss is strictly UI based
             StartCoroutine(FlashColor(bossImage, Color.red, 0.2f));
         }
     }
 
-    // NEW: Overload for SpriteRenderer
+    // Overload for SpriteRenderer (used for AR enemy/boss)
     private IEnumerator FlashColor(SpriteRenderer renderer, Color color, float duration)
     {
         Color originalColor = renderer.color;
@@ -166,7 +188,7 @@ public class NoviceBattleManager : MonoBehaviour
         renderer.color = originalColor;
     }
 
-    // Kept the original IEnumerator for UI Image (for Boss/UI elements)
+    // Overload for UI Image (for Boss/UI elements)
     private IEnumerator FlashColor(Image image, Color color, float duration)
     {
         Color originalColor = image.color;

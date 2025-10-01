@@ -13,20 +13,44 @@ public class NoviceDungeonManager : MonoBehaviour
     public PlayerStats player;
     public EnemySpawner enemyspawner;
     public BossSpawner bossspawner;
-    public ResultPanel resultPanel;
+    public DungeonResultUI resultUI;
     public RestPanel restPanel;
     public GameObject bossIntroPanel;
     public GameObject enemyIntroPanel;
 
+    // Define the total number of non-boss fights
+    private const int MaxDungeonFights = 10;
+
     private EnemyStats currentEnemy;
     private BossStats currentBoss;
-    private int currentLevel = 1;
+
+    // --- Level Property ---
+    private int _currentLevel = 1;
+    public int CurrentLevel
+    {
+        get { return _currentLevel; }
+        private set { _currentLevel = value; } // Set is private to control flow
+    }
+
+    // --- Reward Accumulation Fields ---
+    private int accumulatedExp = 0;
+    private int currentRunCorrectAnswers = 0;
+    private int currentRunWrongAnswers = 0;
+
+    // --- Level Up Interception Fields ---
+    private bool didLevelUpOnBossDefeat = false;
+    private int bossWinExpGained = 0;
+    private int bossWinCorrect = 0;
+    private int bossWinWrong = 0;
+    private int newPlayerLevel = 0;
 
     void Start()
     {
         startPanel.SetActive(true);
         HideEnemyStatsPanel();
         battleManager.battlePanel.SetActive(false);
+        // Ensure game starts unpaused
+        Time.timeScale = 1f;
     }
 
     public void OnStartButton()
@@ -37,12 +61,18 @@ public class NoviceDungeonManager : MonoBehaviour
 
     public void StartDungeon()
     {
-        currentLevel = 1;
+        CurrentLevel = 1;
+        // Reset ALL run totals when starting a new dungeon
+        accumulatedExp = 0;
+        currentRunCorrectAnswers = 0;
+        currentRunWrongAnswers = 0;
+
         NextLevel();
     }
 
     public void NextLevel()
     {
+        // Cleanup phase
         if (currentEnemy != null)
         {
             Destroy(currentEnemy.gameObject);
@@ -54,19 +84,18 @@ public class NoviceDungeonManager : MonoBehaviour
             currentBoss = null;
         }
 
-        // The spawned enemy is deactivated by default (see SpawnEnemy/SpawnBoss) and activated in ShowEnemyIntro()
-
-        if ((currentLevel >= 1 && currentLevel <= 5) || (currentLevel >= 7 && currentLevel <= 11))
+        // Determine next encounter based on level
+        if ((CurrentLevel >= 1 && CurrentLevel <= 5) || (CurrentLevel >= 7 && CurrentLevel <= 11))
         {
             battleManager.battlePanel.SetActive(true);
             currentEnemy = enemyspawner.SpawnEnemy();
             ShowEnemyIntro();
         }
-        else if (currentLevel == 6 || currentLevel == 12)
+        else if (CurrentLevel == 6 || CurrentLevel == 12)
         {
             RestPhase();
         }
-        else if (currentLevel == 13)
+        else if (CurrentLevel == 13)
         {
             HideEnemyStatsPanel();
             battleManager.battlePanel.SetActive(true);
@@ -77,7 +106,6 @@ public class NoviceDungeonManager : MonoBehaviour
 
     private void HideCurrentEnemy()
     {
-        // Deactivate the spawned enemy object to hide it from the AR world
         if (currentEnemy != null)
         {
             currentEnemy.gameObject.SetActive(false);
@@ -86,12 +114,10 @@ public class NoviceDungeonManager : MonoBehaviour
         {
             currentBoss.gameObject.SetActive(false);
         }
-        // Ensure the intro panels are also hidden
         enemyIntroPanel.SetActive(false);
         bossIntroPanel.SetActive(false);
     }
 
-    // NEW: Activates the AR object to make it visible
     private void ActivateCurrentEnemy()
     {
         if (currentEnemy != null)
@@ -107,7 +133,6 @@ public class NoviceDungeonManager : MonoBehaviour
     private void ShowEnemyIntro()
     {
         enemyIntroPanel.SetActive(true);
-        // NEW: Activate the AR sprite so the player can see it during the intro
         ActivateCurrentEnemy();
         StartCoroutine(StartEnemyBattleAfterDelay(3f));
     }
@@ -115,16 +140,21 @@ public class NoviceDungeonManager : MonoBehaviour
     private IEnumerator StartEnemyBattleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        // The enemy is already active from ShowEnemyIntro()
         ShowEnemyStatsPanel();
-        battleManager.StartBattle(currentEnemy);
+
+        // --- ENEMY NAME DISPLAY LOGIC START ---
+        int fightNumber = CalculateCurrentFightNumber(CurrentLevel);
+        string nameDisplay = $"Enemy {fightNumber}/{MaxDungeonFights}";
+
+        battleManager.StartBattle(currentEnemy, nameDisplay);
+        // --- ENEMY NAME DISPLAY LOGIC END ---
+
         StartQuizForBattle();
     }
 
     private void ShowBossIntro()
     {
         bossIntroPanel.SetActive(true);
-        // NEW: Activate the AR sprite so the player can see it during the intro
         ActivateCurrentEnemy();
         StartCoroutine(StartBossBattleAfterDelay(3f));
     }
@@ -133,6 +163,7 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         battleManager.battlePanel.SetActive(true);
+        // Boss uses the regular StartBattle(BossStats) overload
         battleManager.StartBattle(currentBoss);
         StartQuizForBattle();
     }
@@ -152,6 +183,7 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         if (correct)
         {
+            // Handle damage application (same for enemy and boss)
             if (currentEnemy != null)
             {
                 currentEnemy.TakeDamage(player.CurrentAttack);
@@ -187,28 +219,34 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
         }
 
-        // Hides the AR enemy/boss sprite
         HideCurrentEnemy();
-
         HideEnemyStatsPanel();
-        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
         battleManager.battlePanel.SetActive(false);
 
-        int correctAnswers = dungeonQuiz.GetCorrectAnswers();
-        int wrongAnswers = dungeonQuiz.GetWrongAnswers();
-        int oldLevel = player.CurrentLevel;
-        int expGained = (currentLevel == 13) ? 50 : 10;
+        // Calculate rewards for THIS single fight
+        int fightCorrectAnswers = dungeonQuiz.GetCorrectAnswers();
+        int fightWrongAnswers = dungeonQuiz.GetWrongAnswers();
+        int expGainedThisFight = (CurrentLevel == 13) ? 50 : 10; // Use CurrentLevel
 
-        player.GainEXP(expGained);
-        bool didLevelUp = (player.CurrentLevel > oldLevel);
+        // 1. Accumulate the rewards for the end of the run
+        currentRunCorrectAnswers += fightCorrectAnswers;
+        currentRunWrongAnswers += fightWrongAnswers;
+        accumulatedExp += expGainedThisFight;
 
-        if (currentLevel == 13)
+        // 2. Decide if it was a boss fight
+        if (CurrentLevel == 13) // Use CurrentLevel
         {
-            resultPanel.ShowBossVictory(correctAnswers, wrongAnswers, expGained, didLevelUp);
+            OnBossDefeated();
         }
         else
         {
-            resultPanel.ShowResult(true, correctAnswers, wrongAnswers, expGained, didLevelUp);
+            // 3. For a regular win, show the VICTORY panel
+            resultUI.ShowVictory(
+                fightCorrectAnswers,
+                fightWrongAnswers,
+                currentRunCorrectAnswers,
+                currentRunWrongAnswers
+            );
         }
     }
 
@@ -220,20 +258,24 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.EndQuiz();
         }
 
-        // Hides the AR enemy/boss sprite before showing the result panel
+        // Stop the battle loop immediately
+        battleManager.EndBattle();
+
         HideCurrentEnemy();
-        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
 
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
-        int expGained = 0;
-        bool didLevelUp = false;
-        resultPanel.ShowResult(false, correctAnswers, wrongAnswers, expGained, didLevelUp);
+
+        // Player loses, ALL accumulated rewards are forfeited.
+        accumulatedExp = 0;
+
+        // Show the DEDICATED DEFEAT panel
+        resultUI.ShowDefeat(correctAnswers, wrongAnswers);
     }
 
     public void ContinueAfterVictory()
     {
-        currentLevel++;
+        CurrentLevel++; // Use the property setter
         NextLevel();
     }
 
@@ -241,7 +283,6 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         enemyIntroPanel.SetActive(false);
         HideEnemyStatsPanel();
-        // REMOVED: HideEnemyDisplayImage(); // This method is now removed/useless
         Debug.Log("Rest phase triggered. Showing rest panel.");
         dungeonQuiz.EndQuiz();
         if (restPanel != null)
@@ -256,8 +297,58 @@ public class NoviceDungeonManager : MonoBehaviour
 
     public void ContinueFromRest()
     {
-        currentLevel++;
+        CurrentLevel++; // Use the property setter
         NextLevel();
+    }
+
+    // --- Boss Defeat and Level-Up Check ---
+    private void OnBossDefeated()
+    {
+        int oldLevel = player.CurrentLevel;
+
+        // 1. Grant the FINAL Accumulated Rewards (Level up occurs here)
+        player.GainEXP(accumulatedExp);
+
+        // 2. Store results for later display (for the ShowBossVictoryResults method)
+        didLevelUpOnBossDefeat = (player.CurrentLevel > oldLevel);
+        bossWinExpGained = accumulatedExp;
+        bossWinCorrect = currentRunCorrectAnswers;
+        bossWinWrong = currentRunWrongAnswers;
+        newPlayerLevel = player.CurrentLevel;
+
+        // 3. Reset accumulation variables now for a clean state
+        accumulatedExp = 0;
+        currentRunCorrectAnswers = 0;
+        currentRunWrongAnswers = 0;
+
+        // 4. DECIDE: Show Level Up panel first, or go straight to victory results
+        if (didLevelUpOnBossDefeat)
+        {
+            resultUI.ShowLevelUp(newPlayerLevel);
+        }
+        else
+        {
+            // If no level up, show boss victory immediately
+            ShowBossVictoryResults();
+        }
+    }
+
+    // --- Continuation point from the Level Up Notification panel ---
+    public void ContinueFromLevelUpNotification()
+    {
+        ShowBossVictoryResults();
+    }
+
+    private void ShowBossVictoryResults()
+    {
+        bool leveledUp = didLevelUpOnBossDefeat;
+
+        resultUI.ShowBossVictory(
+            bossWinCorrect,
+            bossWinWrong,
+            bossWinExpGained,
+            leveledUp
+        );
     }
 
     private void HideEnemyStatsPanel()
@@ -274,5 +365,21 @@ public class NoviceDungeonManager : MonoBehaviour
         battleManager.enemyTimerText.transform.parent.gameObject.SetActive(true);
     }
 
-    // REMOVED: private void HideEnemyDisplayImage() { ... }
+    // --- HELPER METHOD: Calculates the current non-boss fight number ---
+    private int CalculateCurrentFightNumber(int level)
+    {
+        // Levels 1-5 are fights 1-5
+        if (level >= 1 && level <= 5)
+        {
+            return level;
+        }
+        // Levels 7-11 are fights 6-10
+        else if (level >= 7 && level <= 11)
+        {
+            // (Level 7 - 6) + 5 = 1 + 5 = 6 (Fight 6)
+            return 5 + (level - 6);
+        }
+        // Boss/Rest phases have no fight number
+        return 0;
+    }
 }
