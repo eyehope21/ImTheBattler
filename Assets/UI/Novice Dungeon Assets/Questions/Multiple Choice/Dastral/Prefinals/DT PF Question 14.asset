@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PF Question 14
-  m_EditorClassIdentifier: 
-  questionText: What are the common set operations mentioned in the handout?
-  answers:
-  - Union, Intersection, Difference, Subset
-  - Merge, Divide, Filter
-  - Add, Remove, Check
-  - Sort, Map, Reduce
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:99295db78b8d6358d26a8a61a57dc628b9366f43bb6b9f92d8495630184ac07a
+size 706

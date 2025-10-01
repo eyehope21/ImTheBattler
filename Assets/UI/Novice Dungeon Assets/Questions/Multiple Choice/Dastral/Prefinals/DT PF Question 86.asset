@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2defcfdae43a441a52698a59a21752, type: 3}
-  m_Name: DT PF Question 86
-  m_EditorClassIdentifier: 
-  questionText: 'The Python code `name_map = {"M1": "Mark", "M2": "Mairo"}` performs
-    what action?'
-  answers:
-  - 'initialize a dictionary '
-  - create an empty dictionary
-  - insert a mapping
-  - retrieve a value
-  correctAnswerIndex: 0
-  correctAnswerText: 
-  correctAnswerBool: 0
-  prompts: []
-  choices: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:bffc0d43dd6793019d5fd5ce73bd33ff5058da6cfe7739ee6e3a0ca5c532964b
+size 721
