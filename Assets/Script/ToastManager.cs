@@ -33,7 +33,7 @@ public class ToastManager : MonoBehaviour
     {
         toastText.text = message;
 
-        while (canvasGroup.alpha < 1)
+        while (canvasGroup.alpha < 2)
         {
             canvasGroup.alpha += Time.deltaTime / fadeDuration;
             yield return null;

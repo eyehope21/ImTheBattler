@@ -33,4 +33,10 @@ public class BackButtonHandler : MonoBehaviour
         Debug.Log("Profile button clicked!");
         SceneManager.LoadScene("Profile");
     }
+    public void GotoLogin()
+    {
+        Debug.Log("Login button clicked!");
+        SceneManager.LoadScene("Login");
+    }
+
 }
