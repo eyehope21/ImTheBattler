@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class NoviceDungeonManager : MonoBehaviour
 {
+    private const int TOTAL_MINION_ENCOUNTERS = 10;
+
+    // --- NEW AR CONSTANTS ---
+    private const float ENEMY_Z_DEPTH = 1.0f; // Target Z depth for the enemy (1 meter)
+    private const float ROCK_Z_DEPTH = 1.1f;  // Rock background will be 10cm behind the enemy
+
     [Header("References")]
     public GameObject startPanel;
     public NoviceDungeonQuizManager dungeonQuiz;
@@ -18,26 +26,24 @@ public class NoviceDungeonManager : MonoBehaviour
     public GameObject bossIntroPanel;
     public GameObject enemyIntroPanel;
 
-    // Define the total number of non-boss fights
-    private const int MaxDungeonFights = 10;
+    [Header("AR References")]
+    public GameObject arBackgroundPrefab; // Assign the AR_Background_Rocks prefab here
+    private AnchorController currentAnchorController;
 
     private EnemyStats currentEnemy;
     private BossStats currentBoss;
 
-    // --- Level Property ---
     private int _currentLevel = 1;
     public int CurrentLevel
     {
         get { return _currentLevel; }
-        private set { _currentLevel = value; } // Set is private to control flow
+        private set { _currentLevel = value; }
     }
 
-    // --- Reward Accumulation Fields ---
     private int accumulatedExp = 0;
     private int currentRunCorrectAnswers = 0;
     private int currentRunWrongAnswers = 0;
 
-    // --- Level Up Interception Fields ---
     private bool didLevelUpOnBossDefeat = false;
     private int bossWinExpGained = 0;
     private int bossWinCorrect = 0;
@@ -47,9 +53,8 @@ public class NoviceDungeonManager : MonoBehaviour
     void Start()
     {
         startPanel.SetActive(true);
-        HideEnemyStatsPanel();
+        HideAllBattleUI();
         battleManager.battlePanel.SetActive(false);
-        // Ensure game starts unpaused
         Time.timeScale = 1f;
     }
 
@@ -61,14 +66,68 @@ public class NoviceDungeonManager : MonoBehaviour
 
     public void StartDungeon()
     {
+        Subject chosenSubject = LoadSubjectFromPlayerPrefs();
+        SchoolTerm chosenTerm = LoadSchoolTermFromPlayerPrefs();
+        Difficulty chosenDifficulty = LoadDifficultyFromPlayerPrefs();
+
+        if (dungeonQuiz != null)
+        {
+            dungeonQuiz.SetDungeonFilters(chosenSubject, chosenTerm, chosenDifficulty);
+        }
+        else
+        {
+            Debug.LogError("DungeonQuizManager reference is missing! Quiz functionality disabled.");
+        }
+
+        PlaceAndAnchorBackground();
+
         CurrentLevel = 1;
-        // Reset ALL run totals when starting a new dungeon
         accumulatedExp = 0;
         currentRunCorrectAnswers = 0;
         currentRunWrongAnswers = 0;
 
         NextLevel();
     }
+
+    private void PlaceAndAnchorBackground()
+    {
+        if (arBackgroundPrefab == null)
+        {
+            Debug.LogError("AR Background Prefab is not assigned! Skipping background placement.");
+            return;
+        }
+
+        // 1. Instantiate the background near the camera's assumed position (0, 0, 0 in AR Session Origin space)
+        GameObject rocksObject = Instantiate(arBackgroundPrefab, Vector3.zero, Quaternion.identity);
+
+        // 2. Set its Z depth behind the enemy and anchor it
+        rocksObject.transform.position = new Vector3(
+            rocksObject.transform.position.x,
+            rocksObject.transform.position.y,
+            ROCK_Z_DEPTH
+        );
+
+        // 3. Get the controller and anchor it
+        currentAnchorController = rocksObject.GetComponent<AnchorController>();
+        if (currentAnchorController != null)
+        {
+            // Calling the method that now starts a coroutine (SafelyAddAnchor)
+            currentAnchorController.SetAnchorAtCurrentPosition();
+        }
+
+        // 4. Ensure enemy spawner also targets the correct Z depth
+        enemyspawner.transform.position = new Vector3(
+            enemyspawner.transform.position.x,
+            enemyspawner.transform.position.y,
+            ENEMY_Z_DEPTH
+        );
+        bossspawner.transform.position = new Vector3(
+            bossspawner.transform.position.x,
+            bossspawner.transform.position.y,
+            ENEMY_Z_DEPTH
+        );
+    }
+    // ---------------------
 
     public void NextLevel()
     {
@@ -84,7 +143,6 @@ public class NoviceDungeonManager : MonoBehaviour
             currentBoss = null;
         }
 
-        // Determine next encounter based on level
         if ((CurrentLevel >= 1 && CurrentLevel <= 5) || (CurrentLevel >= 7 && CurrentLevel <= 11))
         {
             battleManager.battlePanel.SetActive(true);
@@ -97,12 +155,42 @@ public class NoviceDungeonManager : MonoBehaviour
         }
         else if (CurrentLevel == 13)
         {
-            HideEnemyStatsPanel();
+            HideAllBattleUI(); // Ensure all UI is hidden before the Boss Intro starts
             battleManager.battlePanel.SetActive(true);
             currentBoss = bossspawner.SpawnBoss();
             ShowBossIntro();
         }
     }
+
+    // --- CONSOLIDATED NAME/COUNTER LOGIC ---
+    public string GetEncounterTitle(EnemyStats enemy, BossStats boss)
+    {
+        if (CurrentLevel == 6 || CurrentLevel == 12)
+        {
+            return "Rest Phase";
+        }
+        else if (CurrentLevel == 13)
+        {
+            // Boss Title
+            string name = (boss != null) ? boss.bossName : "Final Boss";
+            return name;
+        }
+        else
+        {
+            // Minion Counter/Name
+            string name = (enemy != null) ? enemy.enemyName : "Enemy";
+
+            int minionNumber = CurrentLevel;
+            if (CurrentLevel > 6)
+            {
+                minionNumber = CurrentLevel - 1;
+            }
+
+            // Example: "Goblin 1/10"
+            return $"{name} {minionNumber}/{TOTAL_MINION_ENCOUNTERS}";
+        }
+    }
+    // ---------------------------------------
 
     private void HideCurrentEnemy()
     {
@@ -134,21 +222,17 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         enemyIntroPanel.SetActive(true);
         ActivateCurrentEnemy();
+        // Use the consolidated method for the minion text
+        battleManager.UpdateEnemyName(GetEncounterTitle(currentEnemy, null));
         StartCoroutine(StartEnemyBattleAfterDelay(3f));
     }
 
     private IEnumerator StartEnemyBattleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        ShowEnemyStatsPanel();
-
-        // --- ENEMY NAME DISPLAY LOGIC START ---
-        int fightNumber = CalculateCurrentFightNumber(CurrentLevel);
-        string nameDisplay = $"Enemy {fightNumber}/{MaxDungeonFights}";
-
-        battleManager.StartBattle(currentEnemy, nameDisplay);
-        // --- ENEMY NAME DISPLAY LOGIC END ---
-
+        enemyIntroPanel.SetActive(false); // Hide the intro panel
+        ShowMinionStatsPanel();          // Show the minion battle UI
+        battleManager.StartBattle(currentEnemy);
         StartQuizForBattle();
     }
 
@@ -156,14 +240,16 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         bossIntroPanel.SetActive(true);
         ActivateCurrentEnemy();
+        // Use the consolidated method for the boss title
+        battleManager.UpdateBossName(GetEncounterTitle(null, currentBoss));
         StartCoroutine(StartBossBattleAfterDelay(3f));
     }
 
     private IEnumerator StartBossBattleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        battleManager.battlePanel.SetActive(true);
-        // Boss uses the regular StartBattle(BossStats) overload
+        bossIntroPanel.SetActive(false);  // Hide the intro panel
+        ShowBossStatsPanel();             // Show the boss battle UI
         battleManager.StartBattle(currentBoss);
         StartQuizForBattle();
     }
@@ -183,7 +269,11 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         if (correct)
         {
-            // Handle damage application (same for enemy and boss)
+            if (battleManager != null)
+            {
+                battleManager.ResetEnemyAttackTimer();
+            }
+
             if (currentEnemy != null)
             {
                 currentEnemy.TakeDamage(player.CurrentAttack);
@@ -220,27 +310,23 @@ public class NoviceDungeonManager : MonoBehaviour
         }
 
         HideCurrentEnemy();
-        HideEnemyStatsPanel();
+        HideAllBattleUI(); // Use the consolidated hide method
         battleManager.battlePanel.SetActive(false);
 
-        // Calculate rewards for THIS single fight
         int fightCorrectAnswers = dungeonQuiz.GetCorrectAnswers();
         int fightWrongAnswers = dungeonQuiz.GetWrongAnswers();
-        int expGainedThisFight = (CurrentLevel == 13) ? 50 : 10; // Use CurrentLevel
+        int expGainedThisFight = (CurrentLevel == 13) ? 50 : 10;
 
-        // 1. Accumulate the rewards for the end of the run
         currentRunCorrectAnswers += fightCorrectAnswers;
         currentRunWrongAnswers += fightWrongAnswers;
         accumulatedExp += expGainedThisFight;
 
-        // 2. Decide if it was a boss fight
-        if (CurrentLevel == 13) // Use CurrentLevel
+        if (CurrentLevel == 13)
         {
             OnBossDefeated();
         }
         else
         {
-            // 3. For a regular win, show the VICTORY panel
             resultUI.ShowVictory(
                 fightCorrectAnswers,
                 fightWrongAnswers,
@@ -258,7 +344,6 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.EndQuiz();
         }
 
-        // Stop the battle loop immediately
         battleManager.EndBattle();
 
         HideCurrentEnemy();
@@ -266,23 +351,21 @@ public class NoviceDungeonManager : MonoBehaviour
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
 
-        // Player loses, ALL accumulated rewards are forfeited.
         accumulatedExp = 0;
 
-        // Show the DEDICATED DEFEAT panel
         resultUI.ShowDefeat(correctAnswers, wrongAnswers);
     }
 
     public void ContinueAfterVictory()
     {
-        CurrentLevel++; // Use the property setter
+        CurrentLevel++;
         NextLevel();
     }
 
     private void RestPhase()
     {
         enemyIntroPanel.SetActive(false);
-        HideEnemyStatsPanel();
+        HideAllBattleUI();
         Debug.Log("Rest phase triggered. Showing rest panel.");
         dungeonQuiz.EndQuiz();
         if (restPanel != null)
@@ -297,43 +380,35 @@ public class NoviceDungeonManager : MonoBehaviour
 
     public void ContinueFromRest()
     {
-        CurrentLevel++; // Use the property setter
+        CurrentLevel++;
         NextLevel();
     }
 
-    // --- Boss Defeat and Level-Up Check ---
     private void OnBossDefeated()
     {
         int oldLevel = player.CurrentLevel;
-
-        // 1. Grant the FINAL Accumulated Rewards (Level up occurs here)
         player.GainEXP(accumulatedExp);
 
-        // 2. Store results for later display (for the ShowBossVictoryResults method)
         didLevelUpOnBossDefeat = (player.CurrentLevel > oldLevel);
         bossWinExpGained = accumulatedExp;
         bossWinCorrect = currentRunCorrectAnswers;
         bossWinWrong = currentRunWrongAnswers;
         newPlayerLevel = player.CurrentLevel;
 
-        // 3. Reset accumulation variables now for a clean state
         accumulatedExp = 0;
         currentRunCorrectAnswers = 0;
         currentRunWrongAnswers = 0;
 
-        // 4. DECIDE: Show Level Up panel first, or go straight to victory results
         if (didLevelUpOnBossDefeat)
         {
             resultUI.ShowLevelUp(newPlayerLevel);
         }
         else
         {
-            // If no level up, show boss victory immediately
             ShowBossVictoryResults();
         }
     }
 
-    // --- Continuation point from the Level Up Notification panel ---
     public void ContinueFromLevelUpNotification()
     {
         ShowBossVictoryResults();
@@ -351,35 +426,85 @@ public class NoviceDungeonManager : MonoBehaviour
         );
     }
 
-    private void HideEnemyStatsPanel()
+    // --- EDITED: CONSOLIDATED UI VISIBILITY METHODS ---
+
+    private void HideAllBattleUI()
     {
+        // Minion UI
+        battleManager.enemyHPBar.gameObject.SetActive(false);
+        battleManager.enemyNameText.gameObject.SetActive(false);
+        battleManager.enemyTimerText.transform.parent.gameObject.SetActive(false);
+
+        // Boss UI
+        battleManager.bossHPBar.gameObject.SetActive(false);
+        battleManager.bossNameText.gameObject.SetActive(false);
+        battleManager.bossTimerText.transform.parent.gameObject.SetActive(false);
+    }
+
+    private void ShowMinionStatsPanel()
+    {
+        // Minion UI: Show
+        battleManager.enemyHPBar.gameObject.SetActive(true);
+        battleManager.enemyNameText.gameObject.SetActive(true);
+        battleManager.enemyTimerText.transform.parent.gameObject.SetActive(true);
+
+        // Boss UI: Hide
+        battleManager.bossHPBar.gameObject.SetActive(false);
+        battleManager.bossNameText.gameObject.SetActive(false);
+        battleManager.bossTimerText.transform.parent.gameObject.SetActive(false);
+    }
+
+    private void ShowBossStatsPanel()
+    {
+        // Boss UI: Show
+        battleManager.bossHPBar.gameObject.SetActive(true);
+        battleManager.bossNameText.gameObject.SetActive(true);
+        battleManager.bossTimerText.transform.parent.gameObject.SetActive(true);
+
+        // Minion UI: Hide
         battleManager.enemyHPBar.gameObject.SetActive(false);
         battleManager.enemyNameText.gameObject.SetActive(false);
         battleManager.enemyTimerText.transform.parent.gameObject.SetActive(false);
     }
 
-    private void ShowEnemyStatsPanel()
+    private Subject LoadSubjectFromPlayerPrefs()
     {
-        battleManager.enemyHPBar.gameObject.SetActive(true);
-        battleManager.enemyNameText.gameObject.SetActive(true);
-        battleManager.enemyTimerText.transform.parent.gameObject.SetActive(true);
+        string subjectName = PlayerPrefs.GetString("SelectedSubject", "ComputerProgramming1");
+
+        if (Enum.TryParse(subjectName, true, out Subject subject))
+        {
+            return subject;
+        }
+
+        Debug.LogError($"Invalid Subject name '{subjectName}' found in PlayerPrefs. Defaulting to ComputerProgramming1.");
+        return Subject.ComputerProgramming1;
     }
 
-    // --- HELPER METHOD: Calculates the current non-boss fight number ---
-    private int CalculateCurrentFightNumber(int level)
+    private SchoolTerm LoadSchoolTermFromPlayerPrefs()
     {
-        // Levels 1-5 are fights 1-5
-        if (level >= 1 && level <= 5)
+        int quarterNumber = PlayerPrefs.GetInt("SelectedQuarter", 1);
+        int termIndex = quarterNumber - 1;
+
+        if (Enum.IsDefined(typeof(SchoolTerm), termIndex))
         {
-            return level;
+            return (SchoolTerm)termIndex;
         }
-        // Levels 7-11 are fights 6-10
-        else if (level >= 7 && level <= 11)
+
+        Debug.LogError($"Invalid Quarter number {quarterNumber} found in PlayerPrefs. Defaulting to Prelim.");
+        return SchoolTerm.Prelim;
+    }
+
+    private Difficulty LoadDifficultyFromPlayerPrefs()
+    {
+        int portalNumber = PlayerPrefs.GetInt("SelectedPortal", 1);
+        int difficultyIndex = portalNumber - 1;
+
+        if (Enum.IsDefined(typeof(Difficulty), difficultyIndex))
         {
-            // (Level 7 - 6) + 5 = 1 + 5 = 6 (Fight 6)
-            return 5 + (level - 6);
+            return (Difficulty)difficultyIndex;
         }
-        // Boss/Rest phases have no fight number
-        return 0;
+
+        Debug.LogError($"Invalid Portal number {portalNumber} found in PlayerPrefs. Defaulting to Novice.");
+        return Difficulty.Novice;
     }
 }

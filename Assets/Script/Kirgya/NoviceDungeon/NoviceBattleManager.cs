@@ -10,23 +10,20 @@ public class NoviceBattleManager : MonoBehaviour
     public PlayerStats player;
     public GameObject battlePanel;
 
-    // Keeping this public reference just in case you use a static enemy image for the UI
     public Image enemyDisplayImage;
     public Image bossImage;
 
     [Header("UI References")]
     public Slider enemyHPBar;
-    public TMP_Text enemyNameText;
+    public TMP_Text enemyNameText; // This displays the combined "Enemy 1/10: Goblin" text
     public TMP_Text enemyTimerText;
     public Slider bossHPBar;
     public TMP_Text bossNameText;
     public TMP_Text bossTimerText;
 
-    // We'll use these to hold the current enemy/boss
     private EnemyStats currentEnemy;
     private BossStats currentBoss;
 
-    // References to the AR object's visual component for flashing
     private SpriteRenderer currentEnemyRenderer;
     private SpriteRenderer currentBossRenderer;
 
@@ -37,10 +34,8 @@ public class NoviceBattleManager : MonoBehaviour
     {
         if (!isBattleActive) return;
 
-        // Use Time.deltaTime which respects Time.timeScale (useful for Pause)
         attackTimer -= Time.deltaTime;
 
-        // Correctly reference the timer text based on the active enemy type
         if (currentEnemy != null)
         {
             enemyTimerText.text = Mathf.CeilToInt(attackTimer).ToString();
@@ -65,8 +60,51 @@ public class NoviceBattleManager : MonoBehaviour
         }
     }
 
-    // --- NEW OVERLOAD: The primary method for starting a regular enemy battle ---
-    public void StartBattle(EnemyStats newEnemy, string enemyNameDisplay)
+    // --- NEW METHOD TO RESET THE TIMER (CALLED ON CORRECT ANSWER) ---
+    public void ResetEnemyAttackTimer()
+    {
+        if (!isBattleActive) return;
+
+        if (currentEnemy != null)
+        {
+            attackTimer = currentEnemy.attackInterval;
+            enemyTimerText.text = Mathf.CeilToInt(attackTimer).ToString();
+        }
+        else if (currentBoss != null)
+        {
+            attackTimer = currentBoss.attackInterval;
+            bossTimerText.text = Mathf.CeilToInt(attackTimer).ToString();
+        }
+    }
+    // ----------------------------------------------------------------
+
+    // This method is called by the Dungeon Manager to set the single, combined name/counter text.
+    public void UpdateEnemyName(string displayText)
+    {
+        if (enemyNameText != null)
+        {
+            if (displayText != "Rest Phase")
+            {
+                enemyNameText.text = displayText;
+                // Note: Visibility is now primarily handled by DungeonManager's Show/Hide panels.
+            }
+        }
+    }
+
+    public void UpdateBossName(string displayText)
+    {
+        if (bossNameText != null)
+        {
+            if (displayText != "Rest Phase")
+            {
+                bossNameText.text = displayText;
+                // Note: Visibility is now primarily handled by DungeonManager's Show/Hide panels.
+            }
+        }
+    }
+
+    // Updated StartBattle method for enemies
+    public void StartBattle(EnemyStats newEnemy)
     {
         currentEnemy = newEnemy;
         currentBoss = null;
@@ -83,36 +121,20 @@ public class NoviceBattleManager : MonoBehaviour
             enemyDisplayImage.gameObject.SetActive(false);
         }
 
-        // Hide Boss UI just in case
+        // Hide boss UI elements (Redundant if DungeonManager handles it, but safe)
         bossHPBar.gameObject.SetActive(false);
         bossNameText.gameObject.SetActive(false);
         bossTimerText.transform.parent.gameObject.SetActive(false);
 
         // Assign UI references to the enemy script
         currentEnemy.hpSlider = enemyHPBar;
-        currentEnemy.nameText = enemyNameText;
         currentEnemy.timerText = enemyTimerText;
-
-        // --- APPLY THE NEW NAME DISPLAY FORMAT ---
-        if (enemyNameText != null)
-        {
-            enemyNameText.text = enemyNameDisplay;
-        }
-        // ----------------------------------------
 
         attackTimer = currentEnemy.attackInterval;
         isBattleActive = true;
         battlePanel.SetActive(true);
         currentEnemy.UpdateUI();
     }
-
-    // Fallback/Deprecated StartBattle - It now calls the new overload.
-    public void StartBattle(EnemyStats newEnemy)
-    {
-        // Uses the enemy's default name as a fallback
-        StartBattle(newEnemy, newEnemy.enemyName);
-    }
-
 
     // This method is for the boss
     public void StartBattle(BossStats newBoss)
@@ -122,23 +144,19 @@ public class NoviceBattleManager : MonoBehaviour
 
         currentBossRenderer = newBoss.GetComponentInChildren<SpriteRenderer>();
 
-        // Hide regular enemy UI (and any static image)
         if (enemyDisplayImage != null)
         {
             enemyDisplayImage.gameObject.SetActive(false);
         }
+        // Hide minion UI elements (Redundant if DungeonManager handles it, but safe)
         enemyHPBar.gameObject.SetActive(false);
         enemyNameText.gameObject.SetActive(false);
         enemyTimerText.transform.parent.gameObject.SetActive(false);
 
-        // Show boss UI
-        bossHPBar.gameObject.SetActive(true);
-        bossNameText.gameObject.SetActive(true);
-        bossTimerText.transform.parent.gameObject.SetActive(true);
+        // UI visibility is primarily handled by DungeonManager's ShowBossStatsPanel() before this is called,
+        // so we can rely on that setup.
 
-        // Assign the UI elements to the boss script
         currentBoss.bossHpBar = bossHPBar;
-        currentBoss.bossNameText = bossNameText;
         currentBoss.bossTimerText = bossTimerText;
 
         attackTimer = currentBoss.attackInterval;
@@ -150,36 +168,30 @@ public class NoviceBattleManager : MonoBehaviour
     public void EndBattle()
     {
         isBattleActive = false;
-        // Reset renderers when battle ends
         currentEnemyRenderer = null;
         currentBossRenderer = null;
     }
 
     public void FlashEnemyRed()
     {
-        // Use the AR object's Sprite Renderer
         if (currentEnemyRenderer != null)
         {
             StartCoroutine(FlashColor(currentEnemyRenderer, Color.red, 0.2f));
         }
     }
 
-    // New method to flash the boss red
     public void FlashBossRed()
     {
-        // Prioritize flashing the AR object
         if (currentBossRenderer != null)
         {
             StartCoroutine(FlashColor(currentBossRenderer, Color.red, 0.2f));
         }
-        // Fallback to flashing the UI image if it exists and AR flash fails
         else if (bossImage != null)
         {
             StartCoroutine(FlashColor(bossImage, Color.red, 0.2f));
         }
     }
 
-    // Overload for SpriteRenderer (used for AR enemy/boss)
     private IEnumerator FlashColor(SpriteRenderer renderer, Color color, float duration)
     {
         Color originalColor = renderer.color;
@@ -188,7 +200,6 @@ public class NoviceBattleManager : MonoBehaviour
         renderer.color = originalColor;
     }
 
-    // Overload for UI Image (for Boss/UI elements)
     private IEnumerator FlashColor(Image image, Color color, float duration)
     {
         Color originalColor = image.color;

@@ -13,7 +13,7 @@ public class EnemyStats : MonoBehaviour
     public int currentHP;
 
     public Slider hpSlider;
-    public TMP_Text nameText;
+    public TMP_Text nameText; // Still needs to be a public field for BattleManager assignment
     public TMP_Text timerText;
 
     void Awake()
@@ -33,15 +33,12 @@ public class EnemyStats : MonoBehaviour
 
     public void UpdateUI()
     {
+        // Only updates the HP slider. The name text is set by DungeonManager once.
         if (hpSlider != null)
         {
             hpSlider.maxValue = maxHP;
             hpSlider.value = currentHP;
         }
-
-        if (nameText != null)
-        {
-            nameText.text = enemyName;
-        }
+        // Name text update logic removed to allow DungeonManager to display "Enemy 1/10: Goblin"
     }
 }

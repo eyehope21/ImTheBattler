@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Enemy
+  enemyName: Cave Bat
   maxHP: 50
   attackdamage: 10
   attackInterval: 10

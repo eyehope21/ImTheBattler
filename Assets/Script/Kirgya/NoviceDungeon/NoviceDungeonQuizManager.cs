@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
+using System.Linq; // Required for LINQ filtering
 
 public class NoviceDungeonQuizManager : MonoBehaviour
 {
@@ -13,9 +13,15 @@ public class NoviceDungeonQuizManager : MonoBehaviour
     public Button[] AnswerButtons;
     public Image FeedbackFlash;
     public NoviceBattleManager battleManager;
-    public QuestionData[] Questions;
 
-    private List<QuestionData> questionPool;
+    // --- FIELDS for Filtering Criteria ---
+    private Subject selectedSubject;
+    private SchoolTerm selectedTerm;
+    private Difficulty selectedDifficulty;
+    // ------------------------------------
+
+    private List<QuestionData> masterQuestionPool;
+    private List<QuestionData> activeQuestionPool;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
     private int wrongAnswers = 0;
@@ -23,11 +29,37 @@ public class NoviceDungeonQuizManager : MonoBehaviour
 
     public event Action<bool> OnAnswerEvaluated;
 
+    private void Awake()
+    {
+        // Load ALL QuestionData ScriptableObjects from any Resources folder
+        masterQuestionPool = Resources.LoadAll<QuestionData>("").ToList();
+
+        if (masterQuestionPool.Count == 0)
+        {
+            Debug.LogError("No QuestionData ScriptableObjects found in Resources folders! Quiz will not function.");
+        }
+    }
+
     private void Start()
     {
         if (QuizPanel != null)
             QuizPanel.SetActive(false);
     }
+
+    // --- FIX: Add the SetDungeonFilters method ---
+    // This public method receives the player's choices from the Dungeon Manager
+    public void SetDungeonFilters(Subject subject, SchoolTerm term, Difficulty difficulty)
+    {
+        selectedSubject = subject;
+        selectedTerm = term;
+        selectedDifficulty = difficulty;
+
+        Debug.Log($"Dungeon Filters Received: Subject={selectedSubject}, Term={selectedTerm}, Difficulty={selectedDifficulty}");
+
+        // Populate the pool immediately after setting filters
+        PopulateActiveQuestionPool();
+    }
+    // ---------------------------------------------
 
     public void StartQuiz()
     {
@@ -40,7 +72,10 @@ public class NoviceDungeonQuizManager : MonoBehaviour
         }
         correctAnswers = 0;
         wrongAnswers = 0;
-        ResetQuestionPool();
+
+        currentQuestionIndex = 0;
+        ShuffleActivePool();
+
         LoadQuestion();
     }
 
@@ -55,29 +90,58 @@ public class NoviceDungeonQuizManager : MonoBehaviour
     public int GetCorrectAnswers() => correctAnswers;
     public int GetWrongAnswers() => wrongAnswers;
 
-    private void ResetQuestionPool()
+    private void ShuffleActivePool()
     {
-        questionPool = new List<QuestionData>(Questions);
-        for (int i = 0; i < questionPool.Count; i++)
+        if (activeQuestionPool == null) return;
+        for (int i = 0; i < activeQuestionPool.Count; i++)
         {
-            int rnd = Random.Range(i, questionPool.Count);
-            (questionPool[i], questionPool[rnd]) = (questionPool[rnd], questionPool[i]);
+            int rnd = UnityEngine.Random.Range(i, activeQuestionPool.Count);
+            (activeQuestionPool[i], activeQuestionPool[rnd]) = (activeQuestionPool[rnd], activeQuestionPool[i]);
         }
-        currentQuestionIndex = 0;
+    }
+
+    private void PopulateActiveQuestionPool()
+    {
+        if (masterQuestionPool == null || masterQuestionPool.Count == 0)
+        {
+            activeQuestionPool = new List<QuestionData>();
+            return;
+        }
+
+        activeQuestionPool = masterQuestionPool
+            .Where(q =>
+                q.difficulty == selectedDifficulty &&
+                q.subject == selectedSubject &&
+                q.schoolTerm == selectedTerm
+            )
+            .ToList();
+
+        if (activeQuestionPool.Count == 0)
+        {
+            Debug.LogWarning($"No questions found for the selected filters: {selectedSubject}, {selectedTerm}, {selectedDifficulty}.");
+        }
+
+        ShuffleActivePool();
     }
 
     private void LoadQuestion()
     {
-        if (!isQuizActive)
+        if (!isQuizActive || activeQuestionPool == null || activeQuestionPool.Count == 0)
         {
+            Debug.LogError("Cannot load question: Quiz is inactive or question pool is empty.");
             return;
         }
-        if (currentQuestionIndex >= questionPool.Count)
-            ResetQuestionPool();
 
-        QuestionData q = questionPool[currentQuestionIndex];
+        if (currentQuestionIndex >= activeQuestionPool.Count)
+        {
+            ShuffleActivePool();
+            currentQuestionIndex = 0;
+        }
+
+        QuestionData q = activeQuestionPool[currentQuestionIndex];
         QuestionText.text = q.questionText;
 
+        // ... (Answer shuffling and button logic remains the same) ...
         List<int> indices = new List<int>();
         for (int i = 0; i < q.answers.Length; i++) indices.Add(i);
         for (int i = 0; i < indices.Count; i++)
@@ -114,16 +178,13 @@ public class NoviceDungeonQuizManager : MonoBehaviour
 
     private IEnumerator ShowFeedbackAndContinue(bool isCorrect)
     {
-        // Immediately invoke the event to tell DungeonManager the result
         OnAnswerEvaluated?.Invoke(isCorrect);
 
-        // Update the scores
         if (isCorrect)
             correctAnswers++;
         else
             wrongAnswers++;
 
-        // Only show the visual feedback on the quiz panel for INCORRECT answers
         if (!isCorrect)
         {
             if (FeedbackFlash != null)
@@ -137,7 +198,6 @@ public class NoviceDungeonQuizManager : MonoBehaviour
             }
         }
 
-        // Wait for a short duration before moving to the next question
         yield return new WaitForSeconds(1f);
 
         if (!isQuizActive)
