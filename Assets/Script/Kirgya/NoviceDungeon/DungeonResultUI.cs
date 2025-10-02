@@ -122,7 +122,7 @@ public class DungeonResultUI : MonoBehaviour
         string result = $"LEVEL CLEARED!\n" +
             $"Round Score: {correct} Correct / {wrong} Wrong\n" +
             $"\nTotal Run Score: {runTotalCorrect} Correct | {runTotalWrong} Wrong\n" +
-            $"\nContinue to the next level?";
+            $"\nContinue exploring the dungeon?";
 
         if (victoryResultText != null) victoryResultText.text = result;
     }
@@ -196,14 +196,11 @@ public class DungeonResultUI : MonoBehaviour
     private void CloseConfirmationPanel()
     {
         if (confirmationPanel != null) confirmationPanel.SetActive(false);
-        if (victoryPanel != null) victoryPanel.SetActive(true); // Return to the victory screen
+        if (victoryPanel != null) victoryPanel.SetActive(true);
     }
 
     private void ConfirmExitAndForfeit()
     {
-        // When the player confirms, the game exits.
-        // The *forfeiture* of rewards is handled implicitly because the player is leaving
-        // before the rewards were applied, or it is assumed the Exit() method handles cleanup.
         Exit();
     }
 }

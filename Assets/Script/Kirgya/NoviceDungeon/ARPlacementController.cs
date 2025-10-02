@@ -14,7 +14,7 @@ public class ARPlacementController : MonoBehaviour
     public NoviceDungeonManager dungeonManager;
 
     // The distance (in meters) in front of the camera to place the enemy root
-    public float placementDistance = 1.5f;
+    public float placementDistance = .5f;
 
     private bool isPlaced = false;
 
