@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Minion Prefabs by Term")]
-    [Tooltip("Prefab for Prelim (e.g., Bat Prefab with Bat Animator)")]
+    [Tooltip("Prefab for Prelim")]
     public GameObject prelimMinionPrefab;
-    [Tooltip("Prefab for Midterms (e.g., Android Prefab with Android Animator)")]
+    [Tooltip("Prefab for Midterms")]
     public GameObject midtermMinionPrefab;
     [Tooltip("Prefab for Prefinals")]
     public GameObject prefinalsMinionPrefab;
+    [Tooltip("Prefab for Finals")]
+    public GameObject finalsMinionPrefab;
     private Queue<GameObject> enemyPrefabQueue = new Queue<GameObject>();
 
     private Transform arDungeonRootTransform;
@@ -55,6 +57,8 @@ public class EnemySpawner : MonoBehaviour
             SchoolTerm.Prelim => prelimMinionPrefab,
             SchoolTerm.Midterms => midtermMinionPrefab,
             SchoolTerm.Prefinals => prefinalsMinionPrefab,
+            SchoolTerm.Finals => finalsMinionPrefab,
+            _ => null
         };
     }
 

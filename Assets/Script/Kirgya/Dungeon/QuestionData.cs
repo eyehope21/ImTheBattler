@@ -11,6 +11,7 @@ public class QuestionData : ScriptableObject
     public Subject subject;
     public SchoolTerm schoolTerm;
     public Difficulty difficulty;
+    public QuestionType questionType;
 
     [TextArea(2, 5)]
     public string questionText; // USED by Novice Quiz

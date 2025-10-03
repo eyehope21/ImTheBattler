@@ -12,9 +12,8 @@ public class BossSpawner : MonoBehaviour
     public GameObject midtermBossPrefab;
     [Tooltip("Assign the boss prefab for the Prefinals term.")]
     public GameObject prefinalsBossPrefab;
-    // -----------------------------
-
-    // Cached reference to the AR Dungeon Root Transform (the Grandparent)
+    [Tooltip("Assign the boss prefab for the Finals term.")]
+    public GameObject finalsBossPrefab;
     private Transform arDungeonRootTransform;
 
     public SchoolTerm selectedTerm { get; private set; }
@@ -33,16 +32,14 @@ public class BossSpawner : MonoBehaviour
         }
     }
 
-    // --- FIX: Implement the required InitializeBoss method ---
     public void InitializeBoss()
     {
-        // This method confirms the term is set and ensures the right prefab is assigned
-        // before the boss is needed later in SpawnBoss().
         GameObject prefabCheck = selectedTerm switch
         {
             SchoolTerm.Prelim => prelimBossPrefab,
             SchoolTerm.Midterms => midtermBossPrefab,
             SchoolTerm.Prefinals => prefinalsBossPrefab,
+            SchoolTerm.Finals => finalsBossPrefab,
             _ => null
         };
 
@@ -51,11 +48,9 @@ public class BossSpawner : MonoBehaviour
             Debug.LogError($"BOSS PREFAB MISSING for {selectedTerm}! Assign it in the Inspector.");
         }
     }
-    // --------------------------------------------------------
 
     public BossStats SpawnBoss()
     {
-        // 1. Select the correct prefab based on the term
         GameObject bossPrefabToInstantiate = null;
 
         switch (selectedTerm)
@@ -69,6 +64,9 @@ public class BossSpawner : MonoBehaviour
             case SchoolTerm.Prefinals:
                 bossPrefabToInstantiate = prefinalsBossPrefab;
                 break;
+            case SchoolTerm.Finals:
+                bossPrefabToInstantiate = finalsBossPrefab;
+                break;
             default:
                 Debug.LogWarning("No SchoolTerm selected. Defaulting to Prelim boss.");
                 bossPrefabToInstantiate = prelimBossPrefab; // Fallback
@@ -78,7 +76,7 @@ public class BossSpawner : MonoBehaviour
         if (bossPrefabToInstantiate == null)
         {
             Debug.LogError($"Boss Prefab is missing for term: {selectedTerm}! Cannot spawn boss.");
-            return null; // Stop execution if prefab is missing
+            return null;
         }
 
         // 2. Instantiate the boss prefab
