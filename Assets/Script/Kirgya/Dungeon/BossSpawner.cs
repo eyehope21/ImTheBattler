@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossSpawner : MonoBehaviour
 {
-    // --- NEW: BOSS PREFAB FIELDS ---
+    // --- BOSS PREFAB FIELDS ---
     [Header("Boss Term Prefabs")]
     [Tooltip("Assign the boss prefab for the Prelim term.")]
     public GameObject prelimBossPrefab;
@@ -12,17 +12,19 @@ public class BossSpawner : MonoBehaviour
     public GameObject midtermBossPrefab;
     [Tooltip("Assign the boss prefab for the Prefinals term.")]
     public GameObject prefinalsBossPrefab;
-    // -----------------------------
+    // --------------------------
 
-    // Cached reference to the AR Dungeon Root Transform (the Grandparent)
     private Transform arDungeonRootTransform;
 
     public SchoolTerm selectedTerm { get; private set; }
+    // REMOVED: public Difficulty selectedDifficulty { get; private set; }
 
     public void SetTermFilter(SchoolTerm term)
     {
         selectedTerm = term;
     }
+
+    // REMOVED: public void SetDifficultyFilter(Difficulty difficulty) {}
 
     void Awake()
     {
@@ -33,11 +35,8 @@ public class BossSpawner : MonoBehaviour
         }
     }
 
-    // --- FIX: Implement the required InitializeBoss method ---
     public void InitializeBoss()
     {
-        // This method confirms the term is set and ensures the right prefab is assigned
-        // before the boss is needed later in SpawnBoss().
         GameObject prefabCheck = selectedTerm switch
         {
             SchoolTerm.Prelim => prelimBossPrefab,
@@ -51,52 +50,39 @@ public class BossSpawner : MonoBehaviour
             Debug.LogError($"BOSS PREFAB MISSING for {selectedTerm}! Assign it in the Inspector.");
         }
     }
-    // --------------------------------------------------------
 
     public BossStats SpawnBoss()
     {
         // 1. Select the correct prefab based on the term
-        GameObject bossPrefabToInstantiate = null;
-
-        switch (selectedTerm)
+        GameObject bossPrefabToInstantiate = selectedTerm switch
         {
-            case SchoolTerm.Prelim:
-                bossPrefabToInstantiate = prelimBossPrefab;
-                break;
-            case SchoolTerm.Midterms:
-                bossPrefabToInstantiate = midtermBossPrefab;
-                break;
-            case SchoolTerm.Prefinals:
-                bossPrefabToInstantiate = prefinalsBossPrefab;
-                break;
-            default:
-                Debug.LogWarning("No SchoolTerm selected. Defaulting to Prelim boss.");
-                bossPrefabToInstantiate = prelimBossPrefab; // Fallback
-                break;
-        }
+            SchoolTerm.Prelim => prelimBossPrefab,
+            SchoolTerm.Midterms => midtermBossPrefab,
+            SchoolTerm.Prefinals => prefinalsBossPrefab,
+            _ => prelimBossPrefab // Fallback
+        };
 
         if (bossPrefabToInstantiate == null)
         {
             Debug.LogError($"Boss Prefab is missing for term: {selectedTerm}! Cannot spawn boss.");
-            return null; // Stop execution if prefab is missing
+            return null;
         }
 
         // 2. Instantiate the boss prefab
         GameObject obj = Instantiate(bossPrefabToInstantiate, arDungeonRootTransform);
 
-        // Ensure the local position is zero so it spawns at the root's anchor point
         obj.transform.localPosition = Vector3.zero;
-
-        // Ensure the boss is spawned inactive
         obj.SetActive(false);
 
-        // Get the BossStats component (which should be on the root object)
+        // Get the BossStats component
         BossStats bossStats = obj.GetComponent<BossStats>();
 
         if (bossStats == null)
         {
             Debug.LogError($"Spawned boss '{obj.name}' is missing the BossStats component!");
         }
+
+        // REMOVED: bossStats.InitializeStats(selectedDifficulty);
 
         return bossStats;
     }

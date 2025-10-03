@@ -6154,15 +6154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64562f14a567d374bba49457e80de0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quizMasterPanel: {fileID: 0}
-  trueFalsePanel: {fileID: 0}
-  identificationPanel: {fileID: 0}
+  quizMasterPanel: {fileID: 1160659561}
+  trueFalsePanel: {fileID: 1430094776}
+  identificationPanel: {fileID: 254817930}
   QuestionText: {fileID: 0}
   FeedbackFlash: {fileID: 0}
-  trueButton: {fileID: 0}
-  falseButton: {fileID: 0}
-  identificationInput: {fileID: 0}
-  identificationSubmitButton: {fileID: 0}
+  trueButton: {fileID: 1008572976}
+  falseButton: {fileID: 795904830}
+  identificationInput: {fileID: 1160333493}
+  identificationSubmitButton: {fileID: 354800177}
   battleManager: {fileID: 0}
 --- !u!1 &1179605283
 GameObject:

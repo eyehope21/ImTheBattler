@@ -11,16 +11,20 @@ public class EnemySpawner : MonoBehaviour
     public GameObject midtermMinionPrefab;
     [Tooltip("Prefab for Prefinals")]
     public GameObject prefinalsMinionPrefab;
+
     private Queue<GameObject> enemyPrefabQueue = new Queue<GameObject>();
 
     private Transform arDungeonRootTransform;
 
     public SchoolTerm selectedTerm { get; private set; }
+    // REMOVED: public Difficulty selectedDifficulty { get; private set; }
 
     public void SetTermFilter(SchoolTerm term)
     {
         selectedTerm = term;
     }
+
+    // REMOVED: public void SetDifficultyFilter(Difficulty difficulty) {}
 
     void Awake()
     {
@@ -42,7 +46,8 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < 10; i++)
+        // Initializes a queue of 30 enemy prefabs
+        for (int i = 0; i < 30; i++)
         {
             enemyPrefabQueue.Enqueue(prefabToUse);
         }
@@ -55,6 +60,7 @@ public class EnemySpawner : MonoBehaviour
             SchoolTerm.Prelim => prelimMinionPrefab,
             SchoolTerm.Midterms => midtermMinionPrefab,
             SchoolTerm.Prefinals => prefinalsMinionPrefab,
+            _ => null
         };
     }
 
@@ -85,6 +91,9 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("Enemy prefab is missing EnemyStats component!");
             return null;
         }
+
+        // REMOVED: enemyStats.InitializeStats(selectedDifficulty);
+
         return enemyStats;
     }
 }

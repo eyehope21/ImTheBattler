@@ -90,19 +90,41 @@ public class NoviceDungeonQuizManager : MonoBehaviour
         if (masterQuestionPool == null || masterQuestionPool.Count == 0)
         {
             activeQuestionPool = new List<QuestionData>();
+            Debug.LogError("Master Question Pool is empty! Are QuestionData assets in a Resources folder?");
             return;
         }
+
+        // 1. Attempt to filter by all three criteria (Difficulty, Subject, Term)
         activeQuestionPool = masterQuestionPool
-          .Where(q =>
-            q.difficulty == selectedDifficulty &&
-            q.subject == selectedSubject &&
-            q.schoolTerm == selectedTerm
-          )
-          .ToList();
+            .Where(q =>
+                q.difficulty == selectedDifficulty &&
+                q.subject == selectedSubject &&
+                q.schoolTerm == selectedTerm
+            )
+            .ToList();
+
         if (activeQuestionPool.Count == 0)
         {
-            Debug.LogWarning($"No questions found for the selected filters: {selectedSubject}, {selectedTerm}, {selectedDifficulty}.");
+            Debug.LogWarning($"No questions found for the strict filters: {selectedSubject}, {selectedTerm}, {selectedDifficulty}.");
+
+            // --- FALLBACK FIX: Try filtering by only Subject and Term ---
+            activeQuestionPool = masterQuestionPool
+                .Where(q =>
+                    q.subject == selectedSubject &&
+                    q.schoolTerm == selectedTerm
+                )
+                .ToList();
+
+            if (activeQuestionPool.Count == 0)
+            {
+                Debug.LogError($"CRITICAL: Still no questions found after fallback. Check your QuestionData properties.");
+            }
+            else
+            {
+                Debug.LogWarning("Fallback activated: Loaded questions by Subject and Term only. Check Difficulty enum consistency.");
+            }
         }
+
         ShuffleActivePool();
     }
 
