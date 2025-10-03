@@ -13,10 +13,10 @@ public class NoviceDungeonQuizManager : MonoBehaviour
     public Button[] AnswerButtons;
     public Image FeedbackFlash;
     public NoviceBattleManager battleManager;
-    private Subject selectedSubject;
+    private Subject selectedSubject;
     private SchoolTerm selectedTerm;
     private Difficulty selectedDifficulty;
-    private List<QuestionData> masterQuestionPool;
+    private List<QuestionData> masterQuestionPool;
     private List<QuestionData> activeQuestionPool;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
@@ -26,7 +26,8 @@ public class NoviceDungeonQuizManager : MonoBehaviour
 
     private void Awake()
     {
-        masterQuestionPool = Resources.LoadAll<QuestionData>("").ToList();
+        // Load all QuestionData assets from any Resources folder
+        masterQuestionPool = Resources.LoadAll<QuestionData>("").ToList();
         if (masterQuestionPool.Count == 0)
         {
             Debug.LogError("No QuestionData ScriptableObjects found in Resources folders! Quiz will not function.");
@@ -39,16 +40,16 @@ public class NoviceDungeonQuizManager : MonoBehaviour
             QuizPanel.SetActive(false);
     }
 
-    public void SetDungeonFilters(Subject subject, SchoolTerm term, Difficulty difficulty)
+    public void SetDungeonFilters(Subject subject, SchoolTerm term, Difficulty difficulty)
     {
         selectedSubject = subject;
         selectedTerm = term;
         selectedDifficulty = difficulty;
         Debug.Log($"Dungeon Filters Received: Subject={selectedSubject}, Term={selectedTerm}, Difficulty={selectedDifficulty}");
-        PopulateActiveQuestionPool();
+        PopulateActiveQuestionPool();
     }
 
-    public void StartQuiz()
+    public void StartQuiz()
     {
         isQuizActive = true;
         if (QuizPanel != null)
@@ -78,6 +79,7 @@ public class NoviceDungeonQuizManager : MonoBehaviour
     private void ShuffleActivePool()
     {
         if (activeQuestionPool == null) return;
+        // Fisher-Yates shuffle
         for (int i = 0; i < activeQuestionPool.Count; i++)
         {
             int rnd = UnityEngine.Random.Range(i, activeQuestionPool.Count);
@@ -96,16 +98,16 @@ public class NoviceDungeonQuizManager : MonoBehaviour
 
         // 1. Attempt to filter by all three criteria (Difficulty, Subject, Term)
         activeQuestionPool = masterQuestionPool
-            .Where(q =>
-                q.difficulty == selectedDifficulty &&
-                q.subject == selectedSubject &&
-                q.schoolTerm == selectedTerm
-            )
-            .ToList();
+          .Where(q =>
+            q.difficulty == selectedDifficulty &&
+            q.subject == selectedSubject &&
+            q.schoolTerm == selectedTerm
+          )
+          .ToList();
 
         if (activeQuestionPool.Count == 0)
         {
-            Debug.LogWarning($"No questions found for the strict filters: {selectedSubject}, {selectedTerm}, {selectedDifficulty}.");
+            Debug.LogWarning($"No questions found for the strict filters: {selectedSubject}, {selectedTerm}, {selectedDifficulty}. Attempting fallback filter.");
 
             // --- FALLBACK FIX: Try filtering by only Subject and Term ---
             activeQuestionPool = masterQuestionPool
@@ -121,7 +123,7 @@ public class NoviceDungeonQuizManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Fallback activated: Loaded questions by Subject and Term only. Check Difficulty enum consistency.");
+                Debug.LogWarning($"Fallback activated: Loaded {activeQuestionPool.Count} questions by Subject and Term only (Difficulty filter ignored).");
             }
         }
 
@@ -130,33 +132,105 @@ public class NoviceDungeonQuizManager : MonoBehaviour
 
     private void LoadQuestion()
     {
-        if (!isQuizActive || activeQuestionPool == null || activeQuestionPool.Count == 0)
+        // Check 1: Quiz state and pool status
+        if (!isQuizActive)
         {
-            Debug.LogError("Cannot load question: Quiz is inactive or question pool is empty.");
+            Debug.LogWarning("LoadQuestion called but quiz is inactive. Aborting.");
+            return;
+        }
+        if (activeQuestionPool == null || activeQuestionPool.Count == 0)
+        {
+            Debug.LogError("Quiz pool is empty! Cannot load question.");
+            EndQuiz();
             return;
         }
 
-        if (currentQuestionIndex >= activeQuestionPool.Count)
+        // --- FIX: ITERATIVE SEARCH FOR A VALID QUESTION ---
+        QuestionData q = null;
+        int initialQuestionCount = activeQuestionPool.Count * 2; // Allow checking twice the pool size, just in case
+
+        for (int i = 0; i < initialQuestionCount; i++)
         {
-            ShuffleActivePool();
-            currentQuestionIndex = 0;
+            // Handle wrapping the index or reshuffling if we hit the end
+            if (currentQuestionIndex >= activeQuestionPool.Count)
+            {
+                ShuffleActivePool();
+                currentQuestionIndex = 0;
+                if (activeQuestionPool.Count == 0) break; // If pool somehow became empty after shuffle
+            }
+
+            QuestionData currentQ = activeQuestionPool[currentQuestionIndex];
+
+            // Validation Check (The one generating your error)
+            // Use Trim() to catch questions that contain only whitespace characters
+            bool textInvalid = string.IsNullOrEmpty(currentQ.questionText) || string.IsNullOrWhiteSpace(currentQ.questionText);
+            bool answersInvalid = currentQ.answers == null || currentQ.answers.Length == 0;
+
+            if (textInvalid || answersInvalid)
+            {
+                // --- DETAILED LOGGING FIX ---
+                string answersLength = (currentQ.answers == null) ? "NULL" : currentQ.answers.Length.ToString();
+                Debug.LogError($"Question '{currentQ.name}' failed validation! " +
+                               $"Is Text Empty: {textInvalid}. " +
+                               $"Answers Array Length: {answersLength}. Skipping.");
+                // ----------------------------
+
+                currentQuestionIndex++; // Move to the next question
+                continue; // Skip this bad question and check the next one in the loop
+            }
+
+            // Valid question found! Assign it and break the search loop.
+            q = currentQ;
+            break;
         }
-        QuestionData q = activeQuestionPool[currentQuestionIndex];
+        // --- END FIX ---
+
+
+        // Check 2: Did the search fail?
+        if (q == null)
+        {
+            Debug.LogError("Exhausted all questions in the pool. None were valid. Ending quiz.");
+            EndQuiz();
+            return;
+        }
+
+        // --- UI SETUP START ---
+
         QuestionText.text = q.questionText;
-        List<int> indices = new List<int>();
+
+        // Ensure the question text object is active
+        if (QuestionText.gameObject.activeInHierarchy == false)
+        {
+            QuestionText.gameObject.SetActive(true);
+        }
+
+        // Prepare indices for answer shuffling
+        List<int> indices = new List<int>();
         for (int i = 0; i < q.answers.Length; i++) indices.Add(i);
+
+        // Shuffle indices
         for (int i = 0; i < indices.Count; i++)
         {
             int rnd = UnityEngine.Random.Range(i, indices.Count);
             (indices[i], indices[rnd]) = (indices[rnd], indices[i]);
         }
+
+        // Apply answers to buttons
         for (int i = 0; i < AnswerButtons.Length; i++)
         {
             if (i < q.answers.Length)
             {
                 int answerIndex = indices[i];
+
+                TMP_Text buttonText = AnswerButtons[i].GetComponentInChildren<TMP_Text>();
+                if (buttonText == null)
+                {
+                    Debug.LogError($"AnswerButton {i} is missing a TMP_Text component in its children!");
+                    continue;
+                }
+
                 AnswerButtons[i].gameObject.SetActive(true);
-                AnswerButtons[i].GetComponentInChildren<TMP_Text>().text = q.answers[answerIndex];
+                buttonText.text = q.answers[answerIndex];
                 AnswerButtons[i].onClick.RemoveAllListeners();
                 QuestionData capturedQ = q;
                 int capturedIndex = answerIndex;
@@ -167,6 +241,9 @@ public class NoviceDungeonQuizManager : MonoBehaviour
                 AnswerButtons[i].gameObject.SetActive(false);
             }
         }
+
+        // Advance to the next question for the next time LoadQuestion is called.
+        currentQuestionIndex++;
     }
 
     private void OnAnswerSelected(QuestionData q, int chosenIndex)
