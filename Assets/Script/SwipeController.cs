@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.EventSystems; // ✅ This is needed for IEndDragHandler
+using static LeanTween;// ✅ This is needed for LeanTween
 
 public class SwipeController : MonoBehaviour, IEndDragHandler
 {
@@ -13,14 +14,15 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
 
     [SerializeField] float tweenTime;
     [SerializeField] LeanTweenType tweenType;
-    float dragThreshould;
+    float dragThreshold; // ✅ Corrected spelling
 
     private void Awake()
     {
         currentPage = 1;
         targetPos = levelPagesRect.localPosition;
-        dragThreshould = Screen.width / 15;
+        dragThreshold = Screen.width / 15; // ✅ Corrected spelling
     }
+
     public void Next()
     {
         if (currentPage < maxPage)
@@ -49,7 +51,7 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (Mathf.Abs(eventData.position.x - eventData.pressPosition.x) > dragThreshould)
+        if (Mathf.Abs(eventData.position.x - eventData.pressPosition.x) > dragThreshold)
         {
             if (eventData.position.x > eventData.pressPosition.x) Previous();
             else Next();

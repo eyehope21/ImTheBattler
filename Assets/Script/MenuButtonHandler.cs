@@ -27,6 +27,12 @@ public class MenuButtonHandler : MonoBehaviour
         SceneHistory.LoadScene("Menu"); 
     }
 
+    public void LoadBattleaFriend()
+    {
+        SaveCurrentScene();
+        SceneHistory.LoadScene("Room");
+    }
+
     private void SaveCurrentScene()
     {
         string currentScene = SceneManager.GetActiveScene().name;

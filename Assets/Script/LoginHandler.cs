@@ -1,13 +1,14 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using Firebase.Auth;
+using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 public class LoginHandler : MonoBehaviour
 {
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
+    public LoginSuccessToast loginSuccessToast; //  New public variable
 
     public void LoginUser()
     {
@@ -39,10 +40,8 @@ public class LoginHandler : MonoBehaviour
                 PlayerProfile.Instance.InitializeLevel();
             }
 
-            ToastManager.Instance.ShowToast("Login successful!");
-            PlayerPrefs.SetInt("IsLoggedIn", 1);
-            PlayerPrefs.Save();
-            SceneManager.LoadScene("ARScene");
+            //  Call the separate script for the success toast and scene change
+            loginSuccessToast.ShowSuccessAndLoadScene("Login successful!");
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }

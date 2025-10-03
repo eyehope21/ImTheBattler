@@ -1,4 +1,8 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using Firebase.Auth;
+using System.Threading.Tasks;
 
 public class PlayerProfile : MonoBehaviour
 {
@@ -9,7 +13,6 @@ public class PlayerProfile : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -33,14 +36,14 @@ public class PlayerProfile : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Level"))
         {
-            Level = 1; // First time
+            Level = 1;
             PlayerPrefs.SetInt("Level", Level);
+            PlayerPrefs.Save();
         }
         else
         {
             Level = PlayerPrefs.GetInt("Level");
         }
-        PlayerPrefs.Save();
     }
 
     private void LoadProfile()
