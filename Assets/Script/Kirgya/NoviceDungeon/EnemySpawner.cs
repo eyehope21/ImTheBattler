@@ -4,66 +4,78 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // A public array to hold all the different enemy prefabs
-    public GameObject[] allEnemyPrefabs;
-    // A queue to hold the prefabs in a non-repeating order
+    [Header("Minion Prefabs by Term")]
+    [Tooltip("Prefab for Prelim (e.g., Bat Prefab with Bat Animator)")]
+    public GameObject prelimMinionPrefab;
+    [Tooltip("Prefab for Midterms (e.g., Android Prefab with Android Animator)")]
+    public GameObject midtermMinionPrefab;
+    [Tooltip("Prefab for Prefinals")]
+    public GameObject prefinalsMinionPrefab;
     private Queue<GameObject> enemyPrefabQueue = new Queue<GameObject>();
 
-    // Cached reference to the AR Dungeon Root Transform
     private Transform arDungeonRootTransform;
+
+    public SchoolTerm selectedTerm { get; private set; }
+
+    public void SetTermFilter(SchoolTerm term)
+    {
+        selectedTerm = term;
+    }
 
     void Awake()
     {
-        // Get the parent of this spawner (assumed to be the ARDungeonRoot)
         arDungeonRootTransform = transform.parent;
-
         if (arDungeonRootTransform == null)
         {
             Debug.LogError("EnemySpawner must be a child of the ARDungeonRoot to set the correct AR parent.");
         }
-
-        InitializeEnemyQueue();
     }
 
-    private void InitializeEnemyQueue()
+    public void InitializeDungeonQueue()
     {
-        // Convert the array to a list so we can shuffle it
-        List<GameObject> tempList = new List<GameObject>(allEnemyPrefabs);
-        // Shuffle the list using a simple Fisher-Yates shuffle algorithm
-        for (int i = 0; i < tempList.Count; i++)
+        enemyPrefabQueue.Clear();
+        GameObject prefabToUse = GetMinionPrefabForCurrentTerm();
+
+        if (prefabToUse == null)
         {
-            GameObject temp = tempList[i];
-            int randomIndex = Random.Range(i, tempList.Count);
-            tempList[i] = tempList[randomIndex];
-            tempList[randomIndex] = temp;
+            Debug.LogError($"No prefab found for selected term: {selectedTerm}!");
+            return;
         }
-        // Add the shuffled prefabs to the queue
-        foreach (GameObject prefab in tempList)
+
+        for (int i = 0; i < 10; i++)
         {
-            enemyPrefabQueue.Enqueue(prefab);
+            enemyPrefabQueue.Enqueue(prefabToUse);
         }
+    }
+
+    private GameObject GetMinionPrefabForCurrentTerm()
+    {
+        return selectedTerm switch
+        {
+            SchoolTerm.Prelim => prelimMinionPrefab,
+            SchoolTerm.Midterms => midtermMinionPrefab,
+            SchoolTerm.Prefinals => prefinalsMinionPrefab,
+        };
     }
 
     public EnemyStats SpawnEnemy()
     {
-        // If the queue is empty, all enemies have been shown. Reinitialize it.
         if (enemyPrefabQueue.Count == 0)
         {
-            InitializeEnemyQueue();
+            InitializeDungeonQueue();
         }
 
-        // Dequeue the next enemy prefab from the list
+        if (enemyPrefabQueue.Count == 0)
+        {
+            Debug.LogError("Enemy queue is empty after initialization. Cannot spawn.");
+            return null;
+        }
+
         GameObject selectedPrefab = enemyPrefabQueue.Dequeue();
 
-        // 1. Instantiate the selected prefab
-        // 2. Set its parent to the ARDungeonRoot Transform for AR tracking
         GameObject newEnemy = Instantiate(selectedPrefab, arDungeonRootTransform);
 
-        // Ensure the local position is zero so it spawns at the root's anchor point
         newEnemy.transform.localPosition = Vector3.zero;
-
-        // FIX: Ensure the enemy is spawned inactive so the DungeonManager can reveal it 
-        // after the intro or at the correct time.
         newEnemy.SetActive(false);
 
         EnemyStats enemyStats = newEnemy.GetComponent<EnemyStats>();
@@ -71,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyStats == null)
         {
             Debug.LogError("Enemy prefab is missing EnemyStats component!");
+            return null;
         }
         return enemyStats;
     }

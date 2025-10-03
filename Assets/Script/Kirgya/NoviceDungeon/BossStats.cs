@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// CHANGE: Now inherits from EnemyStatsBase
 public class BossStats : MonoBehaviour
 {
     public string bossName = "Boss";
@@ -13,32 +14,58 @@ public class BossStats : MonoBehaviour
     public int currentHP;
 
     public Slider bossHpBar;
-    public TMP_Text bossNameText; // Still needs to be a public field for BattleManager assignment
+    public TMP_Text bossNameText;
     public TMP_Text bossTimerText;
+
+    private Animator animator;
 
     void Awake()
     {
         currentHP = maxHP;
     }
 
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogWarning($"Boss '{bossName}' is missing an Animator component in its children. Flash feedback will not work.");
+        }
+
+        UpdateUI();
+    }
+
     public void TakeDamage(int amount)
     {
         currentHP -= amount;
-        if (currentHP < 0)
+
+        if (animator != null)
+        {
+            animator.SetTrigger("FlashTrigger");
+        }
+
+        if (currentHP <= 0)
         {
             currentHP = 0;
+            Die();
         }
+
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        // Only updates the HP slider. The name text is set by DungeonManager once.
         if (bossHpBar != null)
         {
             bossHpBar.maxValue = maxHP;
             bossHpBar.value = currentHP;
         }
-        // Name text update logic removed to allow DungeonManager to display "Final Boss"
+    }
+
+    private void Die()
+    {
+        Debug.Log($"{bossName} has been defeated!");
+        Destroy(gameObject);
     }
 }

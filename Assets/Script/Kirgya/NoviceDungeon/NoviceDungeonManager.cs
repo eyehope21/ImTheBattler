@@ -12,7 +12,7 @@ public class NoviceDungeonManager : MonoBehaviour
 
     // --- NEW AR CONSTANTS ---
     private const float ENEMY_Z_DEPTH = 1.0f; // Target Z depth for the enemy (1 meter)
-    private const float ROCK_Z_DEPTH = 1.1f;  // Rock background will be 10cm behind the enemy
+    private const float ROCK_Z_DEPTH = 1.1f; // Rock background will be 10cm behind the enemy
 
     [Header("References")]
     public GameObject startPanel;
@@ -70,6 +70,7 @@ public class NoviceDungeonManager : MonoBehaviour
         SchoolTerm chosenTerm = LoadSchoolTermFromPlayerPrefs();
         Difficulty chosenDifficulty = LoadDifficultyFromPlayerPrefs();
 
+        // 1. Set Filters for Quiz
         if (dungeonQuiz != null)
         {
             dungeonQuiz.SetDungeonFilters(chosenSubject, chosenTerm, chosenDifficulty);
@@ -79,8 +80,24 @@ public class NoviceDungeonManager : MonoBehaviour
             Debug.LogError("DungeonQuizManager reference is missing! Quiz functionality disabled.");
         }
 
+        // 2. Set Filters and Initialize Spawners
+        if (enemyspawner != null)
+        {
+            enemyspawner.SetTermFilter(chosenTerm);
+            enemyspawner.InitializeDungeonQueue(); // Initializes minion queue
+        }
+
+        // BOSS SPAWNER INITIALIZATION
+        if (bossspawner != null)
+        {
+            bossspawner.SetTermFilter(chosenTerm);
+            bossspawner.InitializeBoss();
+        }
+
+        // 3. Setup AR Environment
         PlaceAndAnchorBackground();
 
+        // 4. Start Dungeon State
         CurrentLevel = 1;
         accumulatedExp = 0;
         currentRunCorrectAnswers = 0;
@@ -115,23 +132,30 @@ public class NoviceDungeonManager : MonoBehaviour
             currentAnchorController.SetAnchorAtCurrentPosition();
         }
 
-        // 4. Ensure enemy spawner also targets the correct Z depth
-        enemyspawner.transform.position = new Vector3(
-            enemyspawner.transform.position.x,
-            enemyspawner.transform.position.y,
-            ENEMY_Z_DEPTH
-        );
-        bossspawner.transform.position = new Vector3(
-            bossspawner.transform.position.x,
-            bossspawner.transform.position.y,
-            ENEMY_Z_DEPTH
-        );
+        // 4. Ensure enemy spawner also targets the correct Z depth (relative to ARDungeonRoot)
+        if (enemyspawner != null)
+        {
+            enemyspawner.transform.position = new Vector3(
+                enemyspawner.transform.position.x,
+                enemyspawner.transform.position.y,
+                ENEMY_Z_DEPTH
+            );
+        }
+        if (bossspawner != null)
+        {
+            bossspawner.transform.position = new Vector3(
+                bossspawner.transform.position.x,
+                bossspawner.transform.position.y,
+                ENEMY_Z_DEPTH
+            );
+        }
     }
-    // ---------------------
 
     public void NextLevel()
     {
-        // Cleanup phase
+        // --- FIX: Cleanup any OLD enemy/boss before spawning a NEW one. ---
+        // This ensures old enemy objects are destroyed before memory is allocated for a new one,
+        // but only AFTER HandleEnemyDefeated() has run (which handles the fade-out).
         if (currentEnemy != null)
         {
             Destroy(currentEnemy.gameObject);
@@ -142,19 +166,24 @@ public class NoviceDungeonManager : MonoBehaviour
             Destroy(currentBoss.gameObject);
             currentBoss = null;
         }
+        // ------------------------------------------------------------------
 
+        // --- LEVEL LOGIC ---
         if ((CurrentLevel >= 1 && CurrentLevel <= 5) || (CurrentLevel >= 7 && CurrentLevel <= 11))
         {
+            // Minion Fight Levels (1-5 and 7-11)
             battleManager.battlePanel.SetActive(true);
             currentEnemy = enemyspawner.SpawnEnemy();
             ShowEnemyIntro();
         }
         else if (CurrentLevel == 6 || CurrentLevel == 12)
         {
+            // Rest Phase Levels (6 and 12)
             RestPhase();
         }
         else if (CurrentLevel == 13)
         {
+            // Boss Fight Level (13)
             HideAllBattleUI(); // Ensure all UI is hidden before the Boss Intro starts
             battleManager.battlePanel.SetActive(true);
             currentBoss = bossspawner.SpawnBoss();
@@ -183,6 +212,7 @@ public class NoviceDungeonManager : MonoBehaviour
             int minionNumber = CurrentLevel;
             if (CurrentLevel > 6)
             {
+                // Level 7 is fight 6, Level 11 is fight 10.
                 minionNumber = CurrentLevel - 1;
             }
 
@@ -222,6 +252,10 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         enemyIntroPanel.SetActive(true);
         ActivateCurrentEnemy();
+
+        // --- FIX: Reset battle manager to clear any residual flash/state before showing intro ---
+        battleManager.EndBattle();
+
         // Use the consolidated method for the minion text
         battleManager.UpdateEnemyName(GetEncounterTitle(currentEnemy, null));
         StartCoroutine(StartEnemyBattleAfterDelay(3f));
@@ -240,6 +274,10 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         bossIntroPanel.SetActive(true);
         ActivateCurrentEnemy();
+
+        // --- FIX: Reset battle manager to clear any residual flash/state before showing intro ---
+        battleManager.EndBattle();
+
         // Use the consolidated method for the boss title
         battleManager.UpdateBossName(GetEncounterTitle(null, currentBoss));
         StartCoroutine(StartBossBattleAfterDelay(3f));
@@ -248,8 +286,8 @@ public class NoviceDungeonManager : MonoBehaviour
     private IEnumerator StartBossBattleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        bossIntroPanel.SetActive(false);  // Hide the intro panel
-        ShowBossStatsPanel();             // Show the boss battle UI
+        bossIntroPanel.SetActive(false); // Hide the intro panel
+        ShowBossStatsPanel();            // Show the boss battle UI
         battleManager.StartBattle(currentBoss);
         StartQuizForBattle();
     }
@@ -258,6 +296,7 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         if (dungeonQuiz != null)
         {
+            // Safely unsubscribe and subscribe to prevent duplicate calls
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
             dungeonQuiz.OnAnswerEvaluated += HandleAnswerEvaluated;
 
@@ -269,6 +308,7 @@ public class NoviceDungeonManager : MonoBehaviour
     {
         if (correct)
         {
+            // Reset timer on correct answer
             if (battleManager != null)
             {
                 battleManager.ResetEnemyAttackTimer();
@@ -295,12 +335,40 @@ public class NoviceDungeonManager : MonoBehaviour
         }
     }
 
+    // --- EDITED: WAIT FOR ENEMY FADE OUT BEFORE CONTINUING ---
     private IEnumerator HandleDefeatSequence()
     {
         dungeonQuiz.EndQuiz();
-        yield return new WaitForSeconds(0.5f);
+
+        // 1. Determine which enemy to fade and start the fade-out Coroutine
+        IEnumerator fadeCoroutine = null;
+
+        if (currentEnemy != null)
+        {
+            // Minion fade
+            fadeCoroutine = battleManager.FadeOutCurrentEnemy(0.75f);
+        }
+        else if (currentBoss != null)
+        {
+            // Boss fade
+            fadeCoroutine = battleManager.FadeOutCurrentBoss(1.0f);
+        }
+
+        // 2. Wait for the fade animation to complete
+        if (fadeCoroutine != null)
+        {
+            yield return StartCoroutine(fadeCoroutine);
+        }
+        else
+        {
+            // Fallback: If no enemy/boss, wait briefly anyway.
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        // 3. Proceed with the defeat logic after the enemy is visually gone
         HandleEnemyDefeated();
     }
+    // ---------------------------------------------------------
 
     public void HandleEnemyDefeated()
     {
@@ -309,9 +377,24 @@ public class NoviceDungeonManager : MonoBehaviour
             dungeonQuiz.OnAnswerEvaluated -= HandleAnswerEvaluated;
         }
 
-        HideCurrentEnemy();
-        HideAllBattleUI(); // Use the consolidated hide method
+        // The fade-out is complete.
+        HideAllBattleUI();
         battleManager.battlePanel.SetActive(false);
+        battleManager.EndBattle(); // Safely end the battle state
+
+        // --- FIX: Immediately destroy the faded object and clear the reference ---
+        if (currentEnemy != null)
+        {
+            Destroy(currentEnemy.gameObject);
+            currentEnemy = null;
+        }
+        else if (currentBoss != null)
+        {
+            Destroy(currentBoss.gameObject);
+            currentBoss = null;
+        }
+        // -------------------------------------------------------------------------
+
 
         int fightCorrectAnswers = dungeonQuiz.GetCorrectAnswers();
         int fightWrongAnswers = dungeonQuiz.GetWrongAnswers();
@@ -346,11 +429,20 @@ public class NoviceDungeonManager : MonoBehaviour
 
         battleManager.EndBattle();
 
-        HideCurrentEnemy();
+        HideCurrentEnemy(); // Hide the enemy immediately upon defeat
 
+        // --- FIX: Immediately destroy the object on defeat, as no fade happens ---
+        if (currentEnemy != null) Destroy(currentEnemy.gameObject);
+        if (currentBoss != null) Destroy(currentBoss.gameObject);
+        currentEnemy = null;
+        currentBoss = null;
+        // -------------------------------------------------------------------------
+
+        // Get final stats from the quiz for the defeat screen
         int correctAnswers = dungeonQuiz.GetCorrectAnswers();
         int wrongAnswers = dungeonQuiz.GetWrongAnswers();
 
+        // Exp is set to 0 on defeat
         accumulatedExp = 0;
 
         resultUI.ShowDefeat(correctAnswers, wrongAnswers);
@@ -426,7 +518,7 @@ public class NoviceDungeonManager : MonoBehaviour
         );
     }
 
-    // --- EDITED: CONSOLIDATED UI VISIBILITY METHODS ---
+    // --- UI VISIBILITY METHODS (Consolidated and Cleaned) ---
 
     private void HideAllBattleUI()
     {
@@ -443,40 +535,36 @@ public class NoviceDungeonManager : MonoBehaviour
 
     private void ShowMinionStatsPanel()
     {
+        HideAllBattleUI(); // Hide everything first
+
         // Minion UI: Show
         battleManager.enemyHPBar.gameObject.SetActive(true);
         battleManager.enemyNameText.gameObject.SetActive(true);
         battleManager.enemyTimerText.transform.parent.gameObject.SetActive(true);
-
-        // Boss UI: Hide
-        battleManager.bossHPBar.gameObject.SetActive(false);
-        battleManager.bossNameText.gameObject.SetActive(false);
-        battleManager.bossTimerText.transform.parent.gameObject.SetActive(false);
     }
 
     private void ShowBossStatsPanel()
     {
+        HideAllBattleUI(); // Hide everything first
+
         // Boss UI: Show
         battleManager.bossHPBar.gameObject.SetActive(true);
         battleManager.bossNameText.gameObject.SetActive(true);
         battleManager.bossTimerText.transform.parent.gameObject.SetActive(true);
-
-        // Minion UI: Hide
-        battleManager.enemyHPBar.gameObject.SetActive(false);
-        battleManager.enemyNameText.gameObject.SetActive(false);
-        battleManager.enemyTimerText.transform.parent.gameObject.SetActive(false);
     }
+
+    // --- PlayerPrefs Loading Methods (UNTOUCHED) ---
 
     private Subject LoadSubjectFromPlayerPrefs()
     {
-        string subjectName = PlayerPrefs.GetString("SelectedSubject", "ComputerProgramming1");
+        string subjectName = PlayerPrefs.GetString("SelectedSubject", "Computer Programming 1");
 
         if (Enum.TryParse(subjectName, true, out Subject subject))
         {
             return subject;
         }
 
-        Debug.LogError($"Invalid Subject name '{subjectName}' found in PlayerPrefs. Defaulting to ComputerProgramming1.");
+        Debug.LogError($"Invalid Subject name '{subjectName}' found in PlayerPrefs. Defaulting to Computer Programming 1.");
         return Subject.ComputerProgramming1;
     }
 
