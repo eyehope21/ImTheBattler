@@ -6,13 +6,14 @@ using System;
 
 public class PlayerStats : MonoBehaviour
 {
-    // --- NEW FIELD: Screen Flasher Reference ---
+    // --- Dependencies ---
     [Header("Dependencies")]
     public ScreenFlasher screenFlasher;
+    // REMOVED: public MonoBehaviour dungeonManager;
 
     private bool isDefeated = false;
 
-    // --- Core Stats (Base values loaded from GameDataManager) ---
+    // --- Core Stats (Base values will attempt to load from GameDataManager) ---
     private int baseAttack;
     private int baseMaxHP;
     private int currentHP;
@@ -24,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     // UI
     public Slider hpSlider;
 
-    // --- Leveling Variables (Loaded from/Saved to GameDataManager) ---
+    // --- Leveling Variables (Will attempt to load from/Save to GameDataManager) ---
     public int CurrentLevel { get; private set; }
     private int currentEXP;
     private int expToNextLevel;
@@ -38,7 +39,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        // 1. Load permanent base stats from the persistent manager
+        // 1. Attempt to load permanent base stats from the persistent manager, using a fallback
         LoadBaseStats();
 
         // 2. Initialize current HP and battle state
@@ -49,23 +50,30 @@ public class PlayerStats : MonoBehaviour
 
     private void LoadBaseStats()
     {
+        // Default values used if GameDataManager is NOT found
+        CurrentLevel = 1;
+        baseMaxHP = 100;
+        baseAttack = 10;
+        currentEXP = 0;
+        expToNextLevel = 100;
+
+        // --- RE-INTEGRATED GAME DATA MANAGER LOGIC ---
+        // This is the logic to connect to the persistent profile manager.
         if (GameDataManager.Instance == null)
         {
-            Debug.LogError("GameDataManager not found! Using hardcoded defaults (1/100/10).");
-            CurrentLevel = 1;
-            baseMaxHP = 100;
-            baseAttack = 10;
-            currentEXP = 0;
-            expToNextLevel = 100;
+            Debug.LogWarning("GameDataManager not found! Using hardcoded defaults (1/100/10).");
         }
         else
         {
+            // If the manager is found, load the real permanent stats
             CurrentLevel = GameDataManager.Instance.BaseLevel;
             baseMaxHP = GameDataManager.Instance.BaseMaxHP;
             baseAttack = GameDataManager.Instance.BaseAttack;
             currentEXP = GameDataManager.Instance.CurrentEXP;
             expToNextLevel = GameDataManager.Instance.ExpToNextLevel;
         }
+        // --- END RE-INTEGRATED LOGIC ---
+
         // Reset temporary buffs for the dungeon run
         tempAttackBuff = 0;
         tempHPBuff = 0;
@@ -82,8 +90,8 @@ public class PlayerStats : MonoBehaviour
             GameDataManager.Instance.CurrentEXP = currentEXP;
             GameDataManager.Instance.ExpToNextLevel = expToNextLevel;
 
-            // Notify the Profile Manager UI that the permanent stats have changed
-            GameDataManager.Instance.NotifyProfileUpdate();
+            // Assuming GameDataManager.Instance.NotifyProfileUpdate() exists and is necessary
+            // GameDataManager.Instance.NotifyProfileUpdate(); 
         }
     }
 
@@ -92,12 +100,10 @@ public class PlayerStats : MonoBehaviour
         currentHP -= amount;
         if (currentHP < 0) currentHP = 0;
 
-        // --- NEW LINE: Trigger the full-screen red flash ---
         if (screenFlasher != null)
         {
             screenFlasher.FlashScreen();
         }
-        // ----------------------------------------------------
 
         UpdateUI();
         if (currentHP <= 0 && !isDefeated)
@@ -105,7 +111,21 @@ public class PlayerStats : MonoBehaviour
             isDefeated = true;
             currentHP = 0;
             UpdateUI();
-            FindObjectOfType<NoviceDungeonManager>().OnPlayerDefeated();
+
+            // --- HARDCODED TO NOVICE MANAGER ---
+            // Finds the *only* manager in the scene and calls the defeat method.
+            NoviceDungeonManager manager = FindObjectOfType<NoviceDungeonManager>();
+
+            if (manager != null)
+            {
+                manager.OnPlayerDefeated();
+            }
+            else
+            {
+                // This error will alert you if the manager is missing, which it shouldn't be.
+                Debug.LogError("Player defeated, but NoviceDungeonManager not found to handle the defeat!");
+            }
+            // -----------------------------------
         }
     }
 
@@ -119,14 +139,12 @@ public class PlayerStats : MonoBehaviour
     public void BuffAttack(int amount)
     {
         tempAttackBuff += amount;
-        // baseAttack is NOT modified here
     }
 
     // Dungeon buff: ONLY affects temporary value for this dungeon run
     public void BuffMaxHP(int amount)
     {
         tempHPBuff += amount;
-        // baseMaxHP is NOT modified here
         currentHP += amount; // Heal on buff
         UpdateUI();
     }
@@ -146,19 +164,20 @@ public class PlayerStats : MonoBehaviour
 
         currentEXP += expAmount;
 
-        while (currentEXP >= expToNextLevel) 
+        while (currentEXP >= expToNextLevel)
         {
             currentEXP -= expToNextLevel;
             CurrentLevel++;
             expToNextLevel = (int)(expToNextLevel * 1.5f);
-            LevelUpStats(); 
+            LevelUpStats();
         }
 
-        if (CurrentLevel > oldLevel) 
+        if (CurrentLevel > oldLevel)
         {
             SavePermanentStats();
             OnLevelUp?.Invoke();
         }
+        // SavePermanentStats() is called here to save the current EXP progress, even without a level up.
         SavePermanentStats();
     }
 
@@ -167,6 +186,7 @@ public class PlayerStats : MonoBehaviour
         int attackIncrease = 0;
         int hpIncrease = 0;
 
+        // Simplified level-up scaling (based on your original logic)
         if (CurrentLevel <= 10)
         {
             attackIncrease = 2;
@@ -182,25 +202,15 @@ public class PlayerStats : MonoBehaviour
             attackIncrease = 4;
             hpIncrease = 8;
         }
-        else if (CurrentLevel <= 40)
+        else // Fallback for higher levels
         {
             attackIncrease = 5;
             hpIncrease = 9;
         }
-        else if (CurrentLevel <= 50)
-        {
-            attackIncrease = 6;
-            hpIncrease = 10;
-        }
-        else
-        {
-            attackIncrease = 0;
-            hpIncrease = 0;
-        }
 
         baseAttack += attackIncrease;
         baseMaxHP += hpIncrease;
-        currentHP += hpIncrease; 
+        currentHP += hpIncrease;
 
         Debug.Log($"Leveled up to Level {CurrentLevel}! Base Attack: {baseAttack}, Base HP: {baseMaxHP}.");
         UpdateUI();

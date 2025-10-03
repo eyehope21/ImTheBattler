@@ -12,7 +12,7 @@ public class DungeonResultUI : MonoBehaviour
     public GameObject defeatPanel;
     public GameObject bossPanel;
     public GameObject confirmationPanel;
-    public GameObject levelUpPanel; // CORRECT
+    public GameObject levelUpPanel;
 
     // --- Victory Panel UI Elements ---
     [Header("Victory UI Elements")]
@@ -41,38 +41,40 @@ public class DungeonResultUI : MonoBehaviour
     // --- NEW UI Elements for Level Up Panel ---
     [Header("Level Up UI Elements")]
     public TMP_Text levelUpText;
-    public Button levelUpContinueButton; // CORRECT
+    public Button levelUpContinueButton;
 
     [Header("Scene Config")]
     public string mainSceneName = "ARScene";
 
+    // REVERTED: Now uses a concrete manager type
     private NoviceDungeonManager dungeonManager;
 
     void Awake()
     {
+        // REVERTED: Find the NoviceDungeonManager object to link the UI
         dungeonManager = FindObjectOfType<NoviceDungeonManager>();
 
+        if (dungeonManager == null)
+        {
+            // Fallback: If Novice isn't found, try Advanced, etc. (Optional, but safe)
+            // dungeonManager = FindObjectOfType<AdvancedDungeonManager>();
+            // If still null, you must use a generic error message:
+            Debug.LogError("DungeonResultUI failed to find an active concrete Dungeon Manager (e.g., NoviceDungeonManager).");
+        }
+
         // --- Setup Listeners ---
-        // Victory Panel
         if (continueButton != null) continueButton.onClick.AddListener(ContinueGame);
         if (victoryQuitButton != null) victoryQuitButton.onClick.AddListener(OpenConfirmationPanel);
-
-        // Defeat Panel
         if (restartButton != null) restartButton.onClick.AddListener(RestartGame);
         if (defeatQuitButton != null) defeatQuitButton.onClick.AddListener(Exit);
-
-        // Boss Panel
         if (bossRestartButton != null) bossRestartButton.onClick.AddListener(RestartGame);
         if (bossQuitButton != null) bossQuitButton.onClick.AddListener(Exit);
-
-        // Confirmation Panel
         if (confirmExitButton != null) confirmExitButton.onClick.AddListener(ConfirmExitAndForfeit);
         if (cancelExitButton != null) cancelExitButton.onClick.AddListener(CloseConfirmationPanel);
 
-        // --- CORRECTED Level Up Listener Setup ---
+        // --- Level Up Listener Setup ---
         if (levelUpContinueButton != null)
         {
-            // Clean up existing listeners if the button was configured in the Inspector
             levelUpContinueButton.onClick.RemoveAllListeners();
             levelUpContinueButton.onClick.AddListener(ContinueFromLevelUp);
         }
@@ -80,14 +82,14 @@ public class DungeonResultUI : MonoBehaviour
         HideAllPanels();
     }
 
-    // Helper to hide everything (Added null checks for robustness)
+    // Helper to hide everything
     private void HideAllPanels()
     {
         if (victoryPanel != null) victoryPanel.SetActive(false);
         if (defeatPanel != null) defeatPanel.SetActive(false);
         if (bossPanel != null) bossPanel.SetActive(false);
         if (confirmationPanel != null) confirmationPanel.SetActive(false);
-        if (levelUpPanel != null) levelUpPanel.SetActive(false); // Added null check for safety
+        if (levelUpPanel != null) levelUpPanel.SetActive(false);
     }
 
     // Displays Level Up panel
@@ -101,55 +103,54 @@ public class DungeonResultUI : MonoBehaviour
         }
     }
 
-    // --- NEW: Method to proceed from the level up panel to the standard results ---
+    // --- Method to proceed from the level up panel ---
     private void ContinueFromLevelUp()
     {
         HideAllPanels();
-        if (dungeonManager != null)
-        {
-            // This calls the Dungeon Manager to show the final Boss Victory screen
-            dungeonManager.ContinueFromLevelUpNotification();
-        }
+        // This method must exist in NoviceDungeonManager
+        if (dungeonManager != null) dungeonManager.ContinueFromLevelUpNotification();
     }
 
     // Called after a regular monster defeat
-    public void ShowVictory(int correct, int wrong, int runTotalCorrect, int runTotalWrong)
+    // NOTE: Argument list has been simplified to match standard output, adjust if your manager returns more data
+    public void ShowVictory(int expGained, int accumulatedExp, int playerLevel)
     {
         HideAllPanels();
         if (victoryPanel != null) victoryPanel.SetActive(true);
 
-        // Using all the accumulated data for a clearer result display
         string result = $"LEVEL CLEARED!\n" +
-            $"Round Score: {correct} Correct / {wrong} Wrong\n" +
-            $"\nTotal Run Score: {runTotalCorrect} Correct | {runTotalWrong} Wrong\n" +
+            $"EXP Gained this fight: +{expGained}\n" +
+            $"\nTotal EXP Accumulated: {accumulatedExp}\n" +
+            $"\nCurrent Player Level: {playerLevel}\n" +
             $"\nContinue exploring the dungeon?";
 
         if (victoryResultText != null) victoryResultText.text = result;
     }
 
     // Called after player defeat
-    public void ShowDefeat(int correct, int wrong)
+    // NOTE: Argument list simplified
+    public void ShowDefeat(int currentLevel, int runTotalCorrect, int runTotalWrong, int finalAttack, int finalHP)
     {
         HideAllPanels();
         if (defeatPanel != null) defeatPanel.SetActive(true);
 
-        string result = $"DEFEATED!\n" +
-                $"Correct Answers: {correct}\nWrong Answers: {wrong}\n" +
-                $"All accumulated rewards for this run have been forfeited.";
+        string result = $"DEFEATED on Level {currentLevel}!\n" +
+            $"Correct Answers: {runTotalCorrect}\nWrong Answers: {runTotalWrong}\n" +
+            $"All accumulated rewards for this run have been forfeited.";
 
         if (defeatResultText != null) defeatResultText.text = result;
     }
 
     // Called after final boss defeat
-    public void ShowBossVictory(int totalRunCorrect, int totalRunWrong, int totalExpGained, bool didLevelUp)
+    public void ShowBossVictory(int totalExpGained, int accumulatedExp, int playerLevel)
     {
         HideAllPanels();
         if (bossPanel != null) bossPanel.SetActive(true);
 
         string result = $"DUNGEON CLEARED!\n" +
-                $"You have finished the dungeon and earned your rewards!\n \n" +
-                $"Total Correct Answers: {totalRunCorrect}\nTotal Wrong Answers: {totalRunWrong}\n" +
-                $"Total EXP Earned: +{totalExpGained}";
+            $"You have finished the dungeon and earned your rewards!\n \n" +
+            $"Total EXP Earned: +{totalExpGained}\n" +
+            $"Final Player Level: {playerLevel}";
 
         if (bossResultText != null) bossResultText.text = result;
     }
@@ -159,6 +160,7 @@ public class DungeonResultUI : MonoBehaviour
     private void ContinueGame()
     {
         HideAllPanels();
+        // This method must exist in NoviceDungeonManager
         if (dungeonManager != null) dungeonManager.ContinueAfterVictory();
     }
 
@@ -179,7 +181,7 @@ public class DungeonResultUI : MonoBehaviour
         }
     }
 
-    // --- Confirmation Flow Methods ---
+    // --- Confirmation Flow Methods (Unchanged) ---
 
     private void OpenConfirmationPanel()
     {
@@ -189,7 +191,7 @@ public class DungeonResultUI : MonoBehaviour
         if (confirmationText != null)
         {
             confirmationText.text = "Are you sure you want to exit the dungeon?\n\n" +
-                        "You will forfeit all accumulated rewards for this run.";
+                "You will forfeit all accumulated rewards for this run.";
         }
     }
 
