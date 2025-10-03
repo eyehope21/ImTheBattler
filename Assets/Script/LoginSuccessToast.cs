@@ -21,7 +21,6 @@ public class LoginSuccessToast : MonoBehaviour
     {
         toastText.text = message;
 
-        // Fade in
         float time = 0f;
         while (time < fadeDuration)
         {
@@ -33,7 +32,6 @@ public class LoginSuccessToast : MonoBehaviour
 
         yield return new WaitForSeconds(displayDuration);
 
-        // Fade out
         time = 0f;
         while (time < fadeDuration)
         {
@@ -43,7 +41,6 @@ public class LoginSuccessToast : MonoBehaviour
         }
         canvasGroup.alpha = 0;
 
-        // Load the next scene after the toast fades out
         SceneManager.LoadScene(nextScene);
     }
 }

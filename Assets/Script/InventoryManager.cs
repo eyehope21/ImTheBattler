@@ -59,7 +59,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         foreach (ItemData item in inventoryItems)
-            {
+        {
             GameObject newSlot = Instantiate(itemSlotPrefab, inventoryGridPanel);
             // You will need a way to assign the item data to the new slot.
         }
