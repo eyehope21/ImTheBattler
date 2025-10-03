@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// CHANGE: Now inherits from EnemyStatsBase
 public class BossStats : MonoBehaviour
 {
     public string bossName = "Boss";
-    public int maxHP = 100;
+    public int maxHP; 
     public int attackdamage = 20;
     public float attackInterval = 10f;
     public int currentHP;
@@ -19,8 +18,15 @@ public class BossStats : MonoBehaviour
 
     private Animator animator;
 
+    public virtual void InitializeStats()
+    {
+        maxHP = 100;
+        bossName = "Standard Boss";
+    }
+
     void Awake()
     {
+        InitializeStats();
         currentHP = maxHP;
     }
 
@@ -35,8 +41,7 @@ public class BossStats : MonoBehaviour
 
         UpdateUI();
     }
-
-    public void TakeDamage(int amount)
+public void TakeDamage(int amount)
     {
         currentHP -= amount;
 

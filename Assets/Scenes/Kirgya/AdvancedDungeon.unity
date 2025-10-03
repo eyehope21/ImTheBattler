@@ -1220,7 +1220,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1125486164}
   - {fileID: 1160333492}
   - {fileID: 354800176}
   m_Father: {fileID: 1160659562}
@@ -1830,9 +1829,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 50
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2836,7 +2835,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 546551533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a61a31c01e9e5a47b882fcac469464f, type: 3}
+  m_Script: {fileID: 11500000, guid: 969c4222e10db1243ad8b23a4ba3d9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 64059013}
@@ -3250,7 +3249,7 @@ GameObject:
   - component: {fileID: 705215799}
   - component: {fileID: 705215798}
   - component: {fileID: 705215801}
-  - component: {fileID: 705215800}
+  - component: {fileID: 705215802}
   m_Layer: 5
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -3315,26 +3314,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705215796}
   m_CullTransparentMesh: 1
---- !u!114 &705215800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705215796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyName: 
-  maxHP: 50
-  attackdamage: 10
-  attackInterval: 10
-  currentHP: 50
-  hpSlider: {fileID: 336379220}
-  nameText: {fileID: 1159173915}
-  timerText: {fileID: 1382457959}
 --- !u!114 &705215801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,6 +3329,27 @@ MonoBehaviour:
   prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
   midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
   prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
+  finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
+--- !u!114 &705215802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705215796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11f089ec579f59498f7b9ec6a486356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Enemy
+  maxHP: 100
+  attackdamage: 10
+  attackInterval: 8
+  currentHP: 100
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &723808218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4450,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnHPBuffButton
         m_Mode: 1
@@ -5464,82 +5464,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085559607}
   m_CullTransparentMesh: 1
---- !u!1 &1125486163
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125486164}
-  - component: {fileID: 1125486166}
-  - component: {fileID: 1125486165}
-  m_Layer: 5
-  m_Name: IdentificationQuestionBG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1125486164
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125486163}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1749580547}
-  m_Father: {fileID: 254817931}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 291}
-  m_SizeDelta: {x: 1000, y: 500}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1125486165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125486163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a58fdbb3b09ca74cb03d4ff23eb64ee, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1125486166
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125486163}
-  m_CullTransparentMesh: 1
 --- !u!1 &1142901705
 GameObject:
   m_ObjectHideFlags: 0
@@ -6133,6 +6057,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1956749143}
   - {fileID: 1430094777}
   - {fileID: 254817931}
   m_Father: {fileID: 772720234}
@@ -6151,19 +6076,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1160659561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64562f14a567d374bba49457e80de0f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f0f57b7260b20c4f965c133216ace64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   quizMasterPanel: {fileID: 1160659561}
   trueFalsePanel: {fileID: 1430094776}
   identificationPanel: {fileID: 254817930}
-  QuestionText: {fileID: 0}
+  QuestionText: {fileID: 1596180199}
+  sharedQuestionTextPanel: {fileID: 1956749142}
   FeedbackFlash: {fileID: 0}
+  battleManager: {fileID: 546551535}
   trueButton: {fileID: 1008572976}
   falseButton: {fileID: 795904830}
   identificationInput: {fileID: 1160333493}
   identificationSubmitButton: {fileID: 354800177}
-  battleManager: {fileID: 0}
 --- !u!1 &1179605283
 GameObject:
   m_ObjectHideFlags: 0
@@ -6247,7 +6173,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnHealButton
         m_Mode: 1
@@ -7018,17 +6944,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278461618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
+  m_Script: {fileID: 11500000, guid: d11f089ec579f59498f7b9ec6a486356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  maxHP: 50
+  enemyName: Enemy
+  maxHP: 100
   attackdamage: 10
-  attackInterval: 10
-  currentHP: 50
-  hpSlider: {fileID: 336379220}
-  nameText: {fileID: 1159173915}
-  timerText: {fileID: 1382457959}
+  attackInterval: 8
+  currentHP: 100
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1291107228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7495,8 +7421,8 @@ GameObject:
   - component: {fileID: 1319247135}
   - component: {fileID: 1319247137}
   - component: {fileID: 1319247136}
-  - component: {fileID: 1319247138}
   - component: {fileID: 1319247139}
+  - component: {fileID: 1319247140}
   m_Layer: 5
   m_Name: BossSprite
   m_TagString: Untagged
@@ -7561,26 +7487,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319247134}
   m_CullTransparentMesh: 1
---- !u!114 &1319247138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319247134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: 
-  maxHP: 100
-  attackdamage: 20
-  attackInterval: 10
-  currentHP: 100
-  bossHpBar: {fileID: 338167605}
-  bossNameText: {fileID: 1142901707}
-  bossTimerText: {fileID: 308927340}
 --- !u!114 &1319247139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7596,6 +7502,27 @@ MonoBehaviour:
   prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
   midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
   prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
+  finalsBossPrefab: {fileID: 0}
+--- !u!114 &1319247140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319247134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Boss
+  maxHP: 500
+  attackdamage: 20
+  attackInterval: 8
+  currentHP: 500
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
 --- !u!1 &1382457957
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,7 +7687,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1956749143}
   - {fileID: 1008572975}
   - {fileID: 795904829}
   m_Father: {fileID: 1160659562}
@@ -8472,7 +8398,7 @@ GameObject:
   - component: {fileID: 1596180200}
   - component: {fileID: 1596180199}
   m_Layer: 5
-  m_Name: ToFQuestionText
+  m_Name: QuestionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8848,8 +8774,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732895959}
-  - component: {fileID: 1732895960}
   - component: {fileID: 1732895961}
+  - component: {fileID: 1732895962}
   m_Layer: 5
   m_Name: DungeonManager
   m_TagString: Untagged
@@ -8876,29 +8802,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1732895960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732895958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b84cfb8a0350643b39c87e85f0c9b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPanel: {fileID: 1550364812}
-  dungeonQuiz: {fileID: 0}
-  battleManager: {fileID: 0}
-  player: {fileID: 64059013}
-  enemyspawner: {fileID: 705215801}
-  bossspawner: {fileID: 1319247139}
-  resultUI: {fileID: 1801620582}
-  restPanel: {fileID: 1794224178}
-  bossIntroPanel: {fileID: 1230865511}
-  enemyIntroPanel: {fileID: 1950644095}
-  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
 --- !u!114 &1732895961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8914,6 +8817,29 @@ MonoBehaviour:
   flashImage: {fileID: 859881967}
   maxOpacity: 0.5
   fadeTime: 0.3
+--- !u!114 &1732895962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732895958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430816af3193e07468be43e4302001b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPanel: {fileID: 1550364812}
+  aDungeonQuiz: {fileID: 1160659563}
+  aBattleManager: {fileID: 546551535}
+  player: {fileID: 64059013}
+  enemyspawner: {fileID: 705215801}
+  bossspawner: {fileID: 1319247139}
+  resultUI: {fileID: 1801620582}
+  restPanel: {fileID: 0}
+  bossIntroPanel: {fileID: 1230865511}
+  enemyIntroPanel: {fileID: 1950644095}
+  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
 --- !u!1 &1735884656
 GameObject:
   m_ObjectHideFlags: 0
@@ -8990,140 +8916,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735884656}
-  m_CullTransparentMesh: 1
---- !u!1 &1749580546
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1749580547}
-  - component: {fileID: 1749580549}
-  - component: {fileID: 1749580548}
-  m_Layer: 5
-  m_Name: IdentificationQuestionText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1749580547
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749580546}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1125486164}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: -9}
-  m_SizeDelta: {x: 900, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1749580548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749580546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: New Text
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 3.024292, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1749580549
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749580546}
   m_CullTransparentMesh: 1
 --- !u!1 &1794224174
 GameObject:
@@ -9211,11 +9003,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794224174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b158ff1146b594eb1a1bf0ce049552, type: 3}
+  m_Script: {fileID: 11500000, guid: 3758b3d63cf4e494cb1a73848bc84ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 64059013}
-  dungeon: {fileID: 1732895960}
+  dungeon: {fileID: 1732895962}
 --- !u!1 &1801620578
 GameObject:
   m_ObjectHideFlags: 0
@@ -10036,7 +9828,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnBuffAtkButton
         m_Mode: 1
@@ -10229,7 +10021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1732895960}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NoviceDungeonManager, Assembly-CSharp
         m_MethodName: OnStartButton
         m_Mode: 1
@@ -10367,12 +10159,12 @@ GameObject:
   - component: {fileID: 1956749145}
   - component: {fileID: 1956749144}
   m_Layer: 5
-  m_Name: ToFQuestionBG
+  m_Name: QuestionBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1956749143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10380,17 +10172,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956749142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1596180198}
-  m_Father: {fileID: 1430094777}
+  m_Father: {fileID: 1160659562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 71}
+  m_AnchoredPosition: {x: 0, y: -126}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956749144
@@ -10478,7 +10270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastManager: {fileID: 745731779}
-  dungeonManager: {fileID: 1732895960}
+  dungeonManager: {fileID: 0}
   placementDistance: 2
 --- !u!1 &2058973517
 GameObject:
