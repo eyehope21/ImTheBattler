@@ -41,7 +41,6 @@ public class PlayerProfile : MonoBehaviour
             Level = PlayerPrefs.GetInt("Level");
         }
     }
-
     private void LoadProfile()
     {
         Username = PlayerPrefs.GetString("Username", "Guest");
