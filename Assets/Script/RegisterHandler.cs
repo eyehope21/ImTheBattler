@@ -57,6 +57,7 @@ public class RegisterHandler : MonoBehaviour
                 Debug.Log("Registration successful! Loading Login scene...");
                 PlayerProfile.Instance.SetUsername(username);
                 PlayerProfile.Instance.InitializeLevel();
+                PlayerProfile.Instance.InitializeCoins();
 
                 // Now call the separate script for the success toast and scene change
                 registerSuccessToast.ShowSuccessAndLoadScene("Registration successful!");
