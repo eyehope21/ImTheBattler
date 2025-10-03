@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using Firebase.Auth;
-using UnityEngine.SceneManagement;
+﻿using Firebase.Auth;
+using Firebase.Extensions;
 using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RegisterHandler : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class RegisterHandler : MonoBehaviour
     public TMP_InputField passwordInput;
     public TMP_InputField usernameInput;
     public TMP_InputField confirmPasswordInput;
+    public RegisterSuccessToast registerSuccessToast;
 
     public void RegisterUser()
     {
@@ -41,11 +42,25 @@ public class RegisterHandler : MonoBehaviour
                 return;
             }
 
-            PlayerProfile.Instance.SetUsername(username);
-            PlayerProfile.Instance.InitializeLevel();
+            // After successful registration, update the user profile with the username
+            Firebase.Auth.FirebaseUser newUser = task.Result.User;
+            Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile { DisplayName = username };
 
-            ToastManager.Instance.ShowToast("Registration successful!");
-            SceneManager.LoadScene("Login");
+            newUser.UpdateUserProfileAsync(profile).ContinueWithOnMainThread(updateTask => {
+                if (updateTask.IsCanceled || updateTask.IsFaulted)
+                {
+                    Debug.LogError("Failed to update user profile: " + updateTask.Exception);
+                    return;
+                }
+
+                // All this logic should happen ONLY on a successful profile update
+                Debug.Log("Registration successful! Loading Login scene...");
+                PlayerProfile.Instance.SetUsername(username);
+                PlayerProfile.Instance.InitializeLevel();
+
+                // Now call the separate script for the success toast and scene change
+                registerSuccessToast.ShowSuccessAndLoadScene("Registration successful!");
+            });
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }
