@@ -3114,8 +3114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allEnemyPrefabs:
-  - {fileID: 7899505203500685004, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
+  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
+  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
+  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
 --- !u!1 &723808218
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,7 +7241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 4119653578714077435, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
+  prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
+  midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
+  prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
 --- !u!1 &1382457957
 GameObject:
   m_ObjectHideFlags: 0
