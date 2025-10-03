@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// CHANGE: Now inherits from EnemyStatsBase
 public class BossStats : MonoBehaviour
 {
     public string bossName = "Boss";
-    // These inspector values are the definitive, fixed stats
     public int maxHP = 100;
     public int attackdamage = 20;
     public float attackInterval = 10f;
@@ -21,7 +21,6 @@ public class BossStats : MonoBehaviour
 
     void Awake()
     {
-        // Reverted to simple initialization using inspector values
         currentHP = maxHP;
     }
 

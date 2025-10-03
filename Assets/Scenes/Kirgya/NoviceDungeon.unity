@@ -9611,7 +9611,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1732895960}
         m_TargetAssemblyTypeName: NoviceDungeonManager, Assembly-CSharp
-        m_MethodName: StartDungeon
+        m_MethodName: OnStartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
