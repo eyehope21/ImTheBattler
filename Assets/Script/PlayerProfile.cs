@@ -1,8 +1,4 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
-using Firebase.Auth;
-using System.Threading.Tasks;
 
 public class PlayerProfile : MonoBehaviour
 {
