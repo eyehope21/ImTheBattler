@@ -11,7 +11,6 @@ public class AdvancedEnemyStats : EnemyStats
     {
         base.InitializeStats();
         maxHP = 100;
-        enemyName = "The Advanced Enemy";
         attackdamage = 10;
         attackInterval = 8f;
     }
