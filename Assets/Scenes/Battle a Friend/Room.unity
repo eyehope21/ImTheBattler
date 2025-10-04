@@ -1118,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1266330688}
         m_TargetAssemblyTypeName: LobbyJoiner, Assembly-CSharp
-        m_MethodName: JoinLobby
+        m_MethodName: ShowJoinPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1729,9 +1729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9c4eb7e4098224485888be94b5016a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joinLobbyPopup: {fileID: 0}
   joinCodeInput: {fileID: 30833773}
-  playerSlots:
-  - {fileID: 0}
 --- !u!4 &1266330687
 Transform:
   m_ObjectHideFlags: 0
