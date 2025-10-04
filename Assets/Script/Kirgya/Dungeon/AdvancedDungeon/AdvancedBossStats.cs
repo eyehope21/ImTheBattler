@@ -1,17 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-
-public class AdvancedBossStats : BossStats // This is correct
-{
-    public override void InitializeStats()
-    {
-        base.InitializeStats();
-        maxHP = 500;
-        attackdamage = 20;
-        attackInterval = 8f;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e8d098e5a995dd5a985c4b3622897dc4eb701e2bf76c68a8eb69fb897bd8af0
+size 374

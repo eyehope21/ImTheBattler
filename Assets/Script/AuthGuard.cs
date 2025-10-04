@@ -1,14 +1,3 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class AuthGuard : MonoBehaviour
-{
-    void Start()
-    {
-        if (PlayerPrefs.GetInt("IsLoggedIn", 0) != 1)
-        {
-            Debug.Log("User not logged in. Redirecting to LoginScene.");
-            SceneManager.LoadScene("Login");
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:89d1ba71e83a7dc3962631a786a243cca9dee590cc1f31ab1deddf62bf309d0e
+size 333

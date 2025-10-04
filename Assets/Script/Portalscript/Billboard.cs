@@ -1,20 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Billboard : MonoBehaviour
-{
-    private Transform mainCamera;
-
-    void Start()
-    {
-        // Find the main camera in the scene
-        mainCamera = Camera.main.transform;
-    }
-
-    void LateUpdate()
-    {
-        // Make the object face the camera
-        transform.LookAt(transform.position + mainCamera.forward);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eaed968b1f9ca1282c2208a33373b80c6f335f4bd180024ccfeceddccd31973d
+size 441

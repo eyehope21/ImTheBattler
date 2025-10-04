@@ -1,27 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class PortalInteraction : MonoBehaviour
-{
-    public string nextSceneName = "NoviceDungeon";
-
-    void Update()
-    {
-        // Check for a tap on the screen
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            // Cast a ray from the camera to the tap position
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
-
-            // Check if the ray hit the portal
-            if (hit.collider != null && hit.collider.CompareTag("Portal"))
-            {
-                Debug.Log("Portal tapped! Loading next scene...");
-                SceneManager.LoadScene(nextSceneName);
-            }
-        }
-    }
-}
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:75bd318e7d3cb5ceb2def863487ba6f08a4d4d42e66d052079c6c99673c51a42
+size 1448

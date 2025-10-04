@@ -1,17 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Testing248 : MonoBehaviour {
-
-    public GameObject dude1;
-
-	// Use this for initialization
-	void Start () {
-        //dude1.LeanMoveX(10f, 1f);
-        int id = LeanTween.moveX(dude1, 1f, 3f).id;
-        Debug.Log("id:" + id);
-        if (LeanTween.isTweening(id))
-            Debug.Log("I am tweening!");
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f093b98e9964aa992aa7024c6033c3f4b631896c2410693297b7e353b15628eb
+size 425

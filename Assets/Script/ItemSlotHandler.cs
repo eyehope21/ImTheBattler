@@ -1,31 +1,3 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-
-public class ItemSlotHandler : MonoBehaviour
-{
-    public Image itemIconImage;
-    public TMP_Text itemCountText;
-
-    //  This new method sets the item data for a slot
-    public void SetItem(ItemData item)
-    {
-        if (item.itemIcon != null)
-        {
-            itemIconImage.sprite = item.itemIcon;
-            itemIconImage.color = Color.white;
-        }
-        else
-        {
-            itemIconImage.color = Color.clear;
-        }
-        itemCountText.text = "x1"; // For now, let's assume 1 item
-    }
-
-    public void ClearSlot()
-    {
-        itemIconImage.sprite = null;
-        itemIconImage.color = Color.clear;
-        itemCountText.text = "";
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d1cfcd44708c109c13d3f76bde3fcfa51abb96251aa11378489c40728a4a4fdd
+size 672

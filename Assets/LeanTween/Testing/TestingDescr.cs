@@ -1,23 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TestingDescr : MonoBehaviour {
-
-	private int tweenId;
-
-	public GameObject go;
-
-	// start a tween
-	public void startTween(){
-		tweenId = LeanTween.moveX(go, 10f, 1f).id;
-		Debug.Log("tweenId:" + tweenId);
-	}
-
-	// check tween descr
-	public void checkTweenDescr(){
-		var descr = LeanTween.descr(tweenId);
-		Debug.Log("descr:" + descr);
-		Debug.Log("isTweening:"+LeanTween.isTweening(tweenId));
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f319d7de6f4b7472f6fde6f3bae515e108042cf1613cf49dc1fc062d564b9c9f
+size 515

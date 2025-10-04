@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1646898382}
         m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
-        m_MethodName: SelectDifficulty
+        m_MethodName: SelectNovice
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -608,7 +608,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1646898382}
         m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
-        m_MethodName: SelectDifficulty
+        m_MethodName: SelectAdvance
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1495,7 +1495,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1646898382}
         m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
-        m_MethodName: SelectDifficulty
+        m_MethodName: SelectMasters
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

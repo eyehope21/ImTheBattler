@@ -1,23 +1,3 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class EpisodeButtonHandler : MonoBehaviour
-{
-    // Public variable to set the name of the scene to load in the Unity Inspector
-    public string StoryContentScene;
-
-    // This method will be called when the Episode 1 button is clicked
-    public void LoadCutsceneScene()
-    {
-        // Check if the scene name is not empty
-        if (!string.IsNullOrEmpty(StoryContentScene))
-        {
-            // Load the specified scene
-            SceneManager.LoadScene(StoryContentScene);
-        }
-        else
-        {
-            Debug.LogError("Cutscene scene name is not set in the inspector!");
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f803ea9deec90192fac55b5bb3e9347b3f8123bde4bfdbf8efc1304ae63d6fc8
+size 700
