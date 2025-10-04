@@ -1,14 +1,3 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class SceneLoader : MonoBehaviour
-{
-    // A public field to set the name of the scene to load in the Inspector
-    public string nextSceneName;
-
-    // This method is called when the button is clicked
-    public void LoadDungeon()
-    {
-        SceneManager.LoadScene(nextSceneName);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:aaaf76c2ce9424fc96b2788948c74fe8850b8cb09f65c7ddd8c99bb012a6a2d1
+size 626

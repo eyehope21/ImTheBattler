@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2992f55dbfd5a04394d6ad21b2c1854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeSlider: {fileID: 0}
+  masterVolumeSlider: {fileID: 479454987}
 --- !u!4 &580953116
 Transform:
   m_ObjectHideFlags: 0

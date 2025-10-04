@@ -1,17 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System;
-
-public class AdvancedEnemyStats : EnemyStats
-{
-    public override void InitializeStats()
-    {
-        base.InitializeStats();
-        maxHP = 100;
-        attackdamage = 10;
-        attackInterval = 8f;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c1ad4ffddaf559840744fee98c6fd970d8a10961cef2cecccdb434f25117845c
+size 357

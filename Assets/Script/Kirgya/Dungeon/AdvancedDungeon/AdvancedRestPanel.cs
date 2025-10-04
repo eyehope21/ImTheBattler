@@ -1,33 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AdvancedRestPanel : MonoBehaviour
-{
-    public PlayerStats player;
-    public AdvancedDungeonManager dungeon;
-
-    public void OnHealButton()
-    {
-        player.Heal(50);
-        ContinueDungeon();
-    }
-
-    public void OnBuffAtkButton()
-    {
-        player.BuffAttack(5);
-        ContinueDungeon();
-    }
-
-    public void OnHPBuffButton()
-    {
-        player.BuffMaxHP(50);
-        ContinueDungeon();
-    }
-
-    private void ContinueDungeon()
-    {
-        gameObject.SetActive(false);
-        dungeon.ContinueFromRest();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:440c41924c607b7b232e44c303cec72babbdfcc49bdd81b582e546fbb5af8ac7
+size 662

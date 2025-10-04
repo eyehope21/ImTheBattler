@@ -1,21 +1,3 @@
-using UnityEngine;
-
-public class VortexSpinner : MonoBehaviour
-{
-    // Adjust the speed of the spin in the Inspector
-    [SerializeField] private float spinSpeed = 0.1f;
-
-    private Material material;
-
-    void Start()
-    {
-        // Get the material of the quad
-        material = GetComponent<Renderer>().material;
-    }
-
-    void Update()
-    {
-        // Adjust the texture's offset to create a spinning effect
-        material.mainTextureOffset += new Vector2(spinSpeed * Time.deltaTime, spinSpeed * Time.deltaTime);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0dae3f1d5a8fa68aa74c74be127c08d3d29db86a415d58b02d17ab1a133d99f6
+size 553

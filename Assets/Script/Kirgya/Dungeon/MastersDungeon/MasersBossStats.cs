@@ -1,14 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MastersBossStats : BossStats
-{
-    public override void InitializeStats()
-    {
-        base.InitializeStats();
-        maxHP = 1000;
-        attackdamage = 30;
-        attackInterval = 5f;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee8ce1047d46f9bfada5a11b6a3bc3c5ee339b77295d28f124f13402c1a3a90f
+size 305

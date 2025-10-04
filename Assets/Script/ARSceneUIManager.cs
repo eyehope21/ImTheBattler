@@ -1,22 +1,3 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class ARSceneUIManager : MonoBehaviour
-{
-    public void OnStoryModePressed()
-    {
-        Debug.Log("Story Mode clicked!");
-        // Load story scene if needed
-    }
-
-    public void OnBattleFriendPressed()
-    {
-        Debug.Log("Battle a Friend clicked!");
-        // Load battle friend scene or trigger matchmaking
-    }
-
-    public void OnMenuPressed()
-    {
-        SceneManager.LoadScene("Menu"); // Make sure "Menu" is added to Build Settings
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6fea15735c99c0badc9f4cc4d45bae9ef048746eb5f48087f99c8917317d5f17
+size 547

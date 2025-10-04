@@ -1,33 +1,3 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-
-public class PasswordReveal : MonoBehaviour
-{
-    public TMP_InputField passwordInput;
-    public Image revealButtonImage;
-    public Sprite hidePasswordSprite;
-    public Sprite showPasswordSprite;
-
-    private bool isPasswordHidden = true;
-
-    public void TogglePasswordVisibility()
-    {
-        isPasswordHidden = !isPasswordHidden;
-        if (isPasswordHidden)
-        {
-            // Show password as dots
-            passwordInput.contentType = TMP_InputField.ContentType.Password;
-            revealButtonImage.sprite = hidePasswordSprite;
-        }
-        else
-        {
-            // Show password as text
-            passwordInput.contentType = TMP_InputField.ContentType.Standard;
-            revealButtonImage.sprite = showPasswordSprite;
-        }
-
-        // Re-focus the input field to apply the change
-        passwordInput.ForceLabelUpdate();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3d4198eb00429eef5497be7e76330dbc2e481462fe103ca6c5a9b1a19ae1ee3
+size 960

@@ -1,14 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MastersEnemyStats : EnemyStats
-{
-    public override void InitializeStats()
-    {
-        base.InitializeStats();
-        maxHP = 500;
-        attackdamage = 20;
-        attackInterval = 5f;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:307d64dc4f4607375ea6d360eaed131c9d6668d0e89b3fd4564bf3b2a820c175
+size 306
