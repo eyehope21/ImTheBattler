@@ -104,7 +104,6 @@ public class AdvancedBattleManager : MonoBehaviour
         }
     }
 
-    // --- FIX: Consolidated Visual Reset Method ---
     private void StopVisualFeedback()
     {
         // 1. Stop any currently running flash or fade
@@ -115,25 +114,21 @@ public class AdvancedBattleManager : MonoBehaviour
         if (currentEnemyRenderer != null)
         {
             currentEnemyRenderer.color = Color.white;
-            currentEnemyRenderer = null; // Clear old reference
+            currentEnemyRenderer = null;
         }
 
         // 3. Reset boss color
         if (currentBossRenderer != null)
         {
             currentBossRenderer.color = Color.white;
-            currentBossRenderer = null; // Clear old reference
+            currentBossRenderer = null; 
         }
     }
-    // ----------------------------------------------
 
 
-    // Updated StartBattle method for enemies
     public void StartBattle(AdvancedEnemyStats newEnemy)
     {
-        // --- FIX: Reset visual state and clear old references ---
         StopVisualFeedback();
-        // --------------------------------------------------------
 
         currentEnemy = newEnemy;
         currentBoss = null;
@@ -214,10 +209,8 @@ public class AdvancedBattleManager : MonoBehaviour
     public void EndBattle()
     {
         isBattleActive = false;
-        // Don't null out the renderers yet, as the fade-out coroutine may still be running.
     }
 
-    // --- NEW ENEMY FADE OUT COROUTINES ---
 
     public IEnumerator FadeOutCurrentEnemy(float fadeDuration = 0.75f)
     {
@@ -229,7 +222,6 @@ public class AdvancedBattleManager : MonoBehaviour
             yield break;
         }
 
-        // Store the coroutine to allow it to be stopped later
         fadeCoroutine = StartCoroutine(FadeRoutine(rendererToFade, fadeDuration));
         yield return fadeCoroutine;
         fadeCoroutine = null;
@@ -283,15 +275,8 @@ public class AdvancedBattleManager : MonoBehaviour
         {
             renderer.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
 
-            // NOTE: The DungeonManager now handles Destroy() and nulling currentEnemy/Boss.
-            // We just clear our own renderer reference here as a precaution, though it will
-            // be cleared again in StartBattle(NextLevel).
         }
     }
-    // --------------------------------------------------------------------------------
-
-
-    // --- FLASH LOGIC (UPDATED TO USE COROUTINE FIELD) ---
 
     public void FlashEnemyRed()
     {

@@ -21,7 +21,7 @@ public class AdvancedDungeonManager : MonoBehaviour
     public EnemySpawner enemyspawner;
     public BossSpawner bossspawner;
     public DungeonResultUI resultUI;
-    public RestPanel restPanel;
+    public AdvancedRestPanel restPanel;
     public GameObject bossIntroPanel;
     public GameObject enemyIntroPanel;
 
@@ -221,7 +221,7 @@ public class AdvancedDungeonManager : MonoBehaviour
             string name = (enemy != null) ? enemy.enemyName : "Enemy";
 
             int minionNumber = CurrentLevel;
-            if (CurrentLevel > 7)
+            if (CurrentLevel > 8)
             {
                 // Level 7 is fight 6, Level 11 is fight 10.
                 minionNumber = CurrentLevel - 1;

@@ -8836,7 +8836,7 @@ MonoBehaviour:
   enemyspawner: {fileID: 705215801}
   bossspawner: {fileID: 1319247139}
   resultUI: {fileID: 1801620582}
-  restPanel: {fileID: 0}
+  restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1230865511}
   enemyIntroPanel: {fileID: 1950644095}
   arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
@@ -10021,8 +10021,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NoviceDungeonManager, Assembly-CSharp
+      - m_Target: {fileID: 1732895962}
+        m_TargetAssemblyTypeName: AdvancedDungeonManager, Assembly-CSharp
         m_MethodName: OnStartButton
         m_Mode: 1
         m_Arguments:
