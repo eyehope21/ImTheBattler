@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 546551533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a61a31c01e9e5a47b882fcac469464f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d3e9a2638a1b164283b3f3648d555d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 64059013}
@@ -3588,7 +3588,7 @@ GameObject:
   - component: {fileID: 705215799}
   - component: {fileID: 705215798}
   - component: {fileID: 705215801}
-  - component: {fileID: 705215800}
+  - component: {fileID: 705215802}
   m_Layer: 5
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -3653,26 +3653,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705215796}
   m_CullTransparentMesh: 1
---- !u!114 &705215800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705215796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyName: 
-  maxHP: 50
-  attackdamage: 10
-  attackInterval: 10
-  currentHP: 50
-  hpSlider: {fileID: 336379220}
-  nameText: {fileID: 1159173915}
-  timerText: {fileID: 1382457959}
 --- !u!114 &705215801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3688,6 +3668,27 @@ MonoBehaviour:
   prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
   midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
   prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
+  finalsMinionPrefab: {fileID: 0}
+--- !u!114 &705215802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705215796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef9fdc5053603e44b2e43eda628cfb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Enemy
+  maxHP: 500
+  attackdamage: 20
+  attackInterval: 5
+  currentHP: 500
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &707414925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,7 +4802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnHPBuffButton
         m_Mode: 1
@@ -6381,19 +6382,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1160659561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b447d9c050545448fa5a9609306401, type: 3}
+  m_Script: {fileID: 11500000, guid: d8838eb0097ea264297613beb23b0b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quizMasterPanel: {fileID: 0}
-  trueFalsePanel: {fileID: 0}
-  identificationPanel: {fileID: 0}
-  QuestionText: {fileID: 0}
-  FeedbackFlash: {fileID: 0}
-  trueButton: {fileID: 0}
-  falseButton: {fileID: 0}
-  identificationInput: {fileID: 0}
-  identificationSubmitButton: {fileID: 0}
-  battleManager: {fileID: 0}
+  matchingQuizPanel: {fileID: 96624747}
+  identificationQuizPanel: {fileID: 254817930}
+  identificationQuestionPanel: {fileID: 1125486163}
+  TermButtons:
+  - {fileID: 222281151}
+  - {fileID: 1287275176}
+  - {fileID: 1707843365}
+  DefinitionButtons:
+  - {fileID: 1227769514}
+  - {fileID: 68601345}
+  - {fileID: 1681559114}
+  identificationQuestionText: {fileID: 1749580548}
+  answerInputField: {fileID: 1160333493}
+  submitButton: {fileID: 354800177}
+  AllPairs: []
 --- !u!1 &1179605283
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,7 +6483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnHealButton
         m_Mode: 1
@@ -7369,17 +7375,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278461618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ef9fdc5053603e44b2e43eda628cfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  maxHP: 50
-  attackdamage: 10
-  attackInterval: 10
-  currentHP: 50
-  hpSlider: {fileID: 336379220}
-  nameText: {fileID: 1159173915}
-  timerText: {fileID: 1382457959}
+  enemyName: Enemy
+  maxHP: 1000
+  attackdamage: 20
+  attackInterval: 5
+  currentHP: 1000
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1287275174
 GameObject:
   m_ObjectHideFlags: 0
@@ -7967,8 +7973,8 @@ GameObject:
   - component: {fileID: 1319247135}
   - component: {fileID: 1319247137}
   - component: {fileID: 1319247136}
-  - component: {fileID: 1319247138}
   - component: {fileID: 1319247139}
+  - component: {fileID: 1319247140}
   m_Layer: 5
   m_Name: BossSprite
   m_TagString: Untagged
@@ -8033,26 +8039,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319247134}
   m_CullTransparentMesh: 1
---- !u!114 &1319247138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319247134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: 
-  maxHP: 100
-  attackdamage: 20
-  attackInterval: 10
-  currentHP: 100
-  bossHpBar: {fileID: 338167605}
-  bossNameText: {fileID: 1142901707}
-  bossTimerText: {fileID: 308927340}
 --- !u!114 &1319247139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8068,6 +8054,27 @@ MonoBehaviour:
   prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
   midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
   prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
+  finalsBossPrefab: {fileID: 3934057715302444650, guid: 36558b260d732ea4f802bf326454c65c, type: 3}
+--- !u!114 &1319247140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319247134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Boss
+  maxHP: 1000
+  attackdamage: 20
+  attackInterval: 10
+  currentHP: 1000
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
 --- !u!1 &1382457957
 GameObject:
   m_ObjectHideFlags: 0
@@ -9752,8 +9759,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732895959}
-  - component: {fileID: 1732895960}
   - component: {fileID: 1732895961}
+  - component: {fileID: 1732895962}
   m_Layer: 5
   m_Name: DungeonManager
   m_TagString: Untagged
@@ -9780,29 +9787,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1732895960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732895958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b84cfb8a0350643b39c87e85f0c9b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPanel: {fileID: 1550364812}
-  dungeonQuiz: {fileID: 0}
-  battleManager: {fileID: 0}
-  player: {fileID: 64059013}
-  enemyspawner: {fileID: 705215801}
-  bossspawner: {fileID: 1319247139}
-  resultUI: {fileID: 1801620582}
-  restPanel: {fileID: 1794224178}
-  bossIntroPanel: {fileID: 1230865511}
-  enemyIntroPanel: {fileID: 1950644095}
-  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
 --- !u!114 &1732895961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9818,6 +9802,29 @@ MonoBehaviour:
   flashImage: {fileID: 859881967}
   maxOpacity: 0.5
   fadeTime: 0.3
+--- !u!114 &1732895962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732895958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0934c2663350bba408b7dbbbcc28a6cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPanel: {fileID: 1550364812}
+  mDungeonQuiz: {fileID: 0}
+  mBattleManager: {fileID: 546551535}
+  player: {fileID: 64059013}
+  enemyspawner: {fileID: 705215801}
+  bossspawner: {fileID: 1319247139}
+  resultUI: {fileID: 1801620582}
+  restPanel: {fileID: 1794224178}
+  bossIntroPanel: {fileID: 1319247134}
+  enemyIntroPanel: {fileID: 705215796}
+  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
 --- !u!1 &1735884656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,11 +10122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794224174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b158ff1146b594eb1a1bf0ce049552, type: 3}
+  m_Script: {fileID: 11500000, guid: 00bad26de3c7764409de4b36d22aa124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 64059013}
-  dungeon: {fileID: 0}
+  dungeon: {fileID: 1732895962}
 --- !u!1 &1801620578
 GameObject:
   m_ObjectHideFlags: 0
@@ -10940,7 +10947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794224178}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RestPanel, Assembly-CSharp
         m_MethodName: OnBuffAtkButton
         m_Mode: 1
@@ -11133,8 +11140,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1732895960}
-        m_TargetAssemblyTypeName: NoviceDungeonManager, Assembly-CSharp
+      - m_Target: {fileID: 1732895962}
+        m_TargetAssemblyTypeName: MastersDungeonManager, Assembly-CSharp
         m_MethodName: OnStartButton
         m_Mode: 1
         m_Arguments:
@@ -11306,7 +11313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastManager: {fileID: 745731779}
-  dungeonManager: {fileID: 1732895960}
+  dungeonManager: {fileID: 0}
   placementDistance: 2
 --- !u!1 &2035732228
 GameObject:

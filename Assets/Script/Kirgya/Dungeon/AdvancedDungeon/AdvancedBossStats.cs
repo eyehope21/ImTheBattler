@@ -11,7 +11,6 @@ public class AdvancedBossStats : BossStats // This is correct
     {
         base.InitializeStats();
         maxHP = 500;
-        bossName = "The Advanced Destroyer";
         attackdamage = 20;
         attackInterval = 8f;
     }
