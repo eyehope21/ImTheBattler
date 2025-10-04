@@ -25,7 +25,6 @@ public class PortalManager : MonoBehaviour
     private float searchTimer = 0f;
     public float searchTimeLimit = 10f;
 
-    // The static list is now declared here
     private static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
     void Start()
@@ -55,42 +54,62 @@ public class PortalManager : MonoBehaviour
 
     void Update()
     {
-        if (spawnedPortal != null)
+        if (spawnedPortal == null)
         {
-            return;
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            if (arRaycastManager.Raycast(Input.GetTouch(0).position, s_Hits, TrackableType.PlaneWithinPolygon))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                if (s_Hits[0].trackable is ARPlane arPlane && arPlane.alignment == PlaneAlignment.HorizontalUp)
+                if (arRaycastManager.Raycast(Input.GetTouch(0).position, s_Hits, TrackableType.PlaneWithinPolygon))
                 {
-                    Pose hitPose = s_Hits[0].pose;
-                    if (spawnedSparks == null)
+                    if (s_Hits[0].trackable is ARPlane arPlane && arPlane.alignment == PlaneAlignment.HorizontalUp)
                     {
-                        spawnedSparks = Instantiate(sparksPrefab, hitPose.position, hitPose.rotation);
-                        statusText.text = "Plane found! Tap the sparks to spawn the portal.";
+                        Pose hitPose = s_Hits[0].pose;
+                        if (spawnedSparks == null)
+                        {
+                            spawnedSparks = Instantiate(sparksPrefab, hitPose.position, hitPose.rotation);
+                            statusText.text = "Plane found! Tap the sparks to spawn the portal.";
+                        }
+                        else
+                        {
+                            spawnedSparks.transform.position = hitPose.position;
+                            spawnedSparks.transform.rotation = hitPose.rotation;
+                        }
+
+                        // Check if a second tap occurs to spawn the portal
+                        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+                        {
+                            SpawnPortal(hitPose);
+                        }
                     }
                     else
                     {
-                        spawnedSparks.transform.position = hitPose.position;
-                        spawnedSparks.transform.rotation = hitPose.rotation;
+                        DestroySparks();
                     }
-                    SpawnPortal(hitPose);
                 }
                 else
                 {
                     DestroySparks();
                 }
             }
-            else
+        }
+        else
+        {
+            // ✅ New: Check for tap on the spawned portal
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                DestroySparks();
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == spawnedPortal)
+                {
+                    void EnterPortal()
+                    {
+                        statusText.text = "Entering the portal...";
+                        SceneManager.LoadScene("NoviceDungeon");
+                    }
+                }
             }
         }
     }
-
     public void OnInstantSpawnButton()
     {
         Vector3 spawnPosition = Camera.main.transform.position + Camera.main.transform.forward * 3f;
@@ -101,7 +120,6 @@ public class PortalManager : MonoBehaviour
     {
         if (spawnedPortal == null)
         {
-            // ✅ This is the corrected line that attaches the anchor using the ARPlane
             if (s_Hits.Count > 0 && s_Hits[0].trackable is ARPlane arPlane)
             {
                 ARAnchor anchor = arAnchorManager.AttachAnchor(arPlane, pose);
@@ -109,7 +127,6 @@ public class PortalManager : MonoBehaviour
             }
             else
             {
-                // Fallback if no plane is found
                 spawnedPortal = Instantiate(portalPrefab, pose.position, pose.rotation);
             }
 
