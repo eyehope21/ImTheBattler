@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 816067952780619799}
   - component: {fileID: 1287362749859834557}
-  - component: {fileID: 8955800888786372068}
+  - component: {fileID: -2790855176130455040}
+  - component: {fileID: 8091127302004905310}
   m_Layer: 0
   m_Name: AndroidMinionPrefab
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Enemy
+  enemyName: City Android
   maxHP: 50
   attackdamage: 5
   attackInterval: 10
@@ -54,7 +55,7 @@ MonoBehaviour:
   hpSlider: {fileID: 0}
   nameText: {fileID: 0}
   timerText: {fileID: 0}
---- !u!114 &8955800888786372068
+--- !u!114 &-2790855176130455040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,13 +64,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019181951000973953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
+  m_Script: {fileID: 11500000, guid: d11f089ec579f59498f7b9ec6a486356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allEnemyPrefabs: []
-  prelimMinionSprites: []
-  midtermMinionSprites: []
-  prefinalsMinionSprites: []
+  enemyName: City Android
+  maxHP: 100
+  attackdamage: 10
+  attackInterval: 8
+  currentHP: 100
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
+--- !u!114 &8091127302004905310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019181951000973953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef9fdc5053603e44b2e43eda628cfb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: City Android
+  maxHP: 500
+  attackdamage: 20
+  attackInterval: 5
+  currentHP: 500
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &2562819712327160574
 GameObject:
   m_ObjectHideFlags: 0
