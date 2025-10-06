@@ -3587,8 +3587,8 @@ GameObject:
   - component: {fileID: 705215797}
   - component: {fileID: 705215799}
   - component: {fileID: 705215798}
-  - component: {fileID: 705215801}
   - component: {fileID: 705215802}
+  - component: {fileID: 705215803}
   m_Layer: 5
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -3653,22 +3653,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705215796}
   m_CullTransparentMesh: 1
---- !u!114 &705215801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705215796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
-  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
-  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
-  finalsMinionPrefab: {fileID: 0}
 --- !u!114 &705215802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3689,6 +3673,22 @@ MonoBehaviour:
   hpSlider: {fileID: 0}
   nameText: {fileID: 0}
   timerText: {fileID: 0}
+--- !u!114 &705215803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705215796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b378ebb25f7ff4d49935a9b40e6c8648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
+  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
+  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
+  finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
 --- !u!1 &707414925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,8 +6386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matchingQuizPanel: {fileID: 96624747}
-  identificationQuizPanel: {fileID: 254817930}
-  identificationQuestionPanel: {fileID: 1125486163}
+  practicalCodingQuizPanel: {fileID: 254817930}
+  questionTextPanel: {fileID: 1749580546}
   TermButtons:
   - {fileID: 222281151}
   - {fileID: 1287275176}
@@ -6396,9 +6396,8 @@ MonoBehaviour:
   - {fileID: 1227769514}
   - {fileID: 68601345}
   - {fileID: 1681559114}
-  identificationQuestionText: {fileID: 1749580548}
-  answerInputField: {fileID: 1160333493}
-  submitButton: {fileID: 354800177}
+  practicalCodingInput: {fileID: 1160333493}
+  practicalCodingSubmitButton: {fileID: 354800177}
   AllPairs: []
 --- !u!1 &1179605283
 GameObject:
@@ -7973,8 +7972,8 @@ GameObject:
   - component: {fileID: 1319247135}
   - component: {fileID: 1319247137}
   - component: {fileID: 1319247136}
-  - component: {fileID: 1319247139}
-  - component: {fileID: 1319247140}
+  - component: {fileID: 1319247141}
+  - component: {fileID: 1319247142}
   m_Layer: 5
   m_Name: BossSprite
   m_TagString: Untagged
@@ -8039,7 +8038,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319247134}
   m_CullTransparentMesh: 1
---- !u!114 &1319247139
+--- !u!114 &1319247141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8048,14 +8047,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319247134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b8d02ca603f20149bf47c13f1f85e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
   midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
   prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
   finalsBossPrefab: {fileID: 3934057715302444650, guid: 36558b260d732ea4f802bf326454c65c, type: 3}
---- !u!114 &1319247140
+--- !u!114 &1319247142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8064,13 +8063,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319247134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
+  m_Script: {fileID: 11500000, guid: 16650a31bc95689489b2b88710c83f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: Boss
   maxHP: 1000
-  attackdamage: 20
-  attackInterval: 10
+  attackdamage: 30
+  attackInterval: 5
   currentHP: 1000
   bossHpBar: {fileID: 0}
   bossNameText: {fileID: 0}
@@ -9815,11 +9814,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPanel: {fileID: 1550364812}
-  mDungeonQuiz: {fileID: 0}
+  mDungeonQuiz: {fileID: 1160659563}
   mBattleManager: {fileID: 546551535}
   player: {fileID: 64059013}
-  enemyspawner: {fileID: 705215801}
-  bossspawner: {fileID: 1319247139}
+  mastersEnemyspawner: {fileID: 705215803}
+  mastersBossSpawner: {fileID: 1319247141}
   resultUI: {fileID: 1801620582}
   restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1319247134}
@@ -10740,7 +10739,7 @@ GameObject:
   - component: {fileID: 1884324055}
   - component: {fileID: 1884324054}
   m_Layer: 5
-  m_Name: IdentificationSubmitText
+  m_Name: PCSubmitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
