@@ -115,8 +115,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4539102890391156745}
-  - component: {fileID: -7743390307608103069}
   - component: {fileID: 165151251126873292}
+  - component: {fileID: -7743390307608103069}
   - component: {fileID: -3955719691295567569}
   m_Layer: 0
   m_Name: SnowBossPrefab
@@ -141,26 +141,6 @@ Transform:
   - {fileID: 671451116379654494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7743390307608103069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751102187567259697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: Ice King
-  maxHP: 500
-  attackdamage: 20
-  attackInterval: 8
-  currentHP: 500
-  bossHpBar: {fileID: 0}
-  bossNameText: {fileID: 0}
-  bossTimerText: {fileID: 0}
 --- !u!114 &165151251126873292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +158,26 @@ MonoBehaviour:
   attackdamage: 20
   attackInterval: 10
   currentHP: 100
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
+--- !u!114 &-7743390307608103069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751102187567259697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Ice King
+  maxHP: 500
+  attackdamage: 20
+  attackInterval: 8
+  currentHP: 500
   bossHpBar: {fileID: 0}
   bossNameText: {fileID: 0}
   bossTimerText: {fileID: 0}

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090794876556503440}
-  - component: {fileID: -7394049526542730725}
   - component: {fileID: 1425873420854162145}
+  - component: {fileID: -7394049526542730725}
   - component: {fileID: 3707571908151677661}
   m_Layer: 0
   m_Name: BossBatPrefab
@@ -35,26 +35,6 @@ Transform:
   - {fileID: 4893250328602595191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7394049526542730725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861763870813447459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: Dracula Bat
-  maxHP: 500
-  attackdamage: 20
-  attackInterval: 8
-  currentHP: 500
-  bossHpBar: {fileID: 0}
-  bossNameText: {fileID: 0}
-  bossTimerText: {fileID: 0}
 --- !u!114 &1425873420854162145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +52,26 @@ MonoBehaviour:
   attackdamage: 20
   attackInterval: 10
   currentHP: 100
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
+--- !u!114 &-7394049526542730725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861763870813447459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Dracula Bat
+  maxHP: 500
+  attackdamage: 25
+  attackInterval: 8
+  currentHP: 500
   bossHpBar: {fileID: 0}
   bossNameText: {fileID: 0}
   bossTimerText: {fileID: 0}
