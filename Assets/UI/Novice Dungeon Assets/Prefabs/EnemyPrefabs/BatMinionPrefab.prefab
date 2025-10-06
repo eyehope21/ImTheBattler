@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7343225947811332655}
   - component: {fileID: 7998352621118632108}
-  - component: {fileID: 7416970962567401962}
+  - component: {fileID: -2796929636412905272}
   m_Layer: 0
   m_Name: BatMinionPrefab
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013fca2e33ffa7d45898c3b5d8bc8950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Enemy
+  enemyName: Cave Bat
   maxHP: 50
   attackdamage: 5
   attackInterval: 10
@@ -54,7 +54,7 @@ MonoBehaviour:
   hpSlider: {fileID: 0}
   nameText: {fileID: 0}
   timerText: {fileID: 0}
---- !u!114 &7416970962567401962
+--- !u!114 &-2796929636412905272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,26 +63,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3442333603543988917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
+  m_Script: {fileID: 11500000, guid: d11f089ec579f59498f7b9ec6a486356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allEnemyPrefabs:
-  - {fileID: 3442333603543988917}
-  prelimMinionSprites:
-  - {fileID: -411780681, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1727608359, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: -215538326, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1114482698, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 20961587, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1307154750, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 302009622, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: -2002980189, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1522641647, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: -1458123847, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1865941243, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  - {fileID: 1189868739, guid: 79b73284d88947849b9a1201edf0a675, type: 3}
-  midtermMinionSprites: []
-  prefinalsMinionSprites: []
+  enemyName: Cave Bat
+  maxHP: 100
+  attackdamage: 10
+  attackInterval: 8
+  currentHP: 100
+  hpSlider: {fileID: 0}
+  nameText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &8143611466332708883
 GameObject:
   m_ObjectHideFlags: 0

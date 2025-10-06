@@ -1696,8 +1696,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3248,8 +3248,8 @@ GameObject:
   - component: {fileID: 705215797}
   - component: {fileID: 705215799}
   - component: {fileID: 705215798}
-  - component: {fileID: 705215801}
   - component: {fileID: 705215802}
+  - component: {fileID: 705215803}
   m_Layer: 5
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -3314,22 +3314,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705215796}
   m_CullTransparentMesh: 1
---- !u!114 &705215801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705215796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
-  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
-  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
-  finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
 --- !u!114 &705215802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,6 +3334,22 @@ MonoBehaviour:
   hpSlider: {fileID: 0}
   nameText: {fileID: 0}
   timerText: {fileID: 0}
+--- !u!114 &705215803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705215796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c894b3e812564cbdfe9c7e99448bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
+  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
+  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
+  finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
 --- !u!1 &723808218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3891,7 +3891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 272, y: -400}
+  m_AnchoredPosition: {x: 272, y: -201}
   m_SizeDelta: {x: 475, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795904830
@@ -5167,7 +5167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: -400}
+  m_AnchoredPosition: {x: -250, y: -201}
   m_SizeDelta: {x: 475, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008572976
@@ -7421,8 +7421,8 @@ GameObject:
   - component: {fileID: 1319247135}
   - component: {fileID: 1319247137}
   - component: {fileID: 1319247136}
-  - component: {fileID: 1319247139}
   - component: {fileID: 1319247140}
+  - component: {fileID: 1319247141}
   m_Layer: 5
   m_Name: BossSprite
   m_TagString: Untagged
@@ -7487,22 +7487,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319247134}
   m_CullTransparentMesh: 1
---- !u!114 &1319247139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319247134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
-  midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
-  prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
-  finalsBossPrefab: {fileID: 0}
 --- !u!114 &1319247140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7523,6 +7507,22 @@ MonoBehaviour:
   bossHpBar: {fileID: 0}
   bossNameText: {fileID: 0}
   bossTimerText: {fileID: 0}
+--- !u!114 &1319247141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319247134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577480a8c8e627c4d8ec05cc2aec805a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
+  midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
+  prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
+  finalsBossPrefab: {fileID: 3934057715302444650, guid: 36558b260d732ea4f802bf326454c65c, type: 3}
 --- !u!1 &1382457957
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,8 +8833,8 @@ MonoBehaviour:
   aDungeonQuiz: {fileID: 1160659563}
   aBattleManager: {fileID: 546551535}
   player: {fileID: 64059013}
-  enemyspawner: {fileID: 705215801}
-  bossspawner: {fileID: 1319247139}
+  advancedEnemyspawner: {fileID: 705215803}
+  advencedbossspawner: {fileID: 0}
   resultUI: {fileID: 1801620582}
   restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1230865511}
@@ -10182,7 +10182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -126}
+  m_AnchoredPosition: {x: 0, y: 73}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956749144

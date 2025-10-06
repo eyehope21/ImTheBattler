@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090794876556503440}
-  - component: {fileID: 3129778107340945448}
-  - component: {fileID: 3183654859637119686}
   - component: {fileID: 8504195989541373794}
+  - component: {fileID: -7394049526542730725}
   m_Layer: 0
   m_Name: BossBatPrefab
   m_TagString: Untagged
@@ -35,41 +34,6 @@ Transform:
   - {fileID: 4893250328602595191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3129778107340945448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861763870813447459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prelimBossPrefab: {fileID: 0}
-  midtermBossPrefab: {fileID: 0}
-  prefinalsBossPrefab: {fileID: 0}
---- !u!114 &3183654859637119686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861763870813447459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: Boss
-  maxHP: 100
-  attackdamage: 20
-  attackInterval: 10
-  currentHP: 0
-  bossHpBar: {fileID: 0}
-  bossNameText: {fileID: 0}
-  bossTimerText: {fileID: 0}
 --- !u!212 &8504195989541373794
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,6 +86,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7394049526542730725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861763870813447459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: Boss
+  maxHP: 500
+  attackdamage: 20
+  attackInterval: 8
+  currentHP: 500
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
 --- !u!1 &6410255079193245498
 GameObject:
   m_ObjectHideFlags: 0

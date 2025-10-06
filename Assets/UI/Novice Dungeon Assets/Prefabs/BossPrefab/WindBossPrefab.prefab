@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6346026833195713252}
   - component: {fileID: 5005149626623931435}
-  - component: {fileID: 8264689075697140541}
-  - component: {fileID: 8938529834034483776}
+  - component: {fileID: 5676893248181042760}
   m_Layer: 0
   m_Name: WindBossPrefab
   m_TagString: Untagged
@@ -87,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8264689075697140541
+--- !u!114 &5676893248181042760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,32 +95,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3934057715302444650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ac82879c11c0e04b8af030a3a3ac5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: Boss
-  maxHP: 100
+  maxHP: 500
   attackdamage: 20
-  attackInterval: 10
-  currentHP: 100
+  attackInterval: 8
+  currentHP: 500
   bossHpBar: {fileID: 0}
   bossNameText: {fileID: 0}
   bossTimerText: {fileID: 0}
---- !u!114 &8938529834034483776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3934057715302444650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prelimBossPrefab: {fileID: 0}
-  midtermBossPrefab: {fileID: 0}
-  prefinalsBossPrefab: {fileID: 0}
 --- !u!1 &8186453047065364873
 GameObject:
   m_ObjectHideFlags: 0
