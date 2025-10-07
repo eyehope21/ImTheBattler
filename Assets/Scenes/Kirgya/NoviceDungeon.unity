@@ -7069,6 +7069,8 @@ MonoBehaviour:
   - {fileID: 2054761135}
   FeedbackFlash: {fileID: 0}
   battleManager: {fileID: 546551535}
+  swordTestingDropdown: {fileID: 2131096237}
+  selectedTestSword: 0
 --- !u!1 &1166388377
 GameObject:
   m_ObjectHideFlags: 0
@@ -10948,7 +10950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1160659563}
         m_TargetAssemblyTypeName: NoviceDungeonQuizManager, Assembly-CSharp
-        m_MethodName: ExecuteSwordUse
+        m_MethodName: ExecuteSwordTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
