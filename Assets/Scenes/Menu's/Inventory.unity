@@ -1281,7 +1281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryGridPanel: {fileID: 1906109816}
   itemSlotPrefab: {fileID: 1539258734229809687, guid: 5a3d732664e03fc42b94856906156284, type: 3}
-  inventoryItems: []
+  inventoryItems:
+  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
+  - {fileID: 11400000, guid: 571265e5a9049b748938877fd571e75c, type: 2}
+  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
 --- !u!4 &1388725283
 Transform:
   m_ObjectHideFlags: 0
