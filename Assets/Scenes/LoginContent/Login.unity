@@ -2352,17 +2352,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634770298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99f3525b7ca537f47abbb4175a1d9a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryGridPanel: {fileID: 0}
   itemSlotPrefab: {fileID: 0}
-  inventoryItems:
-  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
-  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
-  - {fileID: 11400000, guid: 571265e5a9049b748938877fd571e75c, type: 2}
+  inventoryItems: []
 --- !u!4 &1634770300
 Transform:
   m_ObjectHideFlags: 0

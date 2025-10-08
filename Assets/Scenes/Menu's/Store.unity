@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 1571200104}
   - component: {fileID: 1571200107}
   - component: {fileID: 1571200106}
-  - component: {fileID: 1571200105}
+  - component: {fileID: 1571200108}
   m_Layer: 5
   m_Name: shopCurrency
   m_TagString: Untagged
@@ -2033,19 +2033,6 @@ RectTransform:
   m_AnchoredPosition: {x: 405, y: 1074}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1571200105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571200103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e715b4eb82b3147abd3bfb421bbcdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyText: {fileID: 1571200106}
 --- !u!114 &1571200106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,6 +2130,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571200103}
   m_CullTransparentMesh: 1
+--- !u!114 &1571200108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571200103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e715b4eb82b3147abd3bfb421bbcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyText: {fileID: 1571200106}
 --- !u!1 &1633982610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,7 +2497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914160274}
-  - component: {fileID: 1914160276}
   - component: {fileID: 1914160277}
   m_Layer: 0
   m_Name: ItemShopManager
@@ -2521,19 +2520,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914160276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914160272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef9209728fbe9447a03a364eae0eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyText: {fileID: 1571200106}
 --- !u!114 &1914160277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2547,9 +2533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableItems:
-  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
-  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
   - {fileID: 11400000, guid: 571265e5a9049b748938877fd571e75c, type: 2}
+  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
+  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
   itemButtonPrefab: {fileID: 4659393970533470323, guid: a745c6988b2bced4f9b41e49f48472cd, type: 3}
   itemGridParent: {fileID: 793047381}
   confirmationPopup: {fileID: 1692063702}
