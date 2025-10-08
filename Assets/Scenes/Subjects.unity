@@ -672,8 +672,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1312483268}
-        m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
+      - m_Target: {fileID: 243537352}
+        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: SelectSubject
         m_Mode: 5
         m_Arguments:
@@ -681,7 +681,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Computer Programming 1
+          m_StringArgument: ' Data Structures & Algorithms '
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &117184079
@@ -1187,6 +1187,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &243537351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243537353}
+  - component: {fileID: 243537352}
+  m_Layer: 0
+  m_Name: PrograssionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &243537352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243537351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5349bdfe4cf79494e8e6baf7b6673844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &243537353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243537351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 635.07794, y: 1193.0884, z: 1.4344482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255224377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,8 +1374,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1312483268}
-        m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
+      - m_Target: {fileID: 243537352}
+        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: SelectSubject
         m_Mode: 5
         m_Arguments:
@@ -1339,7 +1383,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Computer Programming 1
+          m_StringArgument: Computer Programming 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &300435831
@@ -2442,8 +2486,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1312483268}
-        m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
+      - m_Target: {fileID: 243537352}
+        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: SelectSubject
         m_Mode: 5
         m_Arguments:
@@ -2451,7 +2495,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Computer Programming 1
+          m_StringArgument: Object Oriented Programming
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1359472672
@@ -2575,8 +2619,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1312483268}
-        m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
+      - m_Target: {fileID: 243537352}
+        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
         m_MethodName: SelectSubject
         m_Mode: 5
         m_Arguments:
@@ -3083,3 +3127,4 @@ SceneRoots:
   - {fileID: 226080007}
   - {fileID: 1952812863}
   - {fileID: 443718569}
+  - {fileID: 243537353}
