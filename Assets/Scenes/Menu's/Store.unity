@@ -2900,6 +2900,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7046fb5bd3e121549907297a9371a685, type: 2}
   - {fileID: 11400000, guid: d46782c149c859c49b25f91f2a53bcb5, type: 2}
   - {fileID: 11400000, guid: 6c605f6ee8abb54439e0363dd8a98792, type: 2}
+  - {fileID: 11400000, guid: b8ed75d63511bf04aac67d525004c84b, type: 2}
+  - {fileID: 11400000, guid: ca067ec6ce469bc4483376133f18b335, type: 2}
+  - {fileID: 11400000, guid: db66ce095f9a1004a9066962d7d5824f, type: 2}
+  - {fileID: 11400000, guid: 84f822666f05bb343bd24d9bc2cf3407, type: 2}
+  - {fileID: 11400000, guid: 454522ee1a0990e40abbf4b56fb91ddf, type: 2}
+  - {fileID: 11400000, guid: 1af3265c81d94ca4aafea7ee33fe537b, type: 2}
+  - {fileID: 11400000, guid: 22492e09896ff2d49abcdca5a4e4ebc8, type: 2}
+  - {fileID: 11400000, guid: 80030f45d16604748a5d5238b94bb176, type: 2}
   itemButtonPrefab: {fileID: 4659393970533470323, guid: a745c6988b2bced4f9b41e49f48472cd, type: 3}
   itemGridParent: {fileID: 594379716}
   confirmationPopup: {fileID: 1692063702}

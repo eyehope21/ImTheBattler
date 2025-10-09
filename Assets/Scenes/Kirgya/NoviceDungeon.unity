@@ -2593,7 +2593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e2256e37a5a7946810357b38693be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveItem: 0
+  activeWeapon: 0
+  activePotion: 0
+  activeArmor: 0
   advancedQuizManager: {fileID: 0}
   noviceQuizManager: {fileID: 1160659563}
   mastersQuizManager: {fileID: 0}
@@ -11951,7 +11953,7 @@ GameObject:
   - component: {fileID: 2071441490}
   - component: {fileID: 2071441489}
   m_Layer: 5
-  m_Name: ItemText
+  m_Name: PotionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
