@@ -276,8 +276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sparksPrefab: {fileID: 1327496888411081642, guid: 31e3c7041981f5b4cb30db1761aba860, type: 3}
   statusText: {fileID: 1595885583}
-  spawnDistance: 3
-  searchTimeLimit: 3
+  spawnDistance: 5
+  searchTimeLimit: 5
 --- !u!1 &120768517
 GameObject:
   m_ObjectHideFlags: 0
