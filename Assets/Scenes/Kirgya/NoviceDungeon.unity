@@ -878,9 +878,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20541529e3a03f5489fcfa20db87ba43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attack:
+    baseValue: 10
+  MaxHP:
+    baseValue: 100
+  Defense:
+    baseValue: 0
+  armorBlockChance: 0
+  armorReflectPercent: 0
   screenFlasher: {fileID: 1732895961}
-  currentArmorDefense: 0
-  currentDamageMultiplier: 1
+  currentHP: 0
   hpSlider: {fileID: 184783494}
 --- !u!1 &94482395
 GameObject:
@@ -3126,6 +3133,7 @@ MonoBehaviour:
   advancedQuizManager: {fileID: 0}
   noviceQuizManager: {fileID: 1160659563}
   mastersQuizManager: {fileID: 0}
+  playerStats: {fileID: 64059013}
 --- !u!1 &401060743
 GameObject:
   m_ObjectHideFlags: 0
