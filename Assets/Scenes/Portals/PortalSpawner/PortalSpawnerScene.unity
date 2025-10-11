@@ -274,10 +274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679bae7d8a429df438a22cb156fe8c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sparksPrefab: {fileID: 1327496888411081642, guid: 31e3c7041981f5b4cb30db1761aba860, type: 3}
   statusText: {fileID: 1595885583}
-  spawnDistance: 20
-  searchTimeLimit: 3
+  dungeonAccessButton: {fileID: 232472868}
+  maxRandomSpawnDistance: 5
 --- !u!1 &120768517
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &232472867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -588,9 +587,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 354349272}
+      - m_Target: {fileID: 63346988}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadDungeon
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
