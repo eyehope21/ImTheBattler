@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5884976251859687709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7619640919034616080}
+  - component: {fileID: 1955713599395944800}
+  - component: {fileID: 4357765458586661982}
+  - component: {fileID: 2747386613838532204}
+  - component: {fileID: 6461577500519995759}
+  m_Layer: 5
+  m_Name: BossSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7619640919034616080
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884976251859687709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 540, y: 960}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1955713599395944800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884976251859687709}
+  m_CullTransparentMesh: 1
+--- !u!114 &4357765458586661982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884976251859687709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2747386613838532204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884976251859687709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b876823f42d74c91f047fbf39737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: 
+  maxHP: 100
+  attackdamage: 20
+  attackInterval: 10
+  currentHP: 100
+  bossHpBar: {fileID: 0}
+  bossNameText: {fileID: 0}
+  bossTimerText: {fileID: 0}
+--- !u!114 &6461577500519995759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884976251859687709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f3753e73beef640931fdd5f4a9f0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjectBossPrefabs:
+  - subject: 0
+    prelimBossPrefab: {fileID: 5861763870813447459, guid: 1fbbd11c0ae70ca45b09b149209600dd, type: 3}
+    midtermBossPrefab: {fileID: 8807126412524690132, guid: 4dac7f3c7032833488551e629449838f, type: 3}
+    prefinalsBossPrefab: {fileID: 7751102187567259697, guid: 9bfd7020723341a4ab899caebeaeccca, type: 3}
+    finalsBossPrefab: {fileID: 3934057715302444650, guid: 36558b260d732ea4f802bf326454c65c, type: 3}
+  - subject: 1
+    prelimBossPrefab: {fileID: 5327537822564612507, guid: fedb1ae75ad368c4ba2f931f4866c6e7, type: 3}
+    midtermBossPrefab: {fileID: 4485822983019208134, guid: 789c3c8fe755e594d93bd5c8708b8787, type: 3}
+    prefinalsBossPrefab: {fileID: 2236450158813198019, guid: f297d2937d3d0a7429ba56b41def76ff, type: 3}
+    finalsBossPrefab: {fileID: 5327537822564612507, guid: fedb1ae75ad368c4ba2f931f4866c6e7, type: 3}
+  - subject: 2
+    prelimBossPrefab: {fileID: 7847061292035359839, guid: 39e3cf4c8797cad469b57f86bac9fbe8, type: 3}
+    midtermBossPrefab: {fileID: 6572407656437459742, guid: 1de3167398952cf49b0f253c4a7cab05, type: 3}
+    prefinalsBossPrefab: {fileID: 7227351508805536219, guid: 345cd97ab19433e499d4400707f5ecac, type: 3}
+    finalsBossPrefab: {fileID: 612377705238055622, guid: b7b502d2fae64aa4d95660a2e44c3aaa, type: 3}
+  - subject: 3
+    prelimBossPrefab: {fileID: 8687909923215249173, guid: 7e33cc1b4dda9b64388cd166b3c5e238, type: 3}
+    midtermBossPrefab: {fileID: 7718786274256852130, guid: 1543ffd82fc1e264fabab4a4c8c7ef01, type: 3}
+    prefinalsBossPrefab: {fileID: 799235558731860947, guid: 02f41ae86bfd55740a82d4e0a067af03, type: 3}
+    finalsBossPrefab: {fileID: 3953519980362051091, guid: ec41bae6603a80a4aafb882827ac6cda, type: 3}
