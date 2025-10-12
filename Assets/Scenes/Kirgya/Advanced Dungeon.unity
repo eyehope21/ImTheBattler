@@ -3534,13 +3534,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 705215796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021c894b3e812564cbdfe9c7e99448bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 09e18d64e8eee4f4ab57b081e3a7ed6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
-  midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
-  prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
-  finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
+  subjectMinionPrefabs:
+  - subject: 0
+    prelimMinionPrefab: {fileID: 3442333603543988917, guid: 7485563dbe0ffa2499acd5c74b05ea59, type: 3}
+    midtermMinionPrefab: {fileID: 1019181951000973953, guid: 867c14509f429044abbeb17a9391f1b7, type: 3}
+    prefinalsMinionPrefab: {fileID: 8131908946773685430, guid: 200fbc08e04d6df4991c2b0b1c6c4e77, type: 3}
+    finalsMinionPrefab: {fileID: 1555773772084218540, guid: bd0394a7e2489e54ab576dc0c43c314a, type: 3}
+  - subject: 1
+    prelimMinionPrefab: {fileID: 3898502665869446446, guid: 66aba70a44bd7b4409e6a6cf27de4b6d, type: 3}
+    midtermMinionPrefab: {fileID: 2301622300485643198, guid: 845e3f588be72314983f658ad81bb939, type: 3}
+    prefinalsMinionPrefab: {fileID: 3336178816581036723, guid: 6eaaced78b7c490488bb0bc0d045415f, type: 3}
+    finalsMinionPrefab: {fileID: 5409271522849457336, guid: b9cafc7e86bc11f44896daa0f6d2401a, type: 3}
+  - subject: 2
+    prelimMinionPrefab: {fileID: 3556330569610646396, guid: dd42778c49ce8f14ba1001c3bf0c51e6, type: 3}
+    midtermMinionPrefab: {fileID: 7329697981938496105, guid: 72d44f923ab18ff43907cb15a2946bd2, type: 3}
+    prefinalsMinionPrefab: {fileID: 72047431637655083, guid: 429358bf612fb6445a7ce4505ecea229, type: 3}
+    finalsMinionPrefab: {fileID: 7215882285078224035, guid: ce0a62cfaafe7c24793103fc976bd01b, type: 3}
+  - subject: 3
+    prelimMinionPrefab: {fileID: 8385962771042611638, guid: ccfb8bca66c8d3042a407fefcc4370a7, type: 3}
+    midtermMinionPrefab: {fileID: 8004868387162522563, guid: 8f4698562012001429a0d58b83d9eb65, type: 3}
+    prefinalsMinionPrefab: {fileID: 1982062977841506082, guid: f64d89d5c26ee2e4180c922b566a180e, type: 3}
+    finalsMinionPrefab: {fileID: 9002196397966662592, guid: 8d1b928de31e227499492f9763f9f51e, type: 3}
 --- !u!1 &723808218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,6 +5655,7 @@ MonoBehaviour:
   advancedQuizManager: {fileID: 1160659563}
   noviceQuizManager: {fileID: 0}
   mastersQuizManager: {fileID: 0}
+  multiplayerBattleManager: {fileID: 0}
   playerStats: {fileID: 64059013}
 --- !u!1 &1085559607
 GameObject:
@@ -9362,7 +9380,7 @@ MonoBehaviour:
   aDungeonQuiz: {fileID: 1160659563}
   aBattleManager: {fileID: 546551535}
   player: {fileID: 64059013}
-  advancedEnemyspawner: {fileID: 705215803}
+  Enemyspawner: {fileID: 705215803}
   advencedbossspawner: {fileID: 1319247141}
   resultUI: {fileID: 1801620582}
   restPanel: {fileID: 1794224178}
