@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1168266030653635935}
   - component: {fileID: 5723289969557953155}
   - component: {fileID: 5368963769514119440}
-  - component: {fileID: -1256973075135732716}
+  - component: {fileID: -6605711975042269492}
   m_Layer: 0
   m_Name: Data Structures & Algorithms  - Finals - Advanced
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79907227, y: 0.86694336}
   m_EdgeRadius: 0
---- !u!114 &-1256973075135732716
+--- !u!114 &-6605711975042269492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6660399322487835693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151483c63fe1b5e4fa4ad4605e36b3f1, type: 3}
+  m_Script: {fileID: 11500000, guid: fcd63bb302197d743903aa2d5cac6502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
