@@ -1260,7 +1260,7 @@ MonoBehaviour:
   player2NameText: {fileID: 1299543587}
   startBattleButton: {fileID: 2085214941}
   loadingText: {fileID: 432316926}
-  battleSceneName: Game
+  battleSceneName: MultiplayerDungeon
 --- !u!4 &1073813088
 Transform:
   m_ObjectHideFlags: 0
