@@ -9392,6 +9392,27 @@ MonoBehaviour:
   mastersQuizManager: {fileID: 1160659563}
   multiplayerBattleManager: {fileID: 0}
   playerStats: {fileID: 64059013}
+  availableItemData:
+  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
+  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
+  - {fileID: 11400000, guid: f5763703987a29e42bf108a482eaf6a3, type: 2}
+  - {fileID: 11400000, guid: 571265e5a9049b748938877fd571e75c, type: 2}
+  - {fileID: 11400000, guid: 25d93e878a4a11846802be02002997d1, type: 2}
+  - {fileID: 11400000, guid: cd9152a88fe07fb4c9a052503c2aa6db, type: 2}
+  - {fileID: 11400000, guid: ee5c147a9a224624f9f2dae60b972d6f, type: 2}
+  - {fileID: 11400000, guid: 62720270f0a7635488bdf443513b1a7c, type: 2}
+  - {fileID: 11400000, guid: 849d48c62128c0048ad6cd96c5012ede, type: 2}
+  - {fileID: 11400000, guid: 7046fb5bd3e121549907297a9371a685, type: 2}
+  - {fileID: 11400000, guid: b8ed75d63511bf04aac67d525004c84b, type: 2}
+  - {fileID: 11400000, guid: ca067ec6ce469bc4483376133f18b335, type: 2}
+  - {fileID: 11400000, guid: db66ce095f9a1004a9066962d7d5824f, type: 2}
+  - {fileID: 11400000, guid: 84f822666f05bb343bd24d9bc2cf3407, type: 2}
+  - {fileID: 11400000, guid: 454522ee1a0990e40abbf4b56fb91ddf, type: 2}
+  - {fileID: 11400000, guid: 1af3265c81d94ca4aafea7ee33fe537b, type: 2}
+  - {fileID: 11400000, guid: 22492e09896ff2d49abcdca5a4e4ebc8, type: 2}
+  - {fileID: 11400000, guid: 80030f45d16604748a5d5238b94bb176, type: 2}
+  - {fileID: 11400000, guid: d46782c149c859c49b25f91f2a53bcb5, type: 2}
+  - {fileID: 11400000, guid: 6c605f6ee8abb54439e0363dd8a98792, type: 2}
 --- !u!1 &1681559112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10123,12 +10144,13 @@ MonoBehaviour:
   mBattleManager: {fileID: 546551535}
   player: {fileID: 64059013}
   Enemyspawner: {fileID: 705215803}
-  mastersBossSpawner: {fileID: 0}
+  BossSpawner: {fileID: 949290125245293479}
   resultUI: {fileID: 1801620582}
   restPanel: {fileID: 1794224178}
-  bossIntroPanel: {fileID: 0}
+  bossIntroPanel: {fileID: 1230865511}
   enemyIntroPanel: {fileID: 705215796}
   arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
+  itemManager: {fileID: 1619644148}
 --- !u!114 &1732895963
 MonoBehaviour:
   m_ObjectHideFlags: 0
