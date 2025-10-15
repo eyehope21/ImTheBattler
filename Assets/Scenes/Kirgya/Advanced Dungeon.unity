@@ -5657,6 +5657,22 @@ MonoBehaviour:
   mastersQuizManager: {fileID: 0}
   multiplayerBattleManager: {fileID: 0}
   playerStats: {fileID: 64059013}
+  availableItemData:
+  - {fileID: 11400000, guid: 7a140580c61d5754c862b40e1333833c, type: 2}
+  - {fileID: 11400000, guid: e6cdefe2d628e8a4281a6421b96e4991, type: 2}
+  - {fileID: 11400000, guid: cd9152a88fe07fb4c9a052503c2aa6db, type: 2}
+  - {fileID: 11400000, guid: ee5c147a9a224624f9f2dae60b972d6f, type: 2}
+  - {fileID: 11400000, guid: 62720270f0a7635488bdf443513b1a7c, type: 2}
+  - {fileID: 11400000, guid: 849d48c62128c0048ad6cd96c5012ede, type: 2}
+  - {fileID: 11400000, guid: 7046fb5bd3e121549907297a9371a685, type: 2}
+  - {fileID: 11400000, guid: b8ed75d63511bf04aac67d525004c84b, type: 2}
+  - {fileID: 11400000, guid: ca067ec6ce469bc4483376133f18b335, type: 2}
+  - {fileID: 11400000, guid: db66ce095f9a1004a9066962d7d5824f, type: 2}
+  - {fileID: 11400000, guid: 84f822666f05bb343bd24d9bc2cf3407, type: 2}
+  - {fileID: 11400000, guid: 454522ee1a0990e40abbf4b56fb91ddf, type: 2}
+  - {fileID: 11400000, guid: 1af3265c81d94ca4aafea7ee33fe537b, type: 2}
+  - {fileID: 11400000, guid: 22492e09896ff2d49abcdca5a4e4ebc8, type: 2}
+  - {fileID: 11400000, guid: 80030f45d16604748a5d5238b94bb176, type: 2}
 --- !u!1 &1085559607
 GameObject:
   m_ObjectHideFlags: 0
@@ -9268,12 +9284,13 @@ MonoBehaviour:
   aBattleManager: {fileID: 546551535}
   player: {fileID: 64059013}
   Enemyspawner: {fileID: 705215803}
-  advencedbossspawner: {fileID: 0}
+  bossspawner: {fileID: 965420408501609099}
   resultUI: {fileID: 1801620582}
   restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1230865511}
   enemyIntroPanel: {fileID: 1950644095}
   arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
+  itemManager: {fileID: 1024842402}
 --- !u!114 &1732895963
 MonoBehaviour:
   m_ObjectHideFlags: 0
