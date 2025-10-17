@@ -640,6 +640,7 @@ MonoBehaviour:
   mastersQuizManager: {fileID: 0}
   multiplayerBattleManager: {fileID: 938960197}
   playerStats: {fileID: 0}
+  availableItemData: []
 --- !u!1 &610994322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1419,7 @@ MonoBehaviour:
     PlayerID: 1
     PlayerName: 
     CurrentHP: 0
-    BaseAttackDamage: 20
+    BaseAttackDamage: 10
     MaxHP: 100
     ItemCounts: 0000000000000000000000000000000000000000
     WeaponEquipped: 0
