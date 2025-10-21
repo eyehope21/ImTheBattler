@@ -796,6 +796,37 @@ MonoBehaviour:
   - {fileID: 3409192265461847960}
   - {fileID: 7529619240218539376}
   feedbackText: {fileID: 1609855819}
+--- !u!1 &594823831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594823832}
+  m_Layer: 0
+  m_Name: PlayerVisuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594823832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594823831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610994322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,6 +2856,7 @@ GameObject:
   - component: {fileID: 1833409666}
   - component: {fileID: 1833409665}
   - component: {fileID: 1833409669}
+  - component: {fileID: 1833409670}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2910,6 +2942,8 @@ MonoBehaviour:
   readyUIContainer: {fileID: 1577378315}
   victoryPanel: {fileID: 1996500480}
   victoryText: {fileID: 1802987167}
+  localPlayerVisuals: {fileID: 1833409670}
+  opponentPlayerVisuals: {fileID: 1833409670}
 --- !u!114 &1833409667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,6 +2995,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallbackScene: ARScene
+--- !u!114 &1833409670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833409664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1b830dbef262544a7b02d3429a6d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
+  swordSlashPrefab: {fileID: 130813003700095559, guid: 7e66bcfd63ab97c49a6ca3e9b9a7ddf0, type: 3}
+  slashSpawnPoint: {fileID: 594823832}
 --- !u!1 &1920838099
 GameObject:
   m_ObjectHideFlags: 0
@@ -9603,3 +9652,4 @@ SceneRoots:
   - {fileID: 1920838102}
   - {fileID: 1833409668}
   - {fileID: 900832672}
+  - {fileID: 594823832}
