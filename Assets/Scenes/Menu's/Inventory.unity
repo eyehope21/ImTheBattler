@@ -1801,6 +1801,35 @@ MonoBehaviour:
   infoText: {fileID: 1789484292}
   closeButton: {fileID: 1637956053}
   selectButton: {fileID: 552401358}
+  allAvailableItems:
+  - {fileID: 11400000, guid: 3cc4e555645c4a348818afe15a3ddc0c, type: 2}
+  - {fileID: 11400000, guid: 35016c4878be8ee48a2adbcbd271519e, type: 2}
+  - {fileID: 11400000, guid: 478df6cfd4f69e84e825a9512e505fa9, type: 2}
+  - {fileID: 11400000, guid: f5763703987a29e42bf108a482eaf6a3, type: 2}
+  - {fileID: 11400000, guid: 571265e5a9049b748938877fd571e75c, type: 2}
+  - {fileID: 11400000, guid: 25d93e878a4a11846802be02002997d1, type: 2}
+  - {fileID: 11400000, guid: 856cfeb479e32c24d948dabb09af4334, type: 2}
+  - {fileID: 11400000, guid: a3b7eb5926fe02e48ab4eb40e562ea3d, type: 2}
+  - {fileID: 11400000, guid: 08d8bd6da6a63df40aa06e2ec2c8403a, type: 2}
+  - {fileID: 11400000, guid: 0e84d3bcfaa95c94fbcf2152096aaffc, type: 2}
+  - {fileID: 11400000, guid: 33db106ea6491cd41a31f313da81b221, type: 2}
+  - {fileID: 11400000, guid: 7a140580c61d5754c862b40e1333833c, type: 2}
+  - {fileID: 11400000, guid: e6cdefe2d628e8a4281a6421b96e4991, type: 2}
+  - {fileID: 11400000, guid: cd9152a88fe07fb4c9a052503c2aa6db, type: 2}
+  - {fileID: 11400000, guid: ee5c147a9a224624f9f2dae60b972d6f, type: 2}
+  - {fileID: 11400000, guid: 62720270f0a7635488bdf443513b1a7c, type: 2}
+  - {fileID: 11400000, guid: 849d48c62128c0048ad6cd96c5012ede, type: 2}
+  - {fileID: 11400000, guid: 7046fb5bd3e121549907297a9371a685, type: 2}
+  - {fileID: 11400000, guid: d46782c149c859c49b25f91f2a53bcb5, type: 2}
+  - {fileID: 11400000, guid: 6c605f6ee8abb54439e0363dd8a98792, type: 2}
+  - {fileID: 11400000, guid: b8ed75d63511bf04aac67d525004c84b, type: 2}
+  - {fileID: 11400000, guid: ca067ec6ce469bc4483376133f18b335, type: 2}
+  - {fileID: 11400000, guid: db66ce095f9a1004a9066962d7d5824f, type: 2}
+  - {fileID: 11400000, guid: 84f822666f05bb343bd24d9bc2cf3407, type: 2}
+  - {fileID: 11400000, guid: 454522ee1a0990e40abbf4b56fb91ddf, type: 2}
+  - {fileID: 11400000, guid: 1af3265c81d94ca4aafea7ee33fe537b, type: 2}
+  - {fileID: 11400000, guid: 22492e09896ff2d49abcdca5a4e4ebc8, type: 2}
+  - {fileID: 11400000, guid: 80030f45d16604748a5d5238b94bb176, type: 2}
   maxSlots: 30
 --- !u!4 &1388725283
 Transform:
