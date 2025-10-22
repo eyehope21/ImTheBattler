@@ -10150,7 +10150,6 @@ MonoBehaviour:
   restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1230865511}
   enemyIntroPanel: {fileID: 705215796}
-  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
   itemManager: {fileID: 1619644148}
 --- !u!114 &1732895963
 MonoBehaviour:
@@ -10475,6 +10474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1794790601}
+  - component: {fileID: 1794790602}
   m_Layer: 0
   m_Name: DungeonRoot
   m_TagString: Untagged
@@ -10499,6 +10499,18 @@ Transform:
   - {fileID: 4413188834921571288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794790602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794790600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913add66cff67054ca8b89e807cc30b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801620578
 GameObject:
   m_ObjectHideFlags: 0
