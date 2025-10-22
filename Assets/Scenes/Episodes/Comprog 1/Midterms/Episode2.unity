@@ -1085,7 +1085,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 1618167282}
   arPController: {fileID: 1205825191}
-  puzzlePrefab: {fileID: 7475596552036733915, guid: ed709a2fb19fa054390b8390ec23bd23, type: 3}
+  puzzlePrefab_Ep1: {fileID: 7475596552036733915, guid: ed709a2fb19fa054390b8390ec23bd23, type: 3}
+  puzzlePrefab_Ep2: {fileID: 7475596552036733915, guid: 94184ee7a558aca4b8d40d4f68caadaf, type: 3}
   questionUI: {fileID: 1772352174}
 --- !u!4 &408567452
 Transform:
