@@ -9324,7 +9324,6 @@ MonoBehaviour:
   restPanel: {fileID: 1794224178}
   bossIntroPanel: {fileID: 1230865511}
   enemyIntroPanel: {fileID: 1950644095}
-  arBackgroundPrefab: {fileID: 7436501981398719893, guid: 726b5aa612fe9814284d4d9ae1dbdbc4, type: 3}
   itemManager: {fileID: 1024842402}
 --- !u!114 &1732895963
 MonoBehaviour:
