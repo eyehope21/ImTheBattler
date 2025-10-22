@@ -3029,6 +3029,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1af3265c81d94ca4aafea7ee33fe537b, type: 2}
   - {fileID: 11400000, guid: 22492e09896ff2d49abcdca5a4e4ebc8, type: 2}
   - {fileID: 11400000, guid: 80030f45d16604748a5d5238b94bb176, type: 2}
+  - {fileID: 11400000, guid: 83037145b1f111a49a400984b951c4ff, type: 2}
+  - {fileID: 11400000, guid: 9bad5240e5e31d44d80b6b271d6da237, type: 2}
+  - {fileID: 11400000, guid: 8e68fca351186874984daa289d999372, type: 2}
 --- !u!1 &401060743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10259,6 +10262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745567265}
+  - component: {fileID: 1745567267}
+  - component: {fileID: 1745567266}
   m_Layer: 0
   m_Name: DungeonRoot
   m_TagString: Untagged
@@ -10283,6 +10288,34 @@ Transform:
   - {fileID: 1490579595650299097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1745567266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745567264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913add66cff67054ca8b89e807cc30b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1745567267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745567264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0961e79d3300a48925f46b9105e28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastManager: {fileID: 745731779}
+  dungeonManager: {fileID: 1732895960}
+  placementDistance: 0.5
+  anchorController: {fileID: 0}
 --- !u!1 &1794224174
 GameObject:
   m_ObjectHideFlags: 0
