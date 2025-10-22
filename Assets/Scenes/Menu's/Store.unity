@@ -2518,6 +2518,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d46782c149c859c49b25f91f2a53bcb5, type: 2}
   - {fileID: 11400000, guid: b8ed75d63511bf04aac67d525004c84b, type: 2}
   - {fileID: 11400000, guid: ca067ec6ce469bc4483376133f18b335, type: 2}
+  - {fileID: 11400000, guid: 83037145b1f111a49a400984b951c4ff, type: 2}
+  - {fileID: 11400000, guid: 9bad5240e5e31d44d80b6b271d6da237, type: 2}
+  - {fileID: 11400000, guid: 8e68fca351186874984daa289d999372, type: 2}
   itemButtonPrefab: {fileID: 4659393970533470323, guid: a745c6988b2bced4f9b41e49f48472cd, type: 3}
   itemGridParent: {fileID: 594379716}
   confirmationPopup: {fileID: 1692063702}
