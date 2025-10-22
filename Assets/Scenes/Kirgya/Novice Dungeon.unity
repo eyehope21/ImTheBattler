@@ -10315,7 +10315,7 @@ MonoBehaviour:
   raycastManager: {fileID: 745731779}
   dungeonManager: {fileID: 1732895960}
   placementDistance: 0.5
-  anchorController: {fileID: 0}
+  anchorController: {fileID: 1745567266}
 --- !u!1 &1794224174
 GameObject:
   m_ObjectHideFlags: 0
