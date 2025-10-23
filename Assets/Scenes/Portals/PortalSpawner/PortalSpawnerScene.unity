@@ -278,7 +278,7 @@ MonoBehaviour:
   spawnInterval: 5
   minDistance: 5
   rangeCollider: {fileID: 1236783016}
-  entryDistance: 1
+  entryDistance: 5
 --- !u!1 &173819232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1338,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.99
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1308157900
 GameObject:
