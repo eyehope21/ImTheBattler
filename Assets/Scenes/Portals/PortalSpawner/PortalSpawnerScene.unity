@@ -274,10 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 1595885583}
   dungeonAccessButton: {fileID: 0}
-  spawnInterval: 5
-  minDistance: 5
+  spawnInterval: 10
+  minDistance: 10
   rangeCollider: {fileID: 1236783016}
-  entryDistance: 5
+  entryDistance: 2
 --- !u!1 &173819232
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 0}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &895868339
 MonoBehaviour:
   m_ObjectHideFlags: 0
