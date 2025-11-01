@@ -274,8 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 1595885583}
   dungeonAccessButton: {fileID: 0}
-  spawnInterval: 10
-  minDistance: 10
+  spawnInterval: 8
+  minDistance: 17
   rangeCollider: {fileID: 1236783016}
   entryDistance: 2
 --- !u!1 &173819232
@@ -1070,7 +1070,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 17
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1308157900
 GameObject:
