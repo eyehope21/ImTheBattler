@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 117184079}
   - component: {fileID: 117184078}
   m_Layer: 5
-  m_Name: ' Data Structures & Algorithms '
+  m_Name: 'Data Structures & Algorithms '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
