@@ -5656,7 +5656,7 @@ MonoBehaviour:
   noviceQuizManager: {fileID: 0}
   mastersQuizManager: {fileID: 0}
   multiplayerBattleManager: {fileID: 0}
-  equippedArmorImage: {fileID: 0}
+  equippedArmorImage: {fileID: 6813009750023474877}
   playerStats: {fileID: 64059013}
   availableItemData:
   - {fileID: 11400000, guid: 7a140580c61d5754c862b40e1333833c, type: 2}
