@@ -3141,10 +3141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08328910ca308c547a24156dda4a7dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailInput: {fileID: 0}
-  passwordInput: {fileID: 0}
-  usernameInput: {fileID: 0}
-  confirmPasswordInput: {fileID: 0}
+  emailInput: {fileID: 757222836}
+  passwordInput: {fileID: 149121438}
+  usernameInput: {fileID: 2068526349}
+  confirmPasswordInput: {fileID: 498803815}
   registerSuccessToast: {fileID: 152559288}
 --- !u!4 &1195848332
 Transform:
@@ -3554,7 +3554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891cc9efd300e9947b5f0743f58884c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordInput: {fileID: 0}
+  passwordInput: {fileID: 498803815}
   eyeOpenIcon: {fileID: 0}
   eyeClosedIcon: {fileID: 0}
   toggleButton: {fileID: 0}
