@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mailNotificationIcon: {fileID: 0}
-  fallbackScene: MenuScene
+  fallbackScene: Menu
 --- !u!4 &531484376
 Transform:
   m_ObjectHideFlags: 0
@@ -1251,7 +1251,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 531484375}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: GoBack
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
