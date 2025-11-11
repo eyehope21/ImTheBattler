@@ -2413,6 +2413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5801d5f693b6f1f41bf085fa3188de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  episodeButtons:
+  - {fileID: 1503967615}
+  - {fileID: 1831115569}
+  - {fileID: 950319003}
+  - {fileID: 600262428}
+  - {fileID: 1272526771}
 --- !u!4 &991071787
 Transform:
   m_ObjectHideFlags: 0
