@@ -4948,7 +4948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574438092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bcdcd48f59f83a4a8ef8c817d8e8f36, type: 3}
+  m_Script: {fileID: 11500000, guid: 11ac65f287cb8b2488bc020b1ffade4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 758886021}
@@ -7060,7 +7060,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382938146570596226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a2b212173ff8d64aa387ec0fb848eba, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b67e395febf2f94fa2e41d62148cfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questionObjects:
