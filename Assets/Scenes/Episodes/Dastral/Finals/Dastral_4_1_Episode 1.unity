@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee8531aaae5f849ba107d28c3ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: static
+  correctAnswer: equals
   caseInsensitive: 0
   questionText: {fileID: 2145285842}
   inputField: {fileID: 923167006}
@@ -1015,11 +1015,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This method is called on a thread object to create a new thread and begin
-    executing the code in its run() method.
+  m_text: 'What is the correct method name to use if you want to remove only the
+    leading and trailing whitespace from the string str?
 
 
-    thread.____ ();'
+    String result = str.____();'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee8531aaae5f849ba107d28c3ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: start
+  correctAnswer: trim
   caseInsensitive: 0
   questionText: {fileID: 363682714}
   inputField: {fileID: 1330049739}
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee8531aaae5f849ba107d28c3ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: sleep
+  correctAnswer: concat
   caseInsensitive: 0
   questionText: {fileID: 1109947101}
   inputField: {fileID: 1915951594}
@@ -3385,7 +3385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee8531aaae5f849ba107d28c3ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: run
+  correctAnswer: charAt
   caseInsensitive: 0
   questionText: {fileID: 1626657722}
   inputField: {fileID: 752960169}
@@ -3503,11 +3503,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This class method is used to pause the current thread''s execution for
-    a specified duration in milliseconds.
+  m_text: 'What method is used to combine the string str1 with the string str2 and
+    return a new resulting string?
 
 
-    Thread.____ (3000);'
+    String combined = str1.____(str2);'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3534,8 +3534,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -4636,7 +4636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a10cb0575395747bff393fd6397611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorPrefab: {fileID: 2085039116132724020, guid: ea23186f9b8c66243a0ab745cdaf1b14, type: 3}
+  doorPrefab: {fileID: 7475596552036733915, guid: ed709a2fb19fa054390b8390ec23bd23, type: 3}
   totalDoors: 1
   doorSpacing: 0
   distanceInFront: 2
@@ -4697,7 +4697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New text
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: -4594667497699187193, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
@@ -4725,7 +4725,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 72
-  m_fontSizeBase: 50
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574438092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d8229c68b45184d9349cfdf6d020e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 511c9fc29becd9e44986ed2d35b7210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 758886021}
@@ -5251,12 +5251,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This method contains the execution code that runs when a thread is started.
-    You must override it from the base Thread class.
+  m_text: 'What is the missing method name to retrieve the single character at index
+    4 of the string str?
 
 
-    public void ____ () {
-    System.out.println("Running in a thread"); }'
+    char c = str.____(4);'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5283,8 +5282,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -5518,7 +5517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee8531aaae5f849ba107d28c3ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: extends
+  correctAnswer: length
   caseInsensitive: 0
   questionText: {fileID: 8998149423855337605}
   inputField: {fileID: 209720659}
@@ -6462,7 +6461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c104cb20905c0346822c9fca4924df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEpisodeNumber: 1
+  currentEpisodeNumber: 3
 --- !u!4 &2052164412
 Transform:
   m_ObjectHideFlags: 0
@@ -6690,12 +6689,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This keyword is required in the main method signature to allow the program
-    to be executed without creating an instance of the class.
-
-
-    public ____ void
-    main(String[] args) { ... }'
+  m_text: "What is the correct method name to use if you want to compare the content
+    of two strings (str1 and str2)?\n\nif (str1.____(str2)) {\n    // strings are
+    equal\n}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6933,7 +6929,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382938146570596226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b4061c8bfd8444b81942eb7e6ad397, type: 3}
+  m_Script: {fileID: 11500000, guid: f32b60d8450b52b4a95477a8b47ee440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questionObjects:
@@ -6962,11 +6958,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This keyword is used to declare that the ThreadDemo class inherits functionality
-    from the base
+  m_text: 'What is the correct method name to call if you want to get the number
+    of characters in the string str?
 
 
-    Thread class. public class ThreadDemo ____ Thread { ... }'
+    int size = str.____();'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7e5ed1ef241d24e9f89744c05a4502, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
