@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "744238359864-fh1c8he6fn4rcpf5bbtbgrbelbionq9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.STI.ThesisCap",
+            "certificate_hash": "109ab0ed07424705736585f6a42ec9acb6f6eaa0"
+          }
+        },
+        {
           "client_id": "744238359864-oq4buu68b7vk1jept3qjaervhp3vtcrs.apps.googleusercontent.com",
           "client_type": 3
         }
