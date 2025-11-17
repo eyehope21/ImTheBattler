@@ -3144,8 +3144,7 @@ MonoBehaviour:
   emailInput: {fileID: 757222836}
   passwordInput: {fileID: 149121438}
   usernameInput: {fileID: 2068526349}
-  confirmPasswordInput: {fileID: 498803815}
-  registerSuccessToast: {fileID: 152559288}
+  toastManager: {fileID: 0}
 --- !u!4 &1195848332
 Transform:
   m_ObjectHideFlags: 0
@@ -3791,7 +3790,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1195848331}
         m_TargetAssemblyTypeName: RegisterHandler, Assembly-CSharp
-        m_MethodName: RegisterUser
+        m_MethodName: OnRegisterButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
