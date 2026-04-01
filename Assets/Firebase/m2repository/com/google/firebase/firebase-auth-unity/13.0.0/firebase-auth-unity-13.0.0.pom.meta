@@ -1,11 +1,3 @@
-fileFormatVersion: 2
-guid: 7bd9f243712f4617a4e6b9f263bfc9d1
-labels:
-- gvh
-- gvh_version-13.0.0
-- gvhp_exportpath-Firebase/m2repository/com/google/firebase/firebase-auth-unity/13.0.0/firebase-auth-unity-13.0.0.pom
-timeCreated: 1480838400
-DefaultImporter:
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c36bfced060b6e735dfbf4162ac4bd9e9dd680b5bae69e1369186015d7e7f64
+size 318
